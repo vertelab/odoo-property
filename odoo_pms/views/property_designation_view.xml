@@ -1,0 +1,49 @@
+<odoo>
+    <data>
+        <record id="property_designation_tree_view" model="ir.ui.view">
+            <field name="name">property.designation.tree.view</field>
+            <field name="model">property.designation</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="state"/>
+                    <field name="date"/>
+                    <field name="partner_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="property_designation_form_view" model="ir.ui.view">
+            <field name="name">property.designation.form.view</field>
+            <field name="model">property.designation</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="New,OK,Archived"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="date"/>
+                                <field name="partner_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_property_designation" model="ir.actions.act_window">
+            <field name="name">Property Designation</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">property.designation</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="property_designation_menu" name="Property Designation" action="odoo_pms.action_property_designation" parent="odoo_pms.property_parent_menu" sequence="20"/>
+
+    </data>
+</odoo>
