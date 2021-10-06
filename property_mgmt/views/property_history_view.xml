@@ -40,7 +40,7 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem id="property_history_menu" name="Property History" action="odoo_pms.action_property_history" parent="odoo_pms.property_parent_menu" sequence="30"/>
+        <menuitem id="property_history_menu" name="Property History" action="property_mgmt.action_property_history" parent="property_mgmt.property_parent_menu" sequence="30"/>
 
     </data>
 </odoo>

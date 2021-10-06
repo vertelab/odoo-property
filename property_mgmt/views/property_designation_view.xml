@@ -43,7 +43,7 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-        <menuitem id="property_designation_menu" name="Property Designation" action="odoo_pms.action_property_designation" parent="odoo_pms.property_parent_menu" sequence="20"/>
+        <menuitem id="property_designation_menu" name="Property Designation" action="property_mgmt.action_property_designation" parent="property_mgmt.property_parent_menu" sequence="20"/>
 
     </data>
 </odoo>
