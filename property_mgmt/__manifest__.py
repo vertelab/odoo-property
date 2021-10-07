@@ -33,9 +33,10 @@ This module is used to manage properties and link it to a partner.
     'data': [
         'security/ir.model.access.csv',
         'views/menu.xml',
+        'views/property_view.xml',
         'views/property_stakeholder_view.xml',
-        'views/property_designation_view.xml',
-        'views/property_history_view.xml',
+        # 'views/property_designation_view.xml',
+        # 'views/property_history_view.xml',
         'views/res_partner_view.xml',
     ],
     'application': False,
