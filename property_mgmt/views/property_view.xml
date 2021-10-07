@@ -1,13 +1,58 @@
 <odoo>
     <data>
+        <record id="property_property_kanban_view" model="ir.ui.view">
+            <field name="name">property.property.kanban.view</field>
+            <field name="model">property.property</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_mobile" sample="1">
+                    <field name="name"/>
+                    <field name="created_date"/>
+                    <field name="acquired_date"/>
+                    <field name="size"/>
+                    <field name="state"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div class="row mb4">
+                                    <div class="col-6 o_kanban_record_headings">
+                                        <strong>
+                                            <span>
+                                                <field name="name"/>
+                                            </span>
+                                        </strong>
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        <strong><i class="fa fa-clock-o" aria-label="Date" role="img" title="Date"/> <t t-esc="record.created_date.value"/></strong>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <span><field name="state_id"/></span>
+                                        <span><field name="country_id"/></span>
+                                    </div>
+                                    <div class="col-6">
+                                        <span class="float-right">
+                                            <field name="state" widget="label_selection" options="{'classes': {'new': 'warning', 'ok': 'success', 'archived': 'danger'}}"/>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
         <record id="property_property_tree_view" model="ir.ui.view">
             <field name="name">property.property.tree.view</field>
             <field name="model">property.property</field>
             <field name="arch" type="xml">
                 <tree>
                     <field name="name"/>
-                    <field name="partner_id"/>
                     <field name="acquired_date"/>
+                    <field name="state"/>
                 </tree>
             </field>
         </record>
@@ -19,9 +64,11 @@
                 <form>
                     <header>
                         <button name="approved_property" type="object" string="All Checked" class="btn btn-primary" states="new"/>
-                        <field name="state" widget="statusbar" statusbar_visible="new,ok,archived"/>
+                        <field name="state" widget="statusbar" statusbar_visible="new,ok,archived" options="{'clickable': '1'}"/>
                     </header>
                     <sheet>
+                        <div name="button_box" class="oe_button_box">
+                        </div>
                         <div class="oe_title">
                             <h1>
                                 <field name="name" default_focus="1" placeholder="Description" required="1"/>
@@ -29,8 +76,6 @@
                         </div>
                         <group>
                             <group>
-                                <field name="partner_id"/>
-                                <field name="partner_status"/>
                                 <label for="street"/>
                                 <div class="o_address_format">
                                     <field name="street" placeholder="Street..." class="o_address_street"/>
@@ -42,13 +87,9 @@
                                 </div>
                             </group>
                             <group>
-                                <field name="latitude"/>
-                                <field name="longitude"/>
+                                <field name="size"/>
                                 <field name="acquired_date"/>
                                 <field name="property_status"/>
-                                <field name="has_agent"/>
-                                <field name="agent_name" attrs="{'invisible': [('has_agent', '=', False)], 'required': [('has_agent', '=', True)]}"/>
-                                <field name="agent_phone_number" attrs="{'invisible': [('has_agent', '=', False)], 'required': [('has_agent', '=', True)]}"/>
                             </group>
                         </group>
                         <notebook colspan="4">
@@ -71,7 +112,7 @@
             <field name="name">Properties</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">property.property</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">kanban,tree,form</field>
         </record>
 
         <menuitem id="property_property_menu" name="Properties" action="property_mgmt.action_property_property" parent="property_mgmt.property_parent_menu" sequence="5"/>

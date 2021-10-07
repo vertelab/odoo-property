@@ -20,27 +20,21 @@
 ##############################################################################
 
 {
-    'name': 'Property Management',
-    'version': '14.0.0.1.2',
+    'name': 'Property External Map',
+    'version': '14.0.0.1.0',
     'category': 'sale',
     'description': """
-        This module is used to manage properties and link it to a partner.
-        User creates a Property and adds stakeholders (res.partner), their role and percentage.
-        User can also add an agent to the list of stakeholders if the property has an agent.
-        Here is the link to how it works: https://www.loom.com/share/36bf5bd5f7774d68be75243feb7144b9
+        This module adds: \n
+          - a map smart button that shows when the city of a property is known.\n
+          - a map smart button that redirects user to google map based on the city or latitude and longitude.\n
+          - a button to get the latitude and longitude of the property's address .\n
     """,
     'author': 'Vertel AB',
     'license': 'AGPL-3',
     'website': 'https://www.vertel.se',
-    'depends': ['base', 'contacts'],
+    'depends': ['base', 'property_mgmt', 'base_geolocalize', 'partner_external_map'],
     'data': [
-        'security/ir.model.access.csv',
-        'views/menu.xml',
         'views/property_view.xml',
-        'views/property_stakeholder_view.xml',
-        # 'views/property_designation_view.xml',
-        # 'views/property_history_view.xml',
-        'views/res_partner_view.xml',
     ],
     'application': False,
     'installable': True,
