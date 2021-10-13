@@ -21,13 +21,15 @@
 
 {
     'name': 'Property External Map',
-    'version': '14.0.0.1.0',
+    'version': '14.0.1.1.0',
     'category': 'sale',
     'description': """
         This module adds: \n
           - a map smart button that shows when the city of a property is known.\n
           - a map smart button that redirects user to google map based on the city or latitude and longitude.\n
           - a button to get the latitude and longitude of the property's address .\n
+		  \n
+		  v14.0.1.1.0 Added translation.\n
     """,
     'author': 'Vertel AB',
     'license': 'AGPL-3',
