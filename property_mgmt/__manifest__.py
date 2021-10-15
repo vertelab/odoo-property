@@ -21,7 +21,7 @@
 
 {
     'name': 'Property Management',
-    'version': '14.0.1.2.0',
+    'version': '14.0.1.3.0',
     'category': 'sale',
     'description': """
         This module is used to manage properties and link it to a partner. \n
@@ -31,6 +31,7 @@
         Here is the link to how it works: https://www.loom.com/share/36bf5bd5f7774d68be75243feb7144b9
 		\n
 		v14.0.1.2.0 New version number and added translation.\n
+		v14.0.1.3.0 Added link to repository: https://github.com/vertelab/odoo-property
 		\n
     """,
     'author': 'Vertel AB',
