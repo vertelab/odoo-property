@@ -1,0 +1,76 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* property_external_map
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0-20211007\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-10-13 04:51+0000\n"
+"PO-Revision-Date: 2021-10-13 04:51+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: property_external_map
+#: code:addons/property_external_map/models/property.py:0
+#, python-format
+msgid "Address missing on partner '%s'."
+msgstr ""
+
+#. module: property_external_map
+#: model:ir.model.fields,field_description:property_external_map.field_property_property__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: property_external_map
+#: model:ir.model.fields,field_description:property_external_map.field_property_property__latitude
+#: model:ir.model.fields,field_description:property_external_map.field_property_stakeholder__latitude
+msgid "Geo Latitude"
+msgstr "Latitud"
+
+#. module: property_external_map
+#: model:ir.model.fields,field_description:property_external_map.field_property_property__longitude
+#: model:ir.model.fields,field_description:property_external_map.field_property_stakeholder__longitude
+msgid "Geo Longitude"
+msgstr "Longitud"
+
+#. module: property_external_map
+#: model_terms:ir.ui.view,arch_db:property_external_map.property_property_form_view
+msgid "Geolocate"
+msgstr "Geolokalisera"
+
+#. module: property_external_map
+#: model:ir.model.fields,field_description:property_external_map.field_property_property__id
+msgid "ID"
+msgstr ""
+
+#. module: property_external_map
+#: model:ir.model.fields,field_description:property_external_map.field_property_property____last_update
+msgid "Last Modified on"
+msgstr "Senast ändrad den"
+
+#. module: property_external_map
+#: model_terms:ir.ui.view,arch_db:property_external_map.property_property_form_view
+msgid "Map"
+msgstr "Karta"
+
+#. module: property_external_map
+#: code:addons/property_external_map/models/property.py:0
+#, python-format
+msgid "Missing map provider: you should set it in your preferences."
+msgstr ""
+
+#. module: property_external_map
+#: code:addons/property_external_map/models/property.py:0
+#, python-format
+msgid "Missing parameter 'URL that uses the address' for map website '%s'."
+msgstr ""
+
+#. module: property_external_map
+#: model:ir.model,name:property_external_map.model_property_property
+msgid "Property"
+msgstr "Fastighet"
