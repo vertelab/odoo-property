@@ -21,13 +21,14 @@
 
 {
     'name': 'Property Management',
-    'version': '14.0.0.1.2',
+    'version': '14.0.0.1.3',
     'category': 'sale',
     'description': """
         This module is used to manage properties and link it to a partner.
         User creates a Property and adds stakeholders (res.partner), their role and percentage.
         User can also add an agent to the list of stakeholders if the property has an agent.
         Here is the link to how it works: https://www.loom.com/share/36bf5bd5f7774d68be75243feb7144b9
+        14.0.0.1.3 - Added field for numerator, denominator and tax unit
     """,
     'author': 'Vertel AB',
     'license': 'AGPL-3',

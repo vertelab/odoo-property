@@ -7,6 +7,7 @@
                 <tree>
                     <field name="partner_id"/>
                     <field name="partner_status"/>
+                    <field name="property_id"/>
                 </tree>
             </field>
         </record>
@@ -20,9 +21,13 @@
                         <group>
                             <group>
                                 <field name="partner_id"/>
+                                <field name="property_id"/>
+                                <field name="stakeholder_tax_unit"/>
                             </group>
                             <group>
                                 <field name="partner_status"/>
+                                <field name="owner_numerator"/>
+                                <field name="owner_denominator"/>
                             </group>
                         </group>
                     </sheet>

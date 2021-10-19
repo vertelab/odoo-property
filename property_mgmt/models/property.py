@@ -44,6 +44,10 @@ class PropertyStakeHolder(models.Model):
     percentage = fields.Float(string="Percentage(%)")
     property_id = fields.Many2one('property.property', string="Property")
 
+    owner_numerator = fields.Float(string="Numerator")
+    owner_denominator = fields.Float(string="Denominator")
+    stakeholder_tax_unit = fields.Char(string="Tax Unit")
+
 
 class PropertyDesignation(models.Model):
     _name = 'property.designation'
