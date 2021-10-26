@@ -54,7 +54,7 @@ class PropertyStakeHolder(models.Model):
     def _set_percentage(self):
         for rec in self:
             if rec.owner_numerator and rec.owner_denominator:
-                rec.percentage = (rec.owner_denominator/rec.owner_numerator) * 100
+                rec.percentage = (rec.owner_numerator/rec.owner_denominator) * 100
             else:
                 rec.percentage = 0
 
