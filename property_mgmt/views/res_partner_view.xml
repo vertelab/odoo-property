@@ -11,7 +11,7 @@
                             <tree editable="bottom">
                                 <field name="name"/>
                                 <field name="partner_status"/>
-                                <field name="stakeholder_tax_unit"/>
+                                <field name="property_state"/>
                                 <field name="owner_numerator"/>
                                 <field name="owner_denominator"/>
                                 <field name="percentage"/>

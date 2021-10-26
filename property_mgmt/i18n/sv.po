@@ -1004,3 +1004,15 @@ msgstr "Postnr"
 #: model:ir.model.fields,field_description:property_mgmt.field_property_stakeholder__zip
 msgid "Zip"
 msgstr "Postnr"
+
+
+#. module: property_mgmt
+#: model_terms:ir.ui.view,arch_db:property_mgmt.field_property_stakeholder__owner_numerator
+msgid "Numerator"
+msgstr "Täljare"
+
+
+#. module: property_mgmt
+#: model_terms:ir.ui.view,arch_db:property_mgmt.field_property_stakeholder__owner_numerator
+msgid "Denominator"
+msgstr "Nämnare"

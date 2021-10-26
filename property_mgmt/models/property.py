@@ -41,12 +41,22 @@ class PropertyStakeHolder(models.Model):
                                        ('former_owner', 'Former Owner'),
                                        ('agent', 'Agent'),
                                        ], string="Status", default='legal_owner')
-    percentage = fields.Float(string="Percentage(%)")
+
     property_id = fields.Many2one('property.property', string="Property")
+    property_state = fields.Selection([('new', 'New'), ('ok', 'OK'), ('archived', 'Archived')], string="State",
+                                      related='property_id.state')
 
     owner_numerator = fields.Float(string="Numerator")
     owner_denominator = fields.Float(string="Denominator")
     stakeholder_tax_unit = fields.Char(string="Tax Unit")
+
+    @api.depends('owner_numerator', 'owner_denominator')
+    def _set_percentage(self):
+        for rec in self:
+            if rec.owner_numerator and rec.owner_denominator:
+                rec.percentage = (rec.owner_denominator/rec.owner_numerator) * 100
+
+    percentage = fields.Float(string="Percentage(%)", store=True, compute=_set_percentage)
 
 
 class PropertyDesignation(models.Model):
