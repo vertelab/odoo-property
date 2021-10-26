@@ -55,8 +55,10 @@ class PropertyStakeHolder(models.Model):
         for rec in self:
             if rec.owner_numerator and rec.owner_denominator:
                 rec.percentage = (rec.owner_denominator/rec.owner_numerator) * 100
+            else:
+                rec.percentage = 0
 
-    percentage = fields.Float(string="Percentage(%)", store=True, compute=_set_percentage)
+    percentage = fields.Float(string="Percentage(%)", compute=_set_percentage)
 
 
 class PropertyDesignation(models.Model):
