@@ -1,4 +1,5 @@
 from odoo import models, fields, api, _
+import math
 
 
 class PropertyProperty(models.Model):
@@ -54,7 +55,7 @@ class PropertyStakeHolder(models.Model):
     def _set_percentage(self):
         for rec in self:
             if rec.owner_numerator and rec.owner_denominator:
-                rec.percentage = (rec.owner_numerator/rec.owner_denominator) * 100
+                rec.percentage = math.ceil((rec.owner_numerator/rec.owner_denominator) * 100)
             else:
                 rec.percentage = 0
 
