@@ -1016,3 +1016,15 @@ msgstr "Täljare"
 #: model_terms:ir.ui.view,arch_db:property_mgmt.field_property_stakeholder__owner_numerator
 msgid "Denominator"
 msgstr "Nämnare"
+
+
+#. module: property_mgmt
+#: model_terms:ir.ui.view,arch_db:property_mgmt.field_property_stakeholder__tax_unit
+msgid "Numerator"
+msgstr "Täljare"
+
+
+#. module: property_mgmt
+#: model_terms:ir.ui.view,arch_db:property_mgmt.field_property_stakeholder__tax_unit
+msgid "Tax Unit"
+msgstr "Taxeringsenhet"
