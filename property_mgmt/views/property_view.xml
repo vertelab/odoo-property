@@ -76,7 +76,7 @@
                         </div>
                         <group>
                             <group>
-                                <label for="city"/>
+                                <label for="street" string="Address"/>
                                 <div class="o_address_format">
                                     <field name="street" placeholder="Street..." class="o_address_street"/>
                                     <field name="street2" placeholder="Street 2..." class="o_address_street"/>

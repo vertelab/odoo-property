@@ -62,7 +62,7 @@ class PropertyStakeHolder(models.Model):
             else:
                 rec.percentage = 0
 
-    percentage = fields.Float(string="Percentage(%)", compute=_set_percentage)
+    percentage = fields.Integer(string="Percentage(%)", compute=_set_percentage)
 
 
 class PropertyDesignation(models.Model):
