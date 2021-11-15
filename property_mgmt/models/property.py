@@ -25,6 +25,9 @@ class PropertyProperty(models.Model):
 
     stakeholder_ids = fields.One2many('property.stakeholder', 'property_id', string="Stakeholders")
 
+    classification = fields.Char(string="Classification")
+    document_type = fields.Char(string="Document Type")
+
     def approved_property(self):
         self.write({
             'state': 'ok'
@@ -47,8 +50,8 @@ class PropertyStakeHolder(models.Model):
     property_state = fields.Selection([('new', 'New'), ('ok', 'OK'), ('archived', 'Archived')], string="State",
                                       related='property_id.state')
 
-    owner_numerator = fields.Float(string="Numerator")
-    owner_denominator = fields.Float(string="Denominator")
+    owner_numerator = fields.Integer(string="Numerator")
+    owner_denominator = fields.Integer(string="Denominator")
     stakeholder_tax_unit = fields.Char(string="Tax Unit")
 
     @api.depends('owner_numerator', 'owner_denominator')

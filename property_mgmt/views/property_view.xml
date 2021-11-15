@@ -76,7 +76,7 @@
                         </div>
                         <group>
                             <group>
-                                <label for="street"/>
+                                <label for="city"/>
                                 <div class="o_address_format">
                                     <field name="street" placeholder="Street..." class="o_address_street"/>
                                     <field name="street2" placeholder="Street 2..." class="o_address_street"/>
@@ -85,11 +85,13 @@
                                     <field name="zip" placeholder="ZIP" class="o_address_zip"/>
                                     <field name="country_id" placeholder="Country" class="o_address_country" options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}"/>
                                 </div>
+                                <field name="acquired_date"/>
+                                <field name="classification"/>
+                                <field name="document_type"/>
                             </group>
                             <group>
-                                <field name="size"/>
-                                <field name="acquired_date"/>
                                 <field name="property_status"/>
+                                <field name="size"/>
                             </group>
                         </group>
                         <notebook colspan="4">

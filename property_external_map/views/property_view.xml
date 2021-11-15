@@ -15,13 +15,19 @@
                             icon="fa-map-marker"
                         />
                 </xpath>
-                <field name="acquired_date" position="before">
+                <field name="size" position="after">
                     <field name="latitude"/>
                     <label for="longitude"/>
                     <div>
                         <field name="longitude"/>
-                        <button string="Geolocate" name="geo_localize" icon="fa-check" type="object"/>
+                        <button string="Geolocate" name="geo_localize" icon="fa-check" type="object" groups="base.group_no_one"/>
                     </div>
+                    <field name="property_lat_rt90"/>
+                    <field name="property_long_rt90"/>
+                    <field name="property_lat_sweref99"/>
+                    <field name="property_long_sweref99"/>
+                    <field name="property_lat_wgs8"/>
+                    <field name="property_long_wgs8"/>
                 </field>
             </field>
         </record>
