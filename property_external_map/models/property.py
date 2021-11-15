@@ -12,12 +12,12 @@ class PropertyProperty(models.Model):
     latitude = fields.Float(string='Geo Latitude', digits=(16, 5))
     longitude = fields.Float(string='Geo Longitude', digits=(16, 5))
 
-    property_lat_rt90 = fields.Float(string='Property Lat RT90', digits=(16, 5), related='latitude', readonly=False)
-    property_long_rt90 = fields.Float(string='Property Long RT90', digits=(16, 5), related='longitude', readonly=False)
-    property_lat_sweref99 = fields.Float(string='Property Lat SWEREF99', digits=(16, 5), related='latitude', readonly=False)
-    property_long_sweref99 = fields.Float(string='Property Long SWEREF99', digits=(16, 5), related='longitude', readonly=False)
-    property_lat_wgs8 = fields.Float(string='Property Lat WGS8', digits=(16, 5), related='latitude', readonly=False)
-    property_long_wgs8 = fields.Float(string='Property Long WGS8', digits=(16, 5), related='longitude', readonly=False)
+    property_lat_rt90 = fields.Float(string='Lat RT90', digits=(16, 5), related='latitude', readonly=False)
+    property_long_rt90 = fields.Float(string='Long RT90', digits=(16, 5), related='longitude', readonly=False)
+    property_lat_sweref99 = fields.Float(string='Lat SWEREF99', digits=(16, 5), related='latitude', readonly=False)
+    property_long_sweref99 = fields.Float(string='Long SWEREF99', digits=(16, 5), related='longitude', readonly=False)
+    property_lat_wgs8 = fields.Float(string='Lat WGS8', digits=(16, 5), related='latitude', readonly=False)
+    property_long_wgs8 = fields.Float(string='Long WGS8', digits=(16, 5), related='longitude', readonly=False)
 
     @api.model
     def _geo_localize(self, street='', zip='', city='', state='', country=''):

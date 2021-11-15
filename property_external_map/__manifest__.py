@@ -21,7 +21,7 @@
 
 {
     'name': 'Property External Map',
-    'version': '14.0.1.2.0',
+    'version': '14.0.1.3.1',
     'category': 'sale',
     'description': """
         This module adds: \n
@@ -32,7 +32,8 @@
 		  \n
 		  v14.0.1.1.0 Added translation.\n
 		  v14.0.1.2.0 Added link to repo in manifest.\n
-
+		  v14.0.1.3.0 Added more Geo-references.\n
+		  v14.0.1.3.1 Fixed some labels and debug-mode.\n		  
 
 """,
     'author': 'Vertel AB',

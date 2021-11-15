@@ -22,12 +22,12 @@
                         <field name="longitude"/>
                         <button string="Geolocate" name="geo_localize" icon="fa-check" type="object" groups="base.group_no_one"/>
                     </div>
-                    <field name="property_lat_rt90"/>
-                    <field name="property_long_rt90"/>
-                    <field name="property_lat_sweref99"/>
-                    <field name="property_long_sweref99"/>
-                    <field name="property_lat_wgs8"/>
-                    <field name="property_long_wgs8"/>
+                    <field name="property_lat_rt90" groups="base.group_no_one"/>
+                    <field name="property_long_rt90" groups="base.group_no_one"/>
+                    <field name="property_lat_sweref99" groups="base.group_no_one"/>
+                    <field name="property_long_sweref99" groups="base.group_no_one"/>
+                    <field name="property_lat_wgs8" groups="base.group_no_one"/>
+                    <field name="property_long_wgs8" groups="base.group_no_one"/>
                 </field>
             </field>
         </record>
