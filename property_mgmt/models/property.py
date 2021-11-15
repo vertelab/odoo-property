@@ -25,9 +25,6 @@ class PropertyProperty(models.Model):
 
     stakeholder_ids = fields.One2many('property.stakeholder', 'property_id', string="Stakeholders")
 
-    classification = fields.Char(string="Classification")
-    document_type = fields.Char(string="Document Type")
-
     def approved_property(self):
         self.write({
             'state': 'ok'
