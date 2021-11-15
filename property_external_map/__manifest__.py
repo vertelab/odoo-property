@@ -21,7 +21,7 @@
 
 {
     'name': 'Property External Map',
-    'version': '14.0.1.3.1',
+    'version': '14.0.1.3.2',
     'category': 'sale',
     'description': """
         This module adds: \n
@@ -34,6 +34,7 @@
 		  v14.0.1.2.0 Added link to repo in manifest.\n
 		  v14.0.1.3.0 Added more Geo-references.\n
 		  v14.0.1.3.1 Fixed some labels and debug-mode.\n		  
+		  v14.0.1.3.2 changed l10n to i18n.\n	
 
 """,
     'author': 'Vertel AB',
