@@ -9,15 +9,15 @@ logger = logging.getLogger(__name__)
 class PropertyProperty(models.Model):
     _inherit = 'property.property'
 
-    latitude = fields.Char(string='Geo Latitude', digits=(16, 5))
-    longitude = fields.Char(string='Geo Longitude', digits=(16, 5))
+    latitude = fields.Char(string='Geo Latitude')
+    longitude = fields.Char(string='Geo Longitude')
 
-    property_lat_rt90 = fields.Char(string='Lat RT90', digits=(16, 5), related='latitude', readonly=False)
-    property_long_rt90 = fields.Char(string='Long RT90', digits=(16, 5), related='longitude', readonly=False)
-    property_lat_sweref99 = fields.Char(string='Lat SWEREF99', digits=(16, 5), related='latitude', readonly=False)
-    property_long_sweref99 = fields.Char(string='Long SWEREF99', digits=(16, 5), related='longitude', readonly=False)
-    property_lat_wgs8 = fields.Char(string='Lat WGS8', digits=(16, 5), related='latitude', readonly=False)
-    property_long_wgs8 = fields.Char(string='Long WGS8', digits=(16, 5), related='longitude', readonly=False)
+    property_lat_rt90 = fields.Char(string='Lat RT90', readonly=False)
+    property_long_rt90 = fields.Char(string='Long RT90', readonly=False)
+    property_lat_sweref99 = fields.Char(string='Lat SWEREF99', readonly=False)
+    property_long_sweref99 = fields.Char(string='Long SWEREF99', readonly=False)
+    property_lat_wgs8 = fields.Char(string='Lat WGS8', readonly=False)
+    property_long_wgs8 = fields.Char(string='Long WGS8', readonly=False)
 
     @api.model
     def _geo_localize(self, street='', zip='', city='', state='', country=''):
