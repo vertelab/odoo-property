@@ -21,7 +21,7 @@
 
 {
     'name': 'Property External Map',
-    'version': '14.0.1.3.2',
+    'version': '14.0.1.3.3',
     'category': 'sale',
     'description': """
         This module adds: \n
@@ -35,14 +35,16 @@
 		  v14.0.1.3.0 Added more Geo-references.\n
 		  v14.0.1.3.1 Fixed some labels and debug-mode.\n		  
 		  v14.0.1.3.2 changed l10n to i18n.\n	
+		  v14.0.1.3.3 added INGEBORG coordinate button and other improvements
 
 """,
     'author': 'Vertel AB',
     'license': 'AGPL-3',
     'website': 'https://www.vertel.se',
-    'depends': ['base', 'property_mgmt', 'base_geolocalize', 'partner_external_map'],
+    'depends': ['base', 'property_mgmt', 'base_geolocalize', 'rest_inge'],
     'data': [
         'views/property_view.xml',
+        'data/data.xml',
     ],
     'application': False,
     'installable': True,

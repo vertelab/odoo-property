@@ -6,26 +6,35 @@
             <field name="inherit_id" ref="property_mgmt.property_property_form_view"/>
             <field name="arch" type="xml">
                 <xpath expr="//sheet/div[@name='button_box']" position="inside">
-                        <button
-                            class="oe_stat_button"
-                            name="open_map"
-                            type="object"
-                            string="Map"
-                            attrs="{'invisible': [('city', '=', False)]}"
-                            icon="fa-map-marker"
-                        />
+                    <button
+                        class="oe_stat_button"
+                        name="open_map"
+                        type="object"
+                        string="Map"
+                        attrs="{'invisible': [('city', '=', False)]}"
+                        icon="fa-map-marker"
+                    />
+
+                    <button
+                        class="oe_stat_button"
+                        name="open_ingeborg"
+                        type="object"
+                        string="INGEBorg"
+                        attrs="{'invisible': [('property_uuid', '=', False)]}"
+                        icon="fa-map-marker"
+                    />
                 </xpath>
                 <field name="size" position="after">
-                    <field name="latitude"/>
-                    <label for="longitude"/>
-                    <div>
+                    <field name="latitude" groups="base.group_no_one"/>
+                    <label for="longitude" groups="base.group_no_one"/>
+                    <div groups="base.group_no_one">
                         <field name="longitude"/>
                         <button string="Geolocate" name="geo_localize" icon="fa-check" type="object" groups="base.group_no_one"/>
                     </div>
                     <field name="property_lat_rt90" groups="base.group_no_one"/>
                     <field name="property_long_rt90" groups="base.group_no_one"/>
-                    <field name="property_lat_sweref99" groups="base.group_no_one"/>
-                    <field name="property_long_sweref99" groups="base.group_no_one"/>
+                    <field name="property_lat_sweref99"/>
+                    <field name="property_long_sweref99"/>
                     <field name="property_lat_wgs8" groups="base.group_no_one"/>
                     <field name="property_long_wgs8" groups="base.group_no_one"/>
                 </field>

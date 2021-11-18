@@ -1,0 +1,8 @@
+<odoo>
+    <data noupdate="1">
+        <record id="ingeborg_url" model="ir.config_parameter">
+            <field name="key">ingeborg_url</field>
+            <field name="value">http://ingewebinternutv/INGEBorg/#/fastighetsinformation</field>
+        </record>
+    </data>
+</odoo>

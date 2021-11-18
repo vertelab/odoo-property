@@ -112,3 +112,11 @@ class PropertyProperty(models.Model):
             "url": url,
             "target": "new",
         }
+
+    def open_ingeborg(self):
+        url = self.env["ir.config_parameter"].sudo().get_param("ingeborg_url")
+        return {
+            "type": "ir.actions.act_url",
+            "url": '%s?registerenhetUuid=%s' %(url, self.property_uuid),
+            "target": "new",
+        }
