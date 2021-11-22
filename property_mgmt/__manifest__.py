@@ -21,7 +21,7 @@
 
 {
     'name': 'Property Management',
-    'version': '14.0.1.5.0',
+    'version': '14.0.1.6.0',
     'category': 'sale',
     'description': """
         This module is used to manage properties and link it to a partner. \n
@@ -33,6 +33,7 @@
         v14.0.1.3.0 Added link to repository: https://github.com/vertelab/odoo-property	\n
         v14.0.1.4.0 - Added field for numerator, denominator and tax unit \n
         v14.0.1.5.0 - Added Server Action to get properties for multiple partners \n
+        v14.0.1.6.0 - Added Property user group and property manager group
     """,
     'author': 'Vertel AB',
     'license': 'AGPL-3',
@@ -40,6 +41,7 @@
     'depends': ['base', 'contacts'],
     'data': [
         'security/ir.model.access.csv',
+        'security/property_security.xml',
         'views/menu.xml',
         'views/property_view.xml',
         'views/property_stakeholder_view.xml',
