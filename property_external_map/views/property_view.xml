@@ -24,20 +24,22 @@
                         icon="fa-map-marker"
                     />
                 </xpath>
-                <field name="size" position="after">
-                    <field name="latitude" groups="base.group_no_one"/>
-                    <label for="longitude" groups="base.group_no_one"/>
-                    <div groups="base.group_no_one">
-                        <field name="longitude"/>
-                        <button string="Geolocate" name="geo_localize" icon="fa-check" type="object" groups="base.group_no_one"/>
-                    </div>
-                    <field name="property_lat_rt90" groups="base.group_no_one"/>
-                    <field name="property_long_rt90" groups="base.group_no_one"/>
-                    <field name="property_lat_sweref99"/>
-                    <field name="property_long_sweref99"/>
-                    <field name="property_lat_wgs8" groups="base.group_no_one"/>
-                    <field name="property_long_wgs8" groups="base.group_no_one"/>
-                </field>
+                <notebook position="inside">
+                    <page name="external_map_page" string="External Map">
+                        <field name="latitude" groups="base.group_no_one"/>
+                        <label for="longitude" groups="base.group_no_one"/>
+                        <div groups="base.group_no_one">
+                            <field name="longitude"/>
+                            <button string="Geolocate" name="geo_localize" icon="fa-check" type="object" groups="base.group_no_one"/>
+                        </div>
+                        <field name="property_lat_rt90" groups="base.group_no_one"/>
+                        <field name="property_long_rt90" groups="base.group_no_one"/>
+                        <field name="property_lat_sweref99"/>
+                        <field name="property_long_sweref99"/>
+                        <field name="property_lat_wgs8" groups="base.group_no_one"/>
+                        <field name="property_long_wgs8" groups="base.group_no_one"/>
+                    </page>
+                </notebook>
             </field>
         </record>
     </data>
