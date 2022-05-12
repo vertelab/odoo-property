@@ -192,7 +192,7 @@ class PropertyBuilding(models.Model):
 
     @api.constrains('project_number')
     def _check_only_contains_numbers(self):
-        if not self.project_number.isdecimal():
+        if self.project_number and not self.project_number.isdecimal():
             raise ValidationError(_("Only numbers allowed in Project ID"))
 
     # TODO: Create region data, enable this and add it to views.
