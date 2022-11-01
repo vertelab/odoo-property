@@ -44,7 +44,7 @@ class PropertyStakeHolder(models.Model):
                                        ], string="Status", default='legal_owner')
 
     property_id = fields.Many2one('property.property', string="Property")
-    property_state = fields.Selection([('new', 'New'), ('ok', 'OK'), ('archived', 'Archived')], string="State",
+    property_state = fields.Selection(string="State",
                                       related='property_id.state')
 
     owner_numerator = fields.Integer(string="Numerator")
