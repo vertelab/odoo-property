@@ -23,7 +23,7 @@ class PropertyProperty(models.Model):
                                domain="[('country_id', '=?', country_id)]")
     country_id = fields.Many2one('res.country', string='Country', ondelete='restrict')
 
-    stakeholder_ids = fields.One2many('property.stakeholder', 'property_id', string="Stakeholders")
+    stakeholder_ids = fields.One2many('property.stakeholder', 'property_id', string="Stakeholders", auto_join=True)
 
     def approved_property(self):
         self.write({
@@ -36,15 +36,15 @@ class PropertyStakeHolder(models.Model):
     _description = "Property Stakeholder"
     _inherits = {'res.partner': 'partner_id', 'property.property': 'property_id'}
 
-    partner_id = fields.Many2one('res.partner', string="Partner", required=True)
+    partner_id = fields.Many2one('res.partner', string="Partner", required=True, index=True)
     partner_status = fields.Selection([('legal_owner', 'Legal Owner'),
                                        ('approving_owner', 'Approving Owner'),
                                        ('former_owner', 'Former Owner'),
                                        ('agent', 'Agent'),
                                        ], string="Status", default='legal_owner')
 
-    property_id = fields.Many2one('property.property', string="Property")
-    property_state = fields.Selection([('new', 'New'), ('ok', 'OK'), ('archived', 'Archived')], string="State",
+    property_id = fields.Many2one('property.property', string="Property", index=True, required=True, ondelete='cascade')
+    property_state = fields.Selection(string="State",
                                       related='property_id.state')
 
     owner_numerator = fields.Integer(string="Numerator")
@@ -70,7 +70,7 @@ class PropertyDesignation(models.Model):
     name = fields.Char(string="Name")
     date = fields.Date(string="Date")
     state = fields.Selection([('New', 'New'), ('OK', 'OK'), ('Archived', 'Archived')], string="State", default='New')
-    partner_id = fields.Many2one('res.partner', string="Partner", required=True)
+    partner_id = fields.Many2one('res.partner', string="Partner", required=True, index=True)
 
 
 class PropertyHistory(models.Model):
