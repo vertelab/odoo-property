@@ -3,27 +3,26 @@ import logging
 from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
 
-
 _logger = logging.getLogger(__name__)
 
 
-#TODO: Move these to their own model.
+# TODO: Move these to their own model.
 class PropertyContract(models.Model):
     _inherit = 'contract.contract'
 
     related_property_id = fields.Many2one("property.property", string="Related property")
 
 
-#TODO: Move these to their own model.
+# TODO: Move these to their own model.
 class PropertyContractWizard(models.TransientModel):
     _name = 'property.contract.wizard'
     _inherit = 'agreement.contract.wizard'
     _description = "Property contract wizard"
 
     _product_title = fields.Char(
-            string="Product title",
-            required=True,
-            )
+        string="Product title",
+        required=True,
+    )
 
     def _get_product_title(self):
         _logger.warning("GOT PRODUCT TITLE")
@@ -52,25 +51,25 @@ class PropertyContractWizard(models.TransientModel):
     def store_contract_id(self, _, contract_id):
         self._get_property().write({
             'contract_ids': [(4, contract_id.id)],
-            })
+        })
 
 
 AREA = _('Area')
 HECTARE = _('Hectare')
-SQUARE_METER= _('Square meter')
+SQUARE_METER = _('Square meter')
 
 
 def type_per_year(recurring_rule_type):
     if recurring_rule_type == "daily":
-        return 1/365.2425 # TODO: Consider if this year is leap
+        return 1 / 365.2425  # TODO: Consider if this year is leap
     elif recurring_rule_type == "weekly":
         return 7 * type_per_year("daily")
     elif recurring_rule_type in ("monthly", "monthlylastday"):
-        return 1/12
+        return 1 / 12
     elif recurring_rule_type == "quarterly":
-        return 1/4
+        return 1 / 4
     elif recurring_rule_type == "semesterly":
-        return 1/2
+        return 1 / 2
     else:
         return 1
 
@@ -89,21 +88,21 @@ def _create_uom_if_missing(environment):
     if not category:
         category = environment["uom.category"].sudo().create({
             'name': AREA,
-            })
+        })
 
     pre_defined = [
-            {
-                'name': SQUARE_METER,
-                'category_id': category.id,
-                'uom_type': 'reference',
-                },
-            {
-                'name': HECTARE,
-                'category_id': category.id,
-                'uom_type': 'bigger',
-                'factor_inv': 10000,
-                },
-            ]
+        {
+            'name': SQUARE_METER,
+            'category_id': category.id,
+            'uom_type': 'reference',
+        },
+        {
+            'name': HECTARE,
+            'category_id': category.id,
+            'uom_type': 'bigger',
+            'factor_inv': 10000,
+        },
+    ]
 
     for unit in pre_defined:
         if not environment["uom.uom"].sudo().search([('name', '=', unit['name'])]):
@@ -127,30 +126,31 @@ class PropertyBuilding(models.Model):
 
     # TODO: Make this calculated from contract_ids.
     operating_cost = fields.Float(
-            string="Operating Cost",
-            compute="_calculate_operating_cost",
-            )
+        string="Operating Cost",
+        compute="_calculate_operating_cost",
+    )
 
     access_codes = fields.Text(
-            string="Access code for properties",
-            )
+        string="Access code for properties",
+    )
 
     parking_spaces = fields.Integer(
-            string="Parking spaces",
-            default=0,
-            )
+        string="Parking spaces",
+        default=0,
+    )
 
     garage_spaces = fields.Integer(
-            string="Garage spaces",
-            default=0,
-            )
+        string="Garage spaces",
+        default=0,
+    )
 
     charging_posts = fields.Integer(
-            string="Charging posts",
-            default=0,
-            )
+        string="Charging posts",
+        default=0,
+    )
 
-    @api.depends("contract_ids", "contract_ids.contract_line_ids", "contract_ids.recurring_rule_type", "contract_ids.recurring_interval")
+    @api.depends("contract_ids", "contract_ids.contract_line_ids", "contract_ids.recurring_rule_type",
+                 "contract_ids.recurring_interval")
     def _calculate_operating_cost(self):
         _logger.warning(f"Recalculating contract yerly cost! {len(self)}")
         for record in self:
@@ -167,28 +167,28 @@ class PropertyBuilding(models.Model):
                 _logger.error(e)
             record.operating_cost = cost_per_year
 
-    ## 3. Lokalens adress
+    # 3. Lokalens adress
     municipality_id = fields.Many2one(
-            comodel_name='res.country.municipality',
-            # TODO: Create domain for this that limits municipality depending on the choosen district
-            string='Municipality'
-            )
+        comodel_name='res.country.municipality',
+        # TODO: Create domain for this that limits municipality depending on the chosen district
+        string='Municipality'
+    )
 
     property_state_id = fields.Many2one(
-            comodel_name='res.country.state',
-            string='State',
-            # TODO: Extend this to be able to select from non-swedish places (and dont identify via phone_code)...
-            domain=[('country_id.phone_code', '=', '46')],
-            )
+        comodel_name='res.country.state',
+        string='State',
+        # TODO: Extend this to be able to select from non-swedish places (and dont identify via phone_code)...
+        domain=[('country_id.phone_code', '=', '46')],
+    )
 
     district = fields.Char(
-            string="District",
-            )
+        string="District",
+    )
 
     # TODO: make sure this only contains numbers
     project_number = fields.Char(
-            string="Project (Office) ID",
-            )
+        string="Project (Office) ID",
+    )
 
     @api.constrains('project_number')
     def _check_only_contains_numbers(self):
@@ -196,57 +196,56 @@ class PropertyBuilding(models.Model):
             raise ValidationError(_("Only numbers allowed in Project ID"))
 
     # TODO: Create region data, enable this and add it to views.
-    #region_id = fields.Many2one(
+    # region_id = fields.Many2one(
     #        comodel_name='res.country.region',
     #        string="Region",
     #        )
 
-    ## 8. Area
+    # 8. Area
     area_type = fields.Selection(
-            [
-                ('office', 'Office'),
-                ('storage', 'Storage space'),
-                ('mechanic', 'Mechanic'),
-                ('parking', 'Parking'),
-                ('garage', 'Garage'),
-                ('other', 'Other'),
-                ],
-            string="Area Type",
-            required=True,
-            default="other",
-            )
+        [
+            ('office', 'Office'),
+            ('storage', 'Storage space'),
+            ('mechanic', 'Mechanic'),
+            ('parking', 'Parking'),
+            ('garage', 'Garage'),
+            ('other', 'Other'),
+        ],
+        string="Area Type",
+        required=True,
+        default="other",
+    )
 
     floor = fields.Char(
-            string="Floor",
-            )
+        string="Floor",
+    )
 
     contract_ids = fields.One2many(
-            "contract.contract",
-            "related_property_id",
-            string="Related Contracts",
-            required=False,
-            )
+        "contract.contract",
+        "related_property_id",
+        string="Related Contracts",
+        required=False,
+    )
 
     def _get_hectare(self):
         _create_uom_if_missing(self.env)
         return self.env["uom.uom"].sudo().search([('name', '=', HECTARE)]).id
 
     size_uom = fields.Many2one(
-            comodel_name="uom.uom",
-            #TODO: use an 'Area' category, see odooext-skogsstyrelsen/migration_helper/models/mapping
-            domain=f"[('category_id.name', '=', '{AREA}')]",
-            default=_get_hectare,
-            )
+        comodel_name="uom.uom",
+        # TODO: use an 'Area' category, see odooext-skogsstyrelsen/migration_helper/models/mapping
+        domain=f"[('category_id.name', '=', '{AREA}')]",
+        default=_get_hectare,
+    )
 
-    ## Additional information
+    # Additional information
 
     employees = fields.Integer(
-            string="Employees",
-            )
+        string="Employees",
+    )
 
     workplaces = fields.Integer(
-            string="Workplaces",
-            )
-
+        string="Workplaces",
+    )
 
     # TODO: Set everything to 0 when incorrect area_type

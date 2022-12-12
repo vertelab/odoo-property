@@ -34,7 +34,8 @@ class PropertyProperty(models.Model):
 class PropertyStakeHolder(models.Model):
     _name = 'property.stakeholder'
     _description = "Property Stakeholder"
-    _inherits = {'res.partner': 'partner_id', 'property.property': 'property_id'}
+    # _inherits = {'res.partner': 'partner_id', 'property.property': 'property_id'}
+    _inherits = {'property.property': 'property_id'}
 
     partner_id = fields.Many2one('res.partner', string="Partner", required=True, index=True)
     partner_status = fields.Selection([('legal_owner', 'Legal Owner'),
@@ -65,7 +66,7 @@ class PropertyStakeHolder(models.Model):
 class PropertyDesignation(models.Model):
     _name = 'property.designation'
     _description = "Property Designation"
-    _inherits = {'res.partner': 'partner_id'}
+    # _inherits = {'res.partner': 'partner_id'}
 
     name = fields.Char(string="Name")
     date = fields.Date(string="Date")
