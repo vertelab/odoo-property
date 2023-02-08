@@ -43,12 +43,7 @@
 
     "application": False,
     "installable": True,
-    "depends": [
-        "contract",
-        "agreement_contract",
-        "property_mgmt",
-        "l10n_se_municipality_class",
-    ],
+    'depends': ['contract','agreement_contract','property_mgmt','l10n_se_municipality_class',],
     "data": [
         "views/property_building.xml",
         "security/ir.model.access.csv",
