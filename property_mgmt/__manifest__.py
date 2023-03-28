@@ -47,7 +47,7 @@
     'license': 'AGPL-3',
     'contributor': '',
     'maintainer': 'Vertel AB',
-    'repository': 'https://github.com/vertelab/odoo-propperty',
+    'repository': 'https://github.com/vertelab/odoo-property',
     # Any module necessary for this one to work correctly
     
     'depends': ['base', 'contacts'],
