@@ -42,7 +42,7 @@
 	  v14.0.1.3.2 changed l10n to i18n.\n	
 		  v14.0.1.3.3 added INGEBORG coordinate button and other improvements \n
 		  v14.0.1.3.4 added depencency to partner_external_map \n
-      v16.0.9.9.0 Ported to 16 and removed dependency to rest_inge.\n
+      v16.0.0.0.0 Ported to 16 and removed dependency to rest_inge.\n
    """,
     #'sequence': '1',
     'author': 'Vertel AB',
