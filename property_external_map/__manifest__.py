@@ -21,7 +21,7 @@
 
 {
     'name': 'Property: External Map',
-    'version': '14.0.1.0.0',
+    'version': '16.0.0.0.0',
     # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
     'summary': 'This module adds small and neat features related with the map.',
     # Categories can be used to filter modules in modules listing
@@ -42,6 +42,7 @@
 	  v14.0.1.3.2 changed l10n to i18n.\n	
 		  v14.0.1.3.3 added INGEBORG coordinate button and other improvements \n
 		  v14.0.1.3.4 added depencency to partner_external_map \n
+      v16.0.9.9.0 Ported to 16 and removed dependency to rest_inge.\n
    """,
     #'sequence': '1',
     'author': 'Vertel AB',
@@ -53,10 +54,10 @@
     'repository': 'https://github.com/vertelab/odoo-property',
     # Any module necessary for this one to work correctly
 
-    'depends': ['partner_external_map', 'property_mgmt', 'base_geolocalize', 'rest_inge'],
+    'depends': ['partner_external_map', 'property_mgmt', 'base_geolocalize'],
     'data': [
         'views/property_view.xml',
-        'data/data.xml',
+        # ~ 'data/data.xml',
     ],
     'application': False,
     'installable': True,

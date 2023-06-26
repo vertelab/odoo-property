@@ -21,7 +21,7 @@
 
 {
     'name': 'Property: Mgmt',
-    'version': '14.0.1.0.0',
+    'version': '16.0.0.0.0',
     # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
     'summary': 'This module is used to manage properties and link it to a partner.',
     # Categories can be used to filter modules in modules listing
@@ -39,6 +39,7 @@
         v14.0.1.4.0 - Added field for numerator, denominator and tax unit \n
         v14.0.1.5.0 - Added Server Action to get properties for multiple partners \n
         v14.0.1.6.0 - Added Property user group and property manager group
+        v16.0.0.0.0 - Ported to 16.0
     """,
     #'sequence': '1',
     'author': 'Vertel AB',
