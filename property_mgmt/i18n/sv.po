@@ -136,7 +136,7 @@ msgstr ""
 #. module: property_mgmt
 #: model:ir.model.fields.selection,name:property_mgmt.selection__property_stakeholder__partner_status__approving_owner
 msgid "Approving Owner"
-msgstr "Godkännande ägare"
+msgstr "Överlåtande ägare"
 
 #. module: property_mgmt
 #: model:ir.model.fields.selection,name:property_mgmt.selection__property_designation__state__archived
@@ -692,7 +692,7 @@ msgstr ""
 #. module: property_mgmt
 #: model:ir.model.fields.selection,name:property_mgmt.selection__property_stakeholder__partner_status__legal_owner
 msgid "Legal Owner"
-msgstr "Lagfören ägare"
+msgstr "Juridisk ägare"
 
 #. module: property_mgmt
 #: model:ir.model.fields,field_description:property_mgmt.field_property_designation__message_main_attachment_id
@@ -937,7 +937,7 @@ msgstr "Fastigheter"
 #. module: property_mgmt
 #: model:res.groups,comment:property_mgmt.group_property_management_manager
 msgid "Property Manager"
-msgstr ""
+msgstr "Fastighetsförvaltare"
 
 #. module: property_mgmt
 #: model:ir.model.fields,field_description:property_mgmt.field_property_property__size
