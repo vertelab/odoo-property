@@ -42,6 +42,8 @@ class PropertyStakeHolder(models.Model):
                                        ('approving_owner', 'Approving Owner'),
                                        ('former_owner', 'Former Owner'),
                                        ('agent', 'Agent'),
+                                       ('tenant', 'Tenant'),
+                                       ('property_manager', 'Property Manager'),
                                        ], string="Status", default='legal_owner')
 
     property_id = fields.Many2one('property.property', string="Property", index=True, required=True, ondelete='cascade')
