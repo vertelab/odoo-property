@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
-
     <record id="contract_wizard" model="ir.ui.view">
         <field name="name">link.to.contract.view</field>
         <field name="model">property.contract.wizard</field>
@@ -9,91 +7,72 @@
             <form>
                 <group>
                     <group>
-                        <field name="_product_title" />
+                        <field name="_product_title"/>
                     </group>
                     <group>
-                        <field name="start_date" />
-                        <field name="end_date" />
-                        <field name="recurring_start_date" />
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="recurring_start_date"/>
                     </group>
                     <group>
-                        <field name="recurring_interval" />
-                        <field name="recurring_rule_type" />
+                        <field name="recurring_interval"/>
+                        <field name="recurring_rule_type"/>
                     </group>
                     <group>
-                        <field name="cost_per_recurrance" />
-                        <field name="type_of_cost_increase" />
-                        <field name="consumer_index_base_year" attrs="{
-                            'invisible': [('type_of_cost_increase', '!=', 'index')],
-                            'required': [('type_of_cost_increase', '=', 'index')],
-                            }" />
-                        <field name="cost_index" attrs="{
-                            'invisible': [('type_of_cost_increase', '!=', 'percent')],
-                            'required': [('type_of_cost_increase', '=', 'percent')],
-                            }" />
-                        </group>
+                        <field name="cost_per_recurrance"/>
+                        <field name="type_of_cost_increase"/>
+                        <field invisible="type_of_cost_increase != 'index'" name="consumer_index_base_year" required="type_of_cost_increase == 'index'"/>
+                        <field invisible="type_of_cost_increase != 'percent'" name="cost_index" required="type_of_cost_increase == 'percent'"/>
+                    </group>
                 </group>
                 <footer>
-                    <button name="save_button" type="object" string="Save" class="btn-primary"/>
-                    <button name="cancel_button" type="object" string="Cancel" class="btn btn-default" special="cancel"/>
+                    <button class="btn-primary" name="save_button" string="Save" type="object"/>
+                    <button class="btn btn-default" name="cancel_button" special="cancel" string="Cancel" type="object"/>
                 </footer>
-            </form>
-        </field>
+            </form></field>
     </record>
-
-
-
-
-    <record model="ir.actions.act_window" id="open_link_to_contract_wizard">
+    <record id="open_link_to_contract_wizard" model="ir.actions.act_window">
         <field name="name">open.link.to.contract.wizard</field>
         <field name="res_model">property.contract.wizard</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>
         <field name="view_id" ref="contract_wizard"/>
     </record>
-
-
-
-
-
     <record id="property_property_form_view" model="ir.ui.view">
         <field name="name">property.property.form.view</field>
         <field name="model">property.property</field>
         <field name="inherit_id" ref="property_mgmt.property_property_form_view"/>
         <field name="arch" type="xml">
             <field name="size" position="after">
-                <field name="municipality_id" />
-                <field name="property_state_id" />
-                <field name="district" />
-                <field name="project_number" />
-                <field name="area_type" />
-                <field name="compute_field" invisible="1"/>
-            </field>
+                <field name="municipality_id"/>
+                <field name="property_state_id"/>
+                <field name="district"/>
+                <field name="project_number"/>
+                <field name="area_type"/>
+                <field invisible="1" name="compute_field"/></field>
             <notebook position="inside">
-                <page name="extra_data" string="Extra Data" attrs="{'invisible': [('area_type', '=', 'other')]}" >
+                <page invisible="area_type == 'other'" name="extra_data" string="Extra Data">
                     <group>
-                        <field name="operating_cost" attrs="{'invisible': [('area_type', '=', 'other')]}"/>
-                        <field name="floor" attrs="{'invisible': [('area_type', '=', 'other')]}"/>
-                        <field name="employees" attrs="{'invisible': [('area_type', '!=', 'office')]}"/>
-                        <field name="workplaces" attrs="{'invisible': [('area_type', '!=', 'office')]}" />
-                        <field name="access_codes" attrs="{'invisible': [('area_type', '=', 'other')]}" />
-                        <field name="parking_spaces" attrs="{'invisible': [('area_type', '=', 'other')]}" />
-                        <field name="garage_spaces" attrs="{'invisible': [('area_type', '=', 'other')]}" />
-                        <field name="charging_posts" attrs="{'invisible': [('area_type', '=', 'other')]}" />
+                        <field invisible="area_type == 'other'" name="operating_cost"/>
+                        <field invisible="area_type == 'other'" name="floor"/>
+                        <field invisible="area_type != 'office'" name="employees"/>
+                        <field invisible="area_type != 'office'" name="workplaces"/>
+                        <field invisible="area_type == 'other'" name="access_codes"/>
+                        <field invisible="area_type == 'other'" name="parking_spaces"/>
+                        <field invisible="area_type == 'other'" name="garage_spaces"/>
+                        <field invisible="area_type == 'other'" name="charging_posts"/>
                     </group>
                 </page>
                 <page name="contracts" string="Related contracts">
-                    <button name="%(open_link_to_contract_wizard)d" string="Create contract" type="action" class="oe_edit_only btn btn-primary"/>
+                    <button class="oe_edit_only btn btn-primary" name="%(open_link_to_contract_wizard)d" string="Create contract" type="action"/>
                     <field name="contract_ids" readonly="1"/>
                 </page>
             </notebook>
             <field name="size" position="replace">
                 <label for="size" string="Area"/>
                 <div class="address_format">
-                    <field name="size" style="width: 60%" />
-                    <field name="size_uom" style="width: 40%" />
-                </div>
-            </field>
-        </field>
+                    <field name="size" style="width: 60%"/>
+                    <field name="size_uom" style="width: 40%"/>
+                </div></field></field>
     </record>
 </odoo>

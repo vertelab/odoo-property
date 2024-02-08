@@ -21,7 +21,7 @@
 
 {
     'name': 'Property: Mgmt',
-    'version': '16.0.0.0.0',
+    'version': '17.0.0.0.0',
     # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
     'summary': 'This module is used to manage properties and link it to a partner.',
     # Categories can be used to filter modules in modules listing

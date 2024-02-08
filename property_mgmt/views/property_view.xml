@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
         <record id="property_property_kanban_view" model="ir.ui.view">
@@ -22,18 +23,24 @@
                                         </strong>
                                     </div>
                                     <div class="col-6 text-right">
-                                        <strong><i class="fa fa-clock-o" aria-label="Date" role="img" title="Date"/> <t t-esc="record.created_date.value"/></strong>
+                                        <strong>
+                                            <i aria-label="Date" class="fa fa-clock-o" role="img" title="Date"/>
+                                            <t t-esc="record.created_date.value"/>
+                                        </strong>
                                     </div>
                                 </div>
-
                                 <div class="row">
                                     <div class="col-6">
-                                        <span><field name="state_id"/></span>
-                                        <span><field name="country_id"/></span>
+                                        <span>
+                                            <field name="state_id"/>
+                                        </span>
+                                        <span>
+                                            <field name="country_id"/>
+                                        </span>
                                     </div>
                                     <div class="col-6">
                                         <span class="float-right">
-                                            <field name="state" widget="label_selection" options="{'classes': {'new': 'warning', 'ok': 'success', 'archived': 'danger'}}"/>
+                                            <field name="state" options="{'classes': {'new': 'warning', 'ok': 'success', 'archived': 'danger'}}" widget="label_selection"/>
                                         </span>
                                     </div>
                                 </div>
@@ -43,7 +50,6 @@
                 </kanban>
             </field>
         </record>
-
 
         <record id="property_property_tree_view" model="ir.ui.view">
             <field name="name">property.property.tree.view</field>
@@ -64,27 +70,27 @@
             <field name="arch" type="xml">
                 <form>
                     <header>
-                        <button name="approved_property" type="object" string="All Checked" class="btn btn-primary" states="new"/>
-                        <field name="state" widget="statusbar" statusbar_visible="new,ok,archived" options="{'clickable': '1'}"/>
+                        <button class="btn btn-primary" invisible="state not in ['new']" name="approved_property" string="All Checked" type="object"/>
+                        <field name="state" options="{'clickable': '1'}" statusbar_visible="new,ok,archived" widget="statusbar"/>
                     </header>
                     <sheet>
-                        <div name="button_box" class="oe_button_box">
+                        <div class="oe_button_box" name="button_box">
                         </div>
                         <div class="oe_title">
                             <h1>
-                                <field name="name" default_focus="1" placeholder="Description" required="1"/>
+                                <field default_focus="1" name="name" placeholder="Description" required="1"/>
                             </h1>
                         </div>
                         <group>
                             <group>
                                 <label for="street" string="Address"/>
                                 <div class="o_address_format">
-                                    <field name="street" placeholder="Street..." class="o_address_street"/>
-                                    <field name="street2" placeholder="Street 2..." class="o_address_street"/>
-                                    <field name="city" placeholder="City" class="o_address_city"/>
-                                    <field name="state_id" class="o_address_state" placeholder="State" options="{'no_open': True, 'no_quick_create': True}" context="{'country_id': country_id, 'default_country_id': country_id, 'zip': zip}"/>
-                                    <field name="zip" placeholder="ZIP" class="o_address_zip"/>
-                                    <field name="country_id" placeholder="Country" class="o_address_country" options="{&quot;no_open&quot;: True, &quot;no_create&quot;: True}"/>
+                                    <field class="o_address_street" name="street" placeholder="Street..."/>
+                                    <field class="o_address_street" name="street2" placeholder="Street 2..."/>
+                                    <field class="o_address_city" name="city" placeholder="City"/>
+                                    <field class="o_address_state" context="{'country_id': country_id, 'default_country_id': country_id, 'zip': zip}" name="state_id" options="{'no_open': True, 'no_quick_create': True}" placeholder="State"/>
+                                    <field class="o_address_zip" name="zip" placeholder="ZIP"/>
+                                    <field class="o_address_country" name="country_id" options='{"no_open": True, "no_create": True}' placeholder="Country"/>
                                 </div>
                                 <field name="acquired_date"/>
                             </group>
@@ -94,7 +100,7 @@
                             </group>
                         </group>
                         <notebook colspan="4">
-                            <page string="Stakeholders" name="property_stakeholders">
+                            <page name="property_stakeholders" string="Stakeholders">
                                 <field name="stakeholder_ids">
                                     <tree editable="bottom">
                                         <field name="partner_id"/>
@@ -119,7 +125,6 @@
             <field name="view_mode">kanban,tree,form</field>
         </record>
 
-        <menuitem id="property_property_menu" name="Properties" action="property_mgmt.action_property_property" parent="property_mgmt.property_parent_menu" sequence="5"/>
-
+        <menuitem action="property_mgmt.action_property_property" id="property_property_menu" name="Properties" parent="property_mgmt.property_parent_menu" sequence="5"/>
     </data>
 </odoo>

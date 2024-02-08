@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
         <record id="property_property_form_view" model="ir.ui.view">
@@ -6,16 +7,8 @@
             <field name="inherit_id" ref="property_mgmt.property_property_form_view"/>
             <field name="arch" type="xml">
                 <xpath expr="//sheet/div[@name='button_box']" position="inside">
-                    <button
-                        class="oe_stat_button"
-                        name="open_map"
-                        type="object"
-                        string="Map"
-                        attrs="{'invisible': [('city', '=', False)]}"
-                        icon="fa-map-marker"
-                    />
-
-<!--
+                    <button class="oe_stat_button" icon="fa-map-marker" invisible="city == False" name="open_map" string="Map" type="object"/>
+                    <!--
                     <button
                         class="oe_stat_button"
                         name="open_ingeborg"
@@ -28,21 +21,20 @@
                 </xpath>
                 <notebook position="inside">
                     <page name="external_map_page" string="External Map">
-                        <field name="latitude" groups="base.group_no_one"/>
+                        <field groups="base.group_no_one" name="latitude"/>
                         <label for="longitude" groups="base.group_no_one"/>
                         <div groups="base.group_no_one">
                             <field name="longitude"/>
-                            <button string="Geolocate" name="geo_localize" icon="fa-check" type="object" groups="base.group_no_one"/>
+                            <button groups="base.group_no_one" icon="fa-check" name="geo_localize" string="Geolocate" type="object"/>
                         </div>
-                        <field name="property_lat_rt90" groups="base.group_no_one"/>
-                        <field name="property_long_rt90" groups="base.group_no_one"/>
+                        <field groups="base.group_no_one" name="property_lat_rt90"/>
+                        <field groups="base.group_no_one" name="property_long_rt90"/>
                         <field name="property_lat_sweref99"/>
                         <field name="property_long_sweref99"/>
-                        <field name="property_lat_wgs8" groups="base.group_no_one"/>
-                        <field name="property_long_wgs8" groups="base.group_no_one"/>
+                        <field groups="base.group_no_one" name="property_lat_wgs8"/>
+                        <field groups="base.group_no_one" name="property_long_wgs8"/>
                     </page>
-                </notebook>
-            </field>
+                </notebook></field>
         </record>
     </data>
 </odoo>
