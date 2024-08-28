@@ -1,20 +1,21 @@
 odoo-property / property_mgmt
-2024-01-25
+2024-08-28
 
 Be aware of these!
 [project]/[module]/static/description/banner.png
 [project]/[module]/static/description/icon.png
 
-Icons may be found at: https://fontawesome.com/v5/cheatsheet
 
 Odoo banner: 560 x 280
 Odoo icon: 140 x 140
 
-Icon included as png: (Home, house, property icon)
-property.png
-property-large.png
-property-neg.png
-Source: https://www.iconfinder.com/icons/350989/home_house_property_icon
+Icon included, "home"
+https://fontawesome.com/v4/icon/home
+
+icon_home.png
+icon_home_50.png
+icon_home_50_neg.png
+
 
 HEX
 #930a57
