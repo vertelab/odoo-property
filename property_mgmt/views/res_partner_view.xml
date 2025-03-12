@@ -8,14 +8,14 @@
                 <xpath expr="//page[last()]" position="after">
                     <page name="partner_properties" string="Properties">
                         <field name="property_stakeholder_ids">
-                            <tree editable="bottom">
+                            <list editable="bottom">
                                 <field name="partner_id"/>
                                 <field name="partner_status"/>
                                 <field name="property_state"/>
                                 <field name="owner_numerator"/>
                                 <field name="owner_denominator"/>
                                 <field name="percentage"/>
-                            </tree>
+                            </list>
                         </field>
                     </page>
                 </xpath>

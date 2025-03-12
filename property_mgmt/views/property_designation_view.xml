@@ -4,12 +4,12 @@
             <field name="name">property.designation.tree.view</field>
             <field name="model">property.designation</field>
             <field name="arch" type="xml">
-                <tree>
+                <list>
                     <field name="name"/>
                     <field name="state"/>
                     <field name="date"/>
                     <field name="partner_id"/>
-                </tree>
+                </list>
             </field>
         </record>
 
@@ -40,7 +40,7 @@
             <field name="name">Property Designation</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">property.designation</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
         </record>
 
         <menuitem id="property_designation_menu" name="Property Designation" action="property_mgmt.action_property_designation" parent="property_mgmt.property_parent_menu" sequence="20"/>

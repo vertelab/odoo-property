@@ -55,12 +55,12 @@
             <field name="name">property.property.tree.view</field>
             <field name="model">property.property</field>
             <field name="arch" type="xml">
-                <tree>
+                <list>
                     <field name="name"/>
                     <field name="code"/>
                     <field name="acquired_date"/>
                     <field name="state"/>
-                </tree>
+                </list>
             </field>
         </record>
 
@@ -102,14 +102,14 @@
                         <notebook colspan="4">
                             <page name="property_stakeholders" string="Stakeholders">
                                 <field name="stakeholder_ids">
-                                    <tree editable="bottom">
+                                    <list editable="bottom">
                                         <field name="partner_id"/>
                                         <field name="partner_status"/>
                                         <field name="stakeholder_tax_unit"/>
                                         <field name="owner_numerator"/>
                                         <field name="owner_denominator"/>
                                         <field name="percentage"/>
-                                    </tree>
+                                    </list>
                                 </field>
                             </page>
                         </notebook>
@@ -122,7 +122,7 @@
             <field name="name">Properties</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">property.property</field>
-            <field name="view_mode">kanban,tree,form</field>
+            <field name="view_mode">kanban,list,form</field>
         </record>
 
         <menuitem action="property_mgmt.action_property_property" id="property_property_menu" name="Properties" parent="property_mgmt.property_parent_menu" sequence="5"/>

@@ -4,10 +4,10 @@
             <field name="name">property.history.tree.view</field>
             <field name="model">property.history</field>
             <field name="arch" type="xml">
-                <tree>
+                <list>
                     <field name="name"/>
                     <field name="date"/>
-                </tree>
+                </list>
             </field>
         </record>
 
@@ -37,7 +37,7 @@
             <field name="name">Property History</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">property.history</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">list,form</field>
         </record>
 
         <menuitem id="property_history_menu" name="Property History" action="property_mgmt.action_property_history" parent="property_mgmt.property_parent_menu" sequence="30"/>
