@@ -39,7 +39,7 @@
     'contributor': '',
     'maintainer': 'Vertel AB',
     'repository': 'https://github.com/vertelab/odoo-property',
-    'depends': ['property_mgmt', 'csrd_esrs_line'],
+    'depends': ['base', 'contacts', 'csrd_esrs_line'],
     'data': [
         'views/esrs_line_view.xml',
         'views/property_property_view.xml',
