@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="view_esrs_line_list" model="ir.ui.view">
+            <field name="name">esrs.line.list</field>
+            <field name="model">esrs.line</field>
+            <field name="inherit_id" ref="csrd_esrs_line.view_esrs_line_list"/>
+            <field name="arch" type="xml">
+                <field name="uom_id" position="after">
+                    <field name="property_id"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_esrs_line_form" model="ir.ui.view">
+            <field name="name">esrs.line.form</field>
+            <field name="model">esrs.line</field>
+            <field name="inherit_id" ref="csrd_esrs_line.view_esrs_line_form"/>
+            <field name="arch" type="xml">
+                <field name="uom_id" position="after">
+                    <field name="property_id" force_save="1"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>
