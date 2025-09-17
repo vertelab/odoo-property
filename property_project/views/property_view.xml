@@ -8,7 +8,8 @@
             <field name="inherit_id" ref="property_mgmt.property_property_form_view"/>
             <field name="arch" type="xml">
                 <xpath expr="//sheet/div[@name='button_box']" position="inside">
-                    <button class="oe_stat_button" type="object" name="action_view_maintenance_equipment" icon="fa-wrench" string="Maintenance"/>
+                    <button class="oe_stat_button" type="object" name="action_view_project" icon="fa-puzzle-piece" string="Projects"/>
+                    <button class="oe_stat_button" type="object" name="action_view_project_task" icon="fa-tasks" string="Tasks"/>
                 </xpath>
             </field>
         </record>
