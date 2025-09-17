@@ -20,31 +20,33 @@
 ##############################################################################
 
 {
-    'name': 'Property: Propety and ESRS Line',
-    'version': '18.0.0.0.0',
+    'name': 'Property: Building',
+    'version': '1.0',
     # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
-    'summary': 'This module is used to manage properties with ESRS Line.',
+    'summary': 'Adds new variables to property model, useful for buildings.',
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/14.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Sales',
     'description': """
-    This module is used to manage properties and ESRS Line.
+    Adds new variables to property model, useful for buildings.
     """,
-    # 'sequence': '1',
+    #'sequence': '1',
     'author': 'Vertel AB',
-    'website': 'https://vertel.se/apps/odoo-property/property_mgmt',
-    'images': ['static/description/banner.png'],  # 560x280 px.
+    'website': 'https://vertel.se/apps/odoo-property/property_building',
+    'images': ['static/description/banner.png'], # 560x280 px.
     'license': 'AGPL-3',
     'contributor': '',
     'maintainer': 'Vertel AB',
     'repository': 'https://github.com/vertelab/odoo-property',
-    'depends': ['base', 'contacts', 'csrd_esrs_line'],
-    'data': [
-        'views/esrs_line_view.xml',
-        'views/property_property_view.xml',
+    # Any module necessary for this one to work correctly
+
+    "application": False,
+    "installable": True,
+    'depends': ['contract','agreement_contract','property_mgmt','l10n_se_municipality_class',],
+    "data": [
+        "views/property_building.xml",
+        "security/ir.model.access.csv",
     ],
-    'application': False,
-    'installable': True,
 }
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
