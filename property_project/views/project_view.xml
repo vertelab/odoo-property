@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+    <record id="edit_project" model="ir.ui.view">
+      <field name="name">project.project.property</field>
+      <field name="model">project.project</field>
+      <field name="inherit_id" ref="project.edit_project" />
+      <field name="arch" type="xml">
+        <xpath expr="//group" position="before">
+          <div name="options">
+            <span class="d-inline-flex" invisible="is_property_task == True">
+              <field name="is_property_project" />
+              <label for="is_property_project" />
+            </span>
+            <span class="d-inline-flex" invisible="is_property_project == True">
+              <field name="is_property_task" />
+              <label for="is_property_task" />
+            </span>
+          </div>
+        </xpath>
+        <xpath expr="(//field[@name='company_id'])[2]" position="after">
+          <field name="property_id" invisible="is_property_project == False" />
+        </xpath>
+      </field>
+    </record>
+    <record id="view_task_form2" model="ir.ui.view">
+      <field name="name">project.task.property</field>
+      <field name="model">project.task</field>
+      <field name="inherit_id" ref="project.view_task_form2" />
+      <field name="arch" type="xml">
+        <field name="user_ids" position="after">
+          <field name="property_id" invisible="project_id.is_property_task == False" />
+        </field>
+      </field>
+    </record>
+     <record id="view_project" model="ir.ui.view">
+      <field name="name">project.property</field>
+      <field name="model">project.project</field>
+      <field name="inherit_id" ref="project.view_project" />
+      <field name="arch" type="xml">
+        <field name="name" position="after">
+          <field name="property_id" optional="hide" />
+        </field>
+      </field>
+    </record>
+     <record id="view_task_tree2" model="ir.ui.view">
+      <field name="name">project.property</field>
+      <field name="model">project.task</field>
+      <field name="inherit_id" ref="project.view_task_tree2" />
+      <field name="arch" type="xml">
+        <field name="name" position="after">
+          <field name="property_id" optional="hide" />
+        </field>
+      </field>
+      
+      
+      
+    </record>    
+    
+    
+  </data>
+</odoo>
