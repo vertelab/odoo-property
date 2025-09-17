@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="property_details" name="Property Details">
+        <t t-call="website.layout">
+            <div id="wrap" class="o_wproperty_detail">
+
+                <!-- Property Images Section -->
+                <div class="container py-4">
+                    <div class="row g-2">
+                        <!-- Main Image -->
+                        <div class="col-lg-8">
+                            <div class="position-relative">
+                                <t t-if="property.image_1920">
+                                    <img t-att-src="image_data_uri(property.image_1920)"
+                                         t-att-alt="property.name"
+                                         class="img-fluid w-100 rounded-3"
+                                         style="height: 500px; object-fit: cover;"/>
+                                </t>
+                                <t t-else="">
+                                    <div class="d-flex align-items-center justify-content-center bg-light rounded-3"
+                                         style="height: 500px;">
+                                        <div class="text-center text-muted">
+                                            <i class="fa fa-image fa-4x mb-3"/>
+                                            <p>No image available</p>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+
+                        <!-- Thumbnail Images Grid -->
+                        <div class="col-lg-4">
+                            <div t-if="property.property_image_ids" class="row g-2 h-100">
+                                <t t-foreach="property.property_image_ids[:4]" t-as="img">
+                                    <div class="col-6">
+                                        <div class="position-relative h-100">
+                                            <img t-att-src="image_data_uri(img.image_1024)"
+                                                 t-att-alt="img.name"
+                                                 class="img-fluid w-100 rounded-3 h-100"
+                                                 style="object-fit: cover; min-height: 120px;"/>
+
+                                            <!-- Show All overlay on last image -->
+                                            <div t-if="img_index == 3 and len(property.property_image_ids) > 4"
+                                                 class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center bg-dark bg-opacity-75 text-white rounded-3">
+                                                <span class="fw-bold">Show All</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property Information -->
+                <div class="container py-4">
+                    <div class="row">
+                        <!-- Left Column - Property Details -->
+                        <div class="col-lg-8">
+
+                            <!-- Property Header -->
+                            <div class="mb-4">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <h1 class="display-6 fw-bold mb-2" t-out="property.name"/>
+                                        <p class="text-muted mb-0">
+                                            <i class="fa fa-map-marker me-2"/>
+                                            <span t-if="property.street" t-out="property.street"/>
+                                            <span t-if="property.city">
+                                                <t t-if="property.street">, </t>
+                                                <t t-out="property.city"/>
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="text-end">
+                                        <h4 class="fw-bold mb-1" style="color: #2c5aa0;">
+                                            <t t-if="property.price">
+                                                <span t-out="property.price"
+                                                      t-options="{'widget': 'monetary', 'display_currency': property.currency_id}"/>
+                                            </t>
+                                            <t t-elif="property.price">
+                                                <span t-out="property.price"
+                                                      t-options="{'widget': 'monetary', 'display_currency': property.currency_id}"/>
+                                            </t>
+                                        </h4>
+                                        <p t-if="property.area" class="text-muted small mb-0">
+                                            $<t t-out="int((property.price or property.price) / property.area if property.area else 0)"/>/sqft
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Property Features Row -->
+                            <div class="row g-4 mb-5 py-3 border-top border-bottom">
+                                <div t-if="property.bathrooms" class="col-auto">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fa fa-bath me-2" style="color: #6c757d;"/>
+                                        <span class="fw-medium"><t t-out="int(property.bathrooms)"/> Bath<t t-if="property.bathrooms != 1">s</t></span>
+                                    </div>
+                                </div>
+                                <div t-if="property.bedrooms" class="col-auto">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fa fa-bed me-2" style="color: #6c757d;"/>
+                                        <span class="fw-medium"><t t-out="int(property.bedrooms)"/> Bed<t t-if="property.bedrooms != 1">s</t></span>
+                                    </div>
+                                </div>
+                                <div t-if="property.area" class="col-auto">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fa fa-expand me-2" style="color: #6c757d;"/>
+                                        <span class="fw-medium"><t t-out="int(property.area)"/> Sq Ft</span>
+                                    </div>
+                                </div>
+                                <div t-if="property.property_type" class="col-auto">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fa fa-home me-2" style="color: #6c757d;"/>
+                                        <span class="fw-medium" t-out="property.property_type"/>
+                                    </div>
+                                </div>
+                                <!-- Add more features as needed -->
+                                <div class="col-auto">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fa fa-car me-2" style="color: #6c757d;"/>
+                                        <span class="fw-medium">1 Garage</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Property Description -->
+                            <div class="mb-5">
+                                <h3 class="h5 fw-bold mb-3">Property Description</h3>
+                                <div t-if="property.description"
+                                     t-out="property.description"
+                                     class="text-muted lh-lg"/>
+                                <p t-else="" class="text-muted">No description available for this property.</p>
+                            </div>
+
+                            <!-- Facts & Features -->
+                            <div class="mb-5">
+                                <h3 class="h5 fw-bold mb-4">Facts &amp; Features</h3>
+                                <div class="row">
+                                    <!-- Outdoor Details -->
+                                    <div class="col-md-6">
+                                        <h6 class="fw-medium mb-3">Outdoor Details</h6>
+                                        <div class="d-flex flex-column gap-2">
+                                            <div class="d-flex align-items-center">
+                                                <i class="fa fa-circle me-2" style="font-size: 6px; color: #6c757d;"/>
+                                                <span class="small">Back yard</span>
+                                            </div>
+                                            <div class="d-flex align-items-center">
+                                                <i class="fa fa-circle me-2" style="font-size: 6px; color: #6c757d;"/>
+                                                <span class="small">Garage Attached</span>
+                                            </div>
+                                            <div class="d-flex align-items-center">
+                                                <i class="fa fa-circle me-2" style="font-size: 6px; color: #6c757d;"/>
+                                                <span class="small">Front yard</span>
+                                            </div>
+                                            <div class="d-flex align-items-center">
+                                                <i class="fa fa-circle me-2" style="font-size: 6px; color: #6c757d;"/>
+                                                <span class="small">Swimming Pool</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Interior Details -->
+                                    <div class="col-md-6">
+                                        <h6 class="fw-medium mb-3">Interior Details</h6>
+                                        <div class="d-flex flex-column gap-2">
+                                            <div class="d-flex align-items-center">
+                                                <i class="fa fa-circle me-2" style="font-size: 6px; color: #6c757d;"/>
+                                                <span class="small">Equipped Kitchen</span>
+                                            </div>
+                                            <div class="d-flex align-items-center">
+                                                <i class="fa fa-circle me-2" style="font-size: 6px; color: #6c757d;"/>
+                                                <span class="small">Gym</span>
+                                            </div>
+                                            <div class="d-flex align-items-center">
+                                                <i class="fa fa-circle me-2" style="font-size: 6px; color: #6c757d;"/>
+                                                <span class="small">Laundry</span>
+                                            </div>
+                                            <div class="d-flex align-items-center">
+                                                <i class="fa fa-circle me-2" style="font-size: 6px; color: #6c757d;"/>
+                                                <span class="small">Media Room</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Column - Agent Contact -->
+                        <div class="col-lg-4">
+                            <div class="sticky-top" style="top: 20px;">
+                                <div t-if="property.agent_id" class="card border-0 shadow-sm">
+                                    <div class="card-body p-4">
+                                        <!-- Agent Info -->
+                                        <div class="d-flex align-items-center mb-4">
+                                            <img t-if="property.agent_id.image_128"
+                                                 t-att-src="image_data_uri(property.agent_id.image_128)"
+                                                 class="rounded-circle me-3"
+                                                 style="width: 60px; height: 60px; object-fit: cover;"
+                                                 t-att-alt="property.agent_id.name"/>
+                                            <div>
+                                                <h6 class="fw-bold mb-1" t-out="property.agent_id.name"/>
+                                                <p class="text-muted small mb-0" t-out="property.agent_id.phone"/>
+                                            </div>
+                                        </div>
+
+                                        <!-- Action Buttons -->
+                                        <div class="d-grid gap-3">
+                                            <button class="btn btn-dark py-3 fw-medium">
+                                                <i class="fa fa-calendar me-2"/>Schedule a Tour
+                                            </button>
+                                            <a t-attf-href="/property/#{slug(property)}/contact" class="btn btn-outline-dark py-3 fw-medium">
+                                                <i class="fa fa-phone me-2"/>Contact an Agent
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="property_contact" name="Property Details">
+        <t t-call="website.layout">
+            <div id="wrap" class="o_wproperty_detail">
+                <t t-set="property" t-value="property"/>
+
+                <!-- Property Images Section -->
+                <div class="container py-4">
+                    <div class="row g-2">
+                        <!-- Main Image -->
+                        <div class="col-lg-8">
+                            <div class="position-relative">
+                                <t t-if="property.image_1920">
+                                    <img t-att-src="image_data_uri(property.image_1920)"
+                                         t-att-alt="property.name"
+                                         class="img-fluid w-100 rounded-3"
+                                         style="height: 500px; object-fit: cover;"/>
+                                </t>
+                                <t t-else="">
+                                    <div class="d-flex align-items-center justify-content-center bg-light rounded-3"
+                                         style="height: 500px;">
+                                        <div class="text-center text-muted">
+                                            <i class="fa fa-image fa-4x mb-3"/>
+                                            <p>No image available</p>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+
+                        <!-- Thumbnail Images Grid -->
+                        <div class="col-lg-4">
+                            <div t-if="property.property_image_ids" class="row g-2 h-100">
+                                <t t-foreach="property.property_image_ids[:4]" t-as="img">
+                                    <div class="col-6">
+                                        <div class="position-relative h-100">
+                                            <img t-att-src="image_data_uri(img.image_1024)"
+                                                 t-att-alt="img.name"
+                                                 class="img-fluid w-100 rounded-3 h-100"
+                                                 style="object-fit: cover; min-height: 120px;"/>
+
+                                            <!-- Show All overlay on last image -->
+                                            <div t-if="img_index == 3 and len(property.property_image_ids) > 4"
+                                                 class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center bg-dark bg-opacity-75 text-white rounded-3">
+                                                <span class="fw-bold">Show All</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </t>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property Information -->
+                <div class="container py-4">
+                    <div class="row">
+                        <!-- Left Column - Property Details -->
+                        <div class="col-lg-8">
+                            <div class="row g-4 mb-5 py-3 border-top">
+                                <t t-call="website_property_mgmt.property_contact_form"/>
+                            </div>
+                        </div>
+
+                        <!-- Right Column - Agent Contact -->
+                        <div class="col-lg-4">
+                            <div class="sticky-top" style="top: 20px;">
+                                <div t-if="property.agent_id" class="card border-0 shadow-sm">
+                                    <div class="card-body p-4">
+                                        <!-- Agent Info -->
+                                        <div class="d-flex align-items-center mb-4">
+                                            <img t-if="property.agent_id.image_128"
+                                                 t-att-src="image_data_uri(property.agent_id.image_128)"
+                                                 class="rounded-circle me-3"
+                                                 style="width: 60px; height: 60px; object-fit: cover;"
+                                                 t-att-alt="property.agent_id.name"/>
+                                            <div>
+                                                <h6 class="fw-bold mb-1" t-out="property.agent_id.name"/>
+                                                <p class="text-muted small mb-0" t-out="property.agent_id.phone"/>
+                                            </div>
+                                        </div>
+
+                                        <!-- Action Buttons -->
+                                        <div class="d-grid gap-3">
+                                            <button class="btn btn-dark py-3 fw-medium">
+                                                <i class="fa fa-calendar me-2"/>Schedule a Tour
+                                            </button>
+                                            <button class="btn btn-outline-dark py-3 fw-medium">
+                                                <i class="fa fa-phone me-2"/>Contact an Agent
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+
+    <template id="property_contact_form" name="Property Contact Form">
+        <section class=" pt5 pb40 o_colored_level" data-snippet="s_text_block">
+            <span class="hidden" data-for="contactus_form" t-att-data-values="{'property_id': property and property.id or ''}" />
+            <div class="container s_allow_columns">
+                <div class="row">
+                    <div class="col-lg-12 mt-lg-0">
+                        <section class="s_website_form" data-vcss="001" data-snippet="s_website_form">
+                            <div class="container">
+                                <form id="contactus_form" action="/website/form/" method="post" enctype="multipart/form-data" class="o_mark_required" data-mark="*" data-model_name="crm.lead" data-success-mode="redirect" data-success-page="/property-thank-you" data-pre-fill="true">
+                                    <div class="s_website_form_rows row s_col_no_bgcolor">
+                                        <input id="contact0" type="text" class="form-control s_website_form_input hidden" name="property_id" t-att-value="property.id" data-fill-with="property_id" style="display:none;"/>
+
+                                        <div class="mb-3 col-lg-6 s_website_form_field s_website_form_custom s_website_form_required" data-type="char" data-name="Field">
+                                            <label class="s_website_form_label" style="width: 200px" for="contact1">
+                                                <span class="s_website_form_label_content">Name</span>
+                                                <span class="s_website_form_mark"> *</span>
+                                            </label>
+                                            <input id="contact1" type="text" class="form-control s_website_form_input" name="name" required="" data-fill-with="name"/>
+                                        </div>
+                                        <div class="mb-3 col-lg-6 s_website_form_field s_website_form_custom" data-type="char" data-name="Field">
+                                            <label class="s_website_form_label" style="width: 200px" for="contact2">
+                                                <span class="s_website_form_label_content">Phone Number</span>
+                                            </label>
+                                            <input id="contact2" type="tel" class="form-control s_website_form_input" name="phone" data-fill-with="phone"/>
+                                        </div>
+                                        <div class="mb-3 col-lg-6 s_website_form_field s_website_form_required s_website_form_model_required" data-type="email" data-name="Field">
+                                            <label class="s_website_form_label" style="width: 200px" for="contact3">
+                                                <span class="s_website_form_label_content">Email</span>
+                                                <span class="s_website_form_mark"> *</span>
+                                            </label>
+                                            <input id="contact3" type="email" class="form-control s_website_form_input" name="email_from" required="" data-fill-with="email"/>
+                                        </div>
+                                        <div class="mb-3 col-lg-6 s_website_form_field s_website_form_custom" data-type="char" data-name="Field">
+                                            <label class="s_website_form_label" style="width: 200px" for="contact4">
+                                                <span class="s_website_form_label_content">Company</span>
+                                            </label>
+                                            <input id="contact4" type="text" class="form-control s_website_form_input" name="company" data-fill-with="commercial_company_name"/>
+                                        </div>
+                                        <div class="mb-3 col-12 s_website_form_field s_website_form_required s_website_form_model_required" data-type="char" data-name="Field">
+                                            <label class="s_website_form_label" style="width: 200px" for="contact5">
+                                                <span class="s_website_form_label_content">Subject</span>
+                                                <span class="s_website_form_mark"> *</span>
+                                            </label>
+                                            <input id="contact5" type="text" class="form-control s_website_form_input" name="subject" required=""/>
+                                        </div>
+                                        <div class="mb-3 col-12 s_website_form_field s_website_form_custom s_website_form_required" data-type="text" data-name="Field">
+                                            <label class="s_website_form_label" style="width: 200px" for="contact6">
+                                                <span class="s_website_form_label_content">Question</span>
+                                                <span class="s_website_form_mark"> *</span>
+                                            </label>
+                                            <textarea id="contact6" class="form-control s_website_form_input" name="description" required="" rows="8"/>
+                                        </div>
+                                        <div class="mb-3 col-12 s_website_form_field s_website_form_dnone">
+                                            <div class="row s_col_no_resize s_col_no_bgcolor">
+                                                <label class="col-form-label col-sm-auto s_website_form_label" style="width: 200px" for="contact7">
+                                                    <span class="s_website_form_label_content">Email To</span>
+                                                </label>
+                                                <div class="col-sm">
+                                                    <input id="contact7" type="hidden" class="form-control s_website_form_input" name="email_to"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mb-0 py-2 col-12 s_website_form_submit s_website_form_no_submit_label text-end" data-name="Submit Button">
+                                            <div style="width: 200px;" class="s_website_form_label"/>
+                                            <a href="#" role="button" class="btn btn-primary s_website_form_send">Submit</a>
+                                            <span id="s_website_form_result"></span>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+
+    <!-- Thank You -->
+    <record id="property_thankyou" model="website.page">
+        <field name="url">/property-thank-you</field>
+        <field name="is_published">True</field>
+        <field name="website_indexed" eval="False"/>
+        <field name="name">Thank You</field>
+        <field name="type">qweb</field>
+        <field name="key">website_property_mgmt.property_thankyou</field>
+        <field name="arch" type="xml">
+            <t name="Thank you" t-name="website_property_mgmt.property_thankyou">
+                <t t-call="website.layout">
+                    <div id="wrap" class="oe_structure oe_empty">
+                        <section class="s_text_block pt40 pb40 o_colored_level " data-snippet="s_text_block">
+                            <div class="container s_allow_columns">
+                                <div class="row">
+                                    <div class="col-lg-10 offset-lg-1 text-center">
+                                        <div class="d-inline-block mx-auto p-4">
+                                            <i class="fa fa-paper-plane fa-2x mb-3 rounded-circle text-bg-success" role="presentation"/>
+                                            <h1 class="fw-bolder">Thank You!</h1>
+                                            <p class="lead mb-0">Your message has been sent.</p>
+                                            <p class="lead">We will get back to you shortly.</p>
+                                            <a href="/properties">Go to Properties</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </t>
+            </t>
+        </field>
+    </record>
+</odoo>

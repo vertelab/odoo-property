@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Index -->
+    <template id="index" name="Properties" track="1">
+        <t t-call="website.layout">
+            <t t-set="head">
+                <meta t-if="search_tags" name="robots" content="none"/>
+            </t>
+
+            <div id="wrap" class="o_wproperty_index mt-4">
+                <!-- Options -->
+                <t t-set="opt_properties_list_cards" t-value="is_view_active('website_property_mgmt.opt_properties_list_cards')"/>
+                <t t-set="opt_properties_list_columns" t-value="is_view_active('website_property_mgmt.opt_properties_list_columns')"/>
+
+                <!-- Drag/Drop Area -->
+                <div id="oe_structure_we_index_1" class="oe_structure oe_empty"/>
+
+                <!-- Content -->
+                <div class="o_wproperty_properties_list">
+                    <div class="container">
+                        <div class="row">
+                            <div id="o_wproperty_index_main_col" t-attf-class="col-12 mb-3">
+                                <div class="row g-4 g-lg-3 g-xxl-4">
+                                    <!-- Properties List -->
+                                    <t t-call="website_property_mgmt.properties_list"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Drag/Drop Area -->
+                <div id="oe_structure_we_index_2" class="oe_structure oe_empty"/>
+            </div>
+        </t>
+    </template>
+
+    <!-- Index - Properties list -->
+    <template id="properties_list" name="Properties List">
+        <!-- Options -->
+        <t t-set="opt_properties_list_cards" t-value="True"/>
+        <t t-set="opt_property_size" t-value="'col-md-6 col-lg-4 col-xl-3'"/>
+
+        <!-- No properties -->
+        <div t-if="not property_ids" class="col-12 text-center py-5">
+            <div t-call="website_property_mgmt.property_empty_properties_svg" class="my-4"/>
+            <h3 class="text-muted">No properties available</h3>
+            <p class="text-muted">Check back soon for new listings!</p>
+        </div>
+
+        <!-- Properties List -->
+        <div t-foreach="property_ids" t-as="property" t-attf-class="#{opt_property_size}">
+            <a t-cache="(property) if not editable and property.website_published else None"
+               t-attf-href="/property/#{slug(property)}"
+               class="text-decoration-none text-reset h-100 d-block"
+               t-att-data-publish="property.website_published and 'on' or 'off'">
+
+                <article class="card h-100 shadow-sm border-0 overflow-hidden"
+                         itemscope="itemscope" itemtype="http://schema.org/RealEstate">
+
+                    <!-- Property Image Header -->
+                    <div class="card-img-top position-relative overflow-hidden" style="height: 220px;">
+<!--                        <t t-call="website.record_cover">-->
+<!--                            <t t-set="_record" t-value="property"/>-->
+<!--                            <t t-set="_record_name" t-value="property.display_name"/>-->
+<!--                            <t t-set="additionnal_classes" t-value="'h-100 w-100 object-fit-cover'"/>-->
+<!--                        </t>-->
+
+                        <t t-if="property.image_1920">
+                            <img t-att-src="image_data_uri(property.image_1920)"
+                                 t-att-alt="property.name"
+                                 class="h-100 w-100 object-fit-cover"/>
+                        </t>
+                        <t t-else="">
+                            <!-- Fallback to cover image or placeholder -->
+                            <t t-call="website.record_cover">
+                                <t t-set="_record" t-value="property"/>
+                                <t t-set="_record_name" t-value="property.display_name"/>
+                                <t t-set="additionnal_classes" t-value="'h-100 w-100 object-fit-cover'"/>
+                            </t>
+                        </t>
+
+                        <!-- Property Status Badge -->
+                        <div class="position-absolute top-0 start-0 m-3">
+                            <span t-if="property.state == 'available'"
+                                  class="badge bg-success text-white px-3 py-2 rounded-pill">
+                                Available
+                            </span>
+                            <span t-elif="property.state == 'rented'"
+                                  class="badge bg-warning text-dark px-3 py-2 rounded-pill">
+                                Rented
+                            </span>
+                            <span t-elif="property.state == 'sold'"
+                                  class="badge bg-danger text-white px-3 py-2 rounded-pill">
+                                Sold
+                            </span>
+                        </div>
+
+                        <!-- Property Type Badge -->
+<!--                        <div class="position-absolute top-0 end-0 m-3">-->
+<!--                            <span t-if="property.property_type"-->
+<!--                                  class="badge bg-dark text-white px-3 py-2 rounded-pill">-->
+<!--                                <t t-out="property.property_type"/>-->
+<!--                            </span>-->
+<!--                        </div>-->
+
+                        <!-- Price Badge -->
+<!--                        <div class="position-absolute bottom-0 start-0 m-3">-->
+<!--                            <span t-if="property.rent_price or property.sale_price"-->
+<!--                                  class="badge bg-primary text-white px-3 py-2 rounded-pill fs-6 fw-bold">-->
+<!--                                <t t-if="property.rent_price">-->
+<!--                                    <span t-field="property.rent_price"-->
+<!--                                          t-options="{'widget': 'monetary', 'display_currency': property.currency_id}"/>-->
+<!--                                    /month-->
+<!--                                </t>-->
+<!--                                <t t-elif="property.sale_price">-->
+<!--                                    <span t-field="property.sale_price"-->
+<!--                                          t-options="{'widget': 'monetary', 'display_currency': property.currency_id}"/>-->
+<!--                                </t>-->
+<!--                            </span>-->
+<!--                        </div>-->
+
+                        <!-- Unpublished overlay -->
+                        <div t-if="not property.website_published"
+                             class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center bg-dark bg-opacity-75">
+                            <span class="badge bg-danger text-white px-4 py-3 fs-6">
+                                <i class="fa fa-ban me-2"/>Unpublished
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Card Body -->
+                    <div class="card-body d-flex flex-column">
+                        <!-- Property Tags -->
+<!--                        <div t-if="property.tag_ids" class="mb-2">-->
+<!--                            <t t-foreach="property.tag_ids[:3]" t-as="tag">-->
+<!--                                <span class="badge text-bg-light me-1 mb-1 small">-->
+<!--                                    <t t-out="tag.name"/>-->
+<!--                                </span>-->
+<!--                            </t>-->
+<!--                        </div>-->
+
+                        <!-- Property Title -->
+                        <h5 class="card-title mb-2 fw-bold" itemprop="name">
+                            <span t-field="property.name"
+                                  t-attf-class="#{(not property.website_published) and 'text-danger' or ''}"/>
+                        </h5>
+
+                        <!-- Property Description -->
+<!--                        <p t-if="property.description"-->
+<!--                           class="card-text text-muted small mb-3 flex-grow-1">-->
+<!--                            <t t-out="property.description[:120]"/>-->
+<!--                            <span t-if="len(property.description or '') > 120">...</span>-->
+<!--                        </p>-->
+
+                        <!-- Property Details -->
+                        <div class="mt-auto">
+                            <!-- Location -->
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fa fa-map-marker text-primary me-2" title="Location"/>
+                                <small class="text-muted">
+                                    <span t-if="property.street" t-out="property.street"/>
+                                    <span t-if="property.city">
+                                        <t t-if="property.street">, </t>
+                                        <t t-out="property.city"/>
+                                    </span>
+                                </small>
+                            </div>
+
+                            <!-- Property Features -->
+<!--                            <div class="d-flex align-items-center justify-content-between small text-muted">-->
+<!--                                <div t-if="property.bedrooms or property.bathrooms" class="d-flex gap-3">-->
+<!--                                    <span t-if="property.bedrooms" class="d-flex align-items-center">-->
+<!--                                        <i class="fa fa-bed me-1"/>-->
+<!--                                        <t t-out="int(property.bedrooms)"/> bed<t t-if="property.bedrooms != 1">s</t>-->
+<!--                                    </span>-->
+<!--                                    <span t-if="property.bathrooms" class="d-flex align-items-center">-->
+<!--                                        <i class="fa fa-bath me-1"/>-->
+<!--                                        <t t-out="int(property.bathrooms)"/> bath<t t-if="property.bathrooms != 1">s</t>-->
+<!--                                    </span>-->
+<!--                                </div>-->
+<!--                                <div t-if="property.area" class="d-flex align-items-center">-->
+<!--                                    <i class="fa fa-expand me-1"/>-->
+<!--                                    <t t-out="int(property.area)"/> sq ft-->
+<!--                                </div>-->
+<!--                            </div>-->
+                        </div>
+                    </div>
+
+                    <!-- Card Footer -->
+                    <div class="card-footer bg-light border-0 py-3">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <!-- Agent/Contact -->
+<!--                            <div t-if="property.agent_id" class="d-flex align-items-center">-->
+<!--                                <img t-if="property.agent_id.image_128"-->
+<!--                                     t-att-src="image_data_uri(property.agent_id.image_128)"-->
+<!--                                     class="rounded-circle me-2"-->
+<!--                                     style="width: 24px; height: 24px; object-fit: cover;"-->
+<!--                                     t-att-alt="property.agent_id.name"/>-->
+<!--                                <small class="text-muted" t-out="property.agent_id.name"/>-->
+<!--                            </div>-->
+
+                            <!-- Date Added -->
+                            <small t-if="property.create_date" class="text-muted">
+                                <t t-out="property.create_date" t-options='{"widget": "datetime", "date_only": True, "tz_name": property.create_date, "format": "long"}'/>
+                            </small>
+                        </div>
+                    </div>
+                </article>
+            </a>
+        </div>
+
+        <!-- Pager -->
+        <div class="col-12 d-flex justify-content-center my-4">
+            <t t-call="website.pager"/>
+        </div>
+    </template>
+
+
+
+
+
+
+
+</odoo>

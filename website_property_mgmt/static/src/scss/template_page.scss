@@ -1,0 +1,70 @@
+.o_wproperty_index .card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.o_wproperty_index .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important;
+}
+
+.o_wproperty_index .card-img-top img {
+    transition: transform 0.3s ease;
+}
+
+.o_wproperty_index .card:hover .card-img-top img {
+    transform: scale(1.05);
+}
+
+.o_wproperty_index .badge {
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .o_wproperty_index .card-img-top {
+        height: 180px !important;
+    }
+}
+
+.o_wproperty_detail {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.card {
+    border-radius: 12px !important;
+}
+
+.rounded-3 {
+    border-radius: 12px !important;
+}
+
+.btn {
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.btn-dark {
+    background-color: #1a1a1a;
+    border-color: #1a1a1a;
+}
+
+.btn-outline-dark {
+    border-color: #1a1a1a;
+    color: #1a1a1a;
+}
+
+.display-6 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+@media (max-width: 768px) {
+    .display-6 {
+        font-size: 1.75rem;
+    }
+
+    .container-fluid {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+}

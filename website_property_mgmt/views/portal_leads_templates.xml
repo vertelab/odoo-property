@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="portal_my_home" inherit_id="portal.portal_my_home">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="url">/my/leads</t>
+                <t t-set="title">My Applications</t>
+                <t t-set="icon" t-value="'/sale/static/src/img/bag.svg'"/>
+                <t t-set="text">Follow, view or create your leads</t>
+                <t t-set="config_card" t-value="True"/>
+            </t>
+        </xpath>
+
+    </template>
+    <!-- adding breadcrumbs -->
+    <template id="portal_breadcrumbs" inherit_id="portal.portal_breadcrumbs">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <li t-if="page_name=='leads'"
+                class="breadcrumb-item">Leads
+            </li>
+            <li t-if="page_name=='leads_form_view'" class="breadcrumb-item">
+                <a href="/my/leads">Leads</a>
+                <span style="margin-left:5px;">/</span>
+                <span t-esc="lead.name" style="margin-left:5px;"/>
+            </li>
+        </xpath>
+
+    </template>
+
+    <!--    list view-->
+    <template id="portal_my_leads" name="My Leads">
+        <t t-call="portal.portal_layout">
+            <t t-call="portal.portal_table">
+                <t t-set="title">My Leads</t>
+                <t t-if="leads">
+                    <thead>
+                        <tr class="active">
+                            <th class="text-left">Title</th>
+                            <th class="text-left">Assignation Date</th>
+                            <th class="text-left">Sales Person</th>
+                            <th class="text-left">Type</th>
+                            <th class="text-left">Source</th>
+                            <th class="text-left">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="leads" t-as="lead">
+                            <tr>
+                                <td class="text-left">
+                                    <a t-attf-href="/my/lead/#{slug(lead)}">
+                                        <t t-esc="lead.name"/>
+                                    </a>
+                                </td>
+                                <td class="text-left">
+                                    <t t-esc="lead.create_date"/>
+                                </td>
+                                <td class="text-left">
+                                    <t t-esc="lead.user_id.name"/>
+                                </td>
+                                <td class="text-left">
+
+                                    <t t-esc="lead.type.capitalize()"/>
+                                </td>
+                                <td class="text-left">
+                                    <t t-esc="lead.source_id.name"/>
+                                </td>
+                                <td class="text-left">
+                                    <span class="badge rounded-pill text-bg-info">
+                                        <t t-esc="lead.stage_id.name"/>
+                                    </span>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </t>
+                <t t-else="">
+                    <div class="alert alert-warning text-center my-4" role="alert">
+                        <i class="fa fa-exclamation-circle me-2"></i>
+                        No leads found.
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <template id="portal_my_leads_template_form_view" name="Lead Details">
+        <t t-call="portal.portal_layout">
+            <div class="container py-4">
+                <div class="row mt-3 align-items-center">
+                    <div class="col-md-6 col-sm-12 text-start">
+                        <h4 class="h4 fw-normal mb-0 text-primary">
+                            <span t-field="lead.name"/>
+                        </h4>
+                    </div>
+                    <div class="col-md-6 col-sm-12 text-md-end">
+                        <t t-if="lead.order_ids">
+                            <a t-att-href="'/my/orders?lead_id=' + str(lead.id)" class="btn btn-outline-primary">
+                                <i class="fa fa-file"/>
+                                Quotations
+                            </a>
+                        </t>
+                        <span class="badge rounded-pill text-bg-info"
+                              style="padding-left:10px;padding-right:10px;padding-top:5px;padding-bottom:5px;">
+                            <span t-field="lead.stage_id.name"/>
+                        </span>
+                    </div>
+                </div>
+                <hr class="bgc-primary"/>
+                <!-- Contact Information -->
+                <div class="row mb-4">
+                    <t t-if="lead.partner_id.id != request.env.user.partner_id.id">
+                        <div class="col-md-12 col-sm-12 mb-2">
+                            <p class="h6 mb-0 text-primary border-bottom border-primary pb-2 mb-1">
+                                <i class="fa fa-user me-1"/>Contact Information
+                            </p>
+                            <div class="row">
+                                <div class="col-md-3 col-sm-12 c-field" t-if="lead.contact_name">
+                                    <span class="c-label text-muted">Contact</span>
+                                    <br/>
+                                    <span class="c-value" t-field="lead.contact_name"/>
+                                </div>
+                                <div class="col-md-3 col-sm-12 c-field" t-if="lead.phone">
+                                    <span class="c-label text-muted">Phone</span>
+                                    <br/>
+                                    <span class="c-value" t-field="lead.phone"/>
+                                </div>
+                                <div class="col-md-3 col-sm-12 c-field" t-if="lead.email_from">
+                                    <span class="c-label text-muted">Email</span>
+                                    <br/>
+                                    <span class="c-value" t-field="lead.email_from"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+                <!-- Lead Details -->
+                <div class="row mb-4">
+                    <div class="col-md-12 col-sm-12 mb-2">
+                        <p class="h6 mb-0 text-primary border-bottom border-primary pb-2 mb-2">
+                            <i class="fa fa-file me-1" aria-hidden="true"/>Lead Details
+                        </p>
+                        <div class="row">
+                            <div class="col-md-3 col-sm-12 c-field" t-if="lead.create_date">
+                                <span class="c-label text-muted">Created On</span>
+                                <br/>
+                                <span class="c-value" t-field="lead.create_date"/>
+                            </div>
+                            <div class="col-md-3 col-sm-12 c-field" t-if="lead.user_id">
+                                <span class="c-label text-muted">Sales Person</span>
+                                <br/>
+                                <span class="c-value" t-field="lead.user_id.name"/>
+                            </div>
+                            <t t-if="lead.partner_id.id != request.env.user.partner_id.id">
+                                <div class="col-md-3 col-sm-12 c-field" t-if="lead.type">
+                                    <span class="c-label text-muted">Lead Type</span>
+                                    <br/>
+                                    <span class="c-value" t-field="lead.type"/>
+                                </div>
+                            </t>
+                            <div class="col-md-3 col-sm-12 c-field" t-if="lead.source_id">
+                                <span class="c-label text-muted">Source</span>
+                                <br/>
+                                <span class="c-value" t-field="lead.source_id.name"/>
+                            </div>
+                            <div class="col-md-3 col-sm-12 c-field mt-3" t-if="lead.medium_id">
+                                <span class="c-label text-muted">Medium</span>
+                                <br/>
+                                <span class="c-value" t-field="lead.medium_id.name"/>
+                            </div>
+                            <div class="col-md-3 col-sm-12 c-field mt-3" t-if="lead.description">
+                                <span class="c-label text-muted">Description</span>
+                                <br/>
+                                <span class="c-value" t-field="lead.description"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Message History -->
+                <div id="lead_history" class="col-12 col-lg">
+                    <div id="lead_history_log" class="mt-4">
+                        <h2>History</h2>
+                        <t t-call="portal.message_thread">
+                            <t t-set="object" t-value="lead"/>
+                        </t>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+
+</odoo>
