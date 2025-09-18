@@ -18,7 +18,7 @@ msgstr ""
 #. module: property_project
 #: model:ir.model.fields,field_description:property_project.field_project_project__is_property_project
 msgid "Is Property Project"
-msgstr "Is Fastighetsprojekt"
+msgstr "Är ett fastighetsprojekt"
 
 #. module: property_project
 #: model:ir.model.fields,field_description:property_project.field_project_project__is_property_task
@@ -44,7 +44,7 @@ msgstr "Fastighet"
 #. module: property_project
 #: model:ir.model,name:property_project.model_property_property
 msgid "Property Building"
-msgstr "Fastighet"
+msgstr "Fastighetsbyggnad"
 
 #. module: property_project
 #. odoo-python
