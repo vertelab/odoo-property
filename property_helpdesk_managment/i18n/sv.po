@@ -1,0 +1,68 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* property_helpdesk_managment
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0-20250911\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-18 12:55+0000\n"
+"PO-Revision-Date: 2025-09-18 12:55+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: property_helpdesk_managment
+#: model_terms:ir.ui.view,arch_db:property_helpdesk_managment.ticket_view_form
+msgid "Create Maintenance Request"
+msgstr "Skapa underhållsbegäran"
+
+#. module: property_helpdesk_managment
+#: model_terms:ir.ui.view,arch_db:property_helpdesk_managment.helpdesk_ticket_view_search
+msgid "Equipment"
+msgstr "Utrustning"
+
+#. module: property_helpdesk_managment
+#: model:ir.model,name:property_helpdesk_managment.model_helpdesk_ticket
+#: model:ir.model.fields,field_description:property_helpdesk_managment.field_maintenance_request__helpdesk_ticket_id
+msgid "Helpdesk Ticket"
+msgstr "Helpdesk-ärende"
+
+#. module: property_helpdesk_managment
+#. odoo-python
+#: code:addons/property_helpdesk_managment/models/property.py:0
+msgid "Helpdesk Tickets"
+msgstr "Helpdesk-biljetter"
+
+#. module: property_helpdesk_managment
+#: model:ir.model.fields,field_description:property_helpdesk_managment.field_helpdesk_ticket__maintenance_equipment_id
+msgid "Maintenance Equipment"
+msgstr "Utrustning för underhåll"
+
+#. module: property_helpdesk_managment
+#: model:ir.model,name:property_helpdesk_managment.model_maintenance_request
+#: model:ir.model.fields,field_description:property_helpdesk_managment.field_helpdesk_ticket__maintenance_request_id
+msgid "Maintenance Request"
+msgstr "Underhållsbegäran"
+
+#. module: property_helpdesk_managment
+#: model:ir.model.fields,field_description:property_helpdesk_managment.field_helpdesk_ticket__maintenance_team_id
+#: model_terms:ir.ui.view,arch_db:property_helpdesk_managment.helpdesk_ticket_view_search
+msgid "Maintenance Team"
+msgstr "Underhållsteam"
+
+#. module: property_helpdesk_managment
+#. odoo-python
+#: code:addons/property_helpdesk_managment/models/helpdesk.py:0
+msgid ""
+"Please set a maintenance team before escalating to a maintenance request"
+msgstr "Ange ett underhållsteam innan du eskalerar till en underhållsbegäran"
+
+#. module: property_helpdesk_managment
+#. odoo-python
+#: code:addons/property_helpdesk_managment/models/helpdesk.py:0
+msgid "Please set an equipment before escalating to a maintenance request"
+msgstr "Vänligen ställ in en utrustning innan du eskalerar till en underhållsbegäran"
