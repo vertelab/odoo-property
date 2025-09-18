@@ -31,7 +31,7 @@ msgstr "Förvärvsdatum"
 #. module: property_mgmt
 #: model_terms:ir.ui.view,arch_db:property_mgmt.property_property_form_view
 msgid "Address"
-msgstr ""
+msgstr "Adress"
 
 #. module: property_mgmt
 #: model:ir.model.fields.selection,name:property_mgmt.selection__property_stakeholder__partner_status__agent
@@ -246,7 +246,7 @@ msgstr "Fastighetshistorik"
 #: model:ir.module.category,name:property_mgmt.parent_category_property_management
 #: model:ir.ui.menu,name:property_mgmt.property_parent_menu
 msgid "Property Management"
-msgstr "Fastigheter"
+msgstr "Fastighetsförvaltning"
 
 #. module: property_mgmt
 #: model:ir.model.fields.selection,name:property_mgmt.selection__property_stakeholder__partner_status__property_manager
@@ -276,7 +276,7 @@ msgstr "Fastighetsstatus"
 #. module: property_mgmt
 #: model:res.groups,comment:property_mgmt.group_property_management_user
 msgid "Property User"
-msgstr ""
+msgstr "Fastighetsbrukare"
 
 #. module: property_mgmt
 #: model:ir.model.fields,field_description:property_mgmt.field_property_property__stakeholder_ids
@@ -305,7 +305,7 @@ msgstr "Roll"
 #: model:ir.model.fields,field_description:property_mgmt.field_property_property__street
 #: model:ir.model.fields,field_description:property_mgmt.field_property_stakeholder__street
 msgid "Street"
-msgstr "Adress a"
+msgstr "Adress 1"
 
 #. module: property_mgmt
 #: model_terms:ir.ui.view,arch_db:property_mgmt.property_property_form_view
