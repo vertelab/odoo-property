@@ -80,12 +80,6 @@
                             <field name="description"/>
                         </group>
                     </page>
-
-
-                </xpath>
-
-                <xpath expr="//sheet" position="after">
-                    <chatter/>
                 </xpath>
             </field>
         </record>
