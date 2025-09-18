@@ -105,8 +105,8 @@
                                         <field name="partner_id"/>
                                         <field name="partner_status"/>
                                         <field name="stakeholder_tax_unit"/>
-                                        <field name="owner_numerator"/>
-                                        <field name="owner_denominator"/>
+                                        <field name="owner_numerator" invisible="1"/>
+                                        <field name="owner_denominator" invisible="1"/>
                                         <field name="percentage"/>
                                     </list>
                                 </field>
