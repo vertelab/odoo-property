@@ -55,19 +55,8 @@ class PropertyStakeHolder(models.Model):
     property_state = fields.Selection(string="State",
                                       related='property_id.state')
 
-    owner_numerator = fields.Integer(string="Numerator")
-    owner_denominator = fields.Integer(string="Denominator")
     stakeholder_tax_unit = fields.Char(string="Tax Unit")
-
-    @api.depends('owner_numerator', 'owner_denominator')
-    def _set_percentage(self):
-        for rec in self:
-            if rec.owner_numerator and rec.owner_denominator:
-                rec.percentage = math.ceil((rec.owner_numerator/rec.owner_denominator) * 100)
-            else:
-                rec.percentage = 0
-
-    percentage = fields.Integer(string="Percentage(%)", compute=_set_percentage)
+    percentage = fields.Integer(string="Percentage(%)",)
 
 
 class PropertyDesignation(models.Model):

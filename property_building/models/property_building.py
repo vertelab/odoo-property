@@ -23,6 +23,8 @@ class PropertyContractWizard(models.TransientModel):
         string="Product title",
         required=True,
     )
+    cost_per_recurrance = fields.Float()
+
 
     def _get_product_title(self):
         _logger.warning("GOT PRODUCT TITLE")
