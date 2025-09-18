@@ -76,7 +76,7 @@
                         <field name="image_1920" widget="image" class="oe_avatar"/>
                         <div class="oe_title">
                             <h1>
-                                <field default_focus="1" name="name" placeholder="Description" required="1"/>
+                                <field default_focus="1" name="name" placeholder="Property Designation" required="1"/>
                             </h1>
                         </div>
                         <group>
@@ -85,9 +85,12 @@
                                 <div class="o_address_format">
                                     <field class="o_address_street" name="street" placeholder="Street..."/>
                                     <field class="o_address_street" name="street2" placeholder="Street 2..."/>
-                                    <field class="o_address_city" name="city" placeholder="City"/>
-                                    <field class="o_address_state" context="{'country_id': country_id, 'default_country_id': country_id, 'zip': zip}" name="state_id" options="{'no_open': True, 'no_quick_create': True}" placeholder="State"/>
                                     <field class="o_address_zip" name="zip" placeholder="ZIP"/>
+                                    <field class="o_address_city" name="city" placeholder="City"/>
+<!--
+                                    <field class="o_address_state" context="{'country_id': country_id, 'default_country_id': country_id, 'zip': zip}" name="state_id" options="{'no_open': True, 'no_quick_create': True}" placeholder="State"/>
+-->
+                                  
                                     <field class="o_address_country" name="country_id" options='{"no_open": True, "no_create": True}' placeholder="Country"/>
                                 </div>
                                 <field name="acquired_date"/>
@@ -99,16 +102,15 @@
                             </group>
                         </group>
                         <notebook colspan="4">
+                            <page string="Description" id="desc">
+                                <field name="description" />
+                            </page>
                             <page name="property_stakeholders" string="Stakeholders">
                                 <field name="stakeholder_ids">
                                     <list editable="bottom">
                                         <field name="partner_id"/>
                                         <field name="partner_status"/>
                                         <field name="stakeholder_tax_unit"/>
-<!--
-                                        <field name="owner_numerator"/>
-                                        <field name="owner_denominator"/>
--->
                                         <field name="percentage"/>
                                     </list>
                                 </field>

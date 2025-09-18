@@ -12,9 +12,11 @@
                                 <field name="partner_id"/>
                                 <field name="partner_status"/>
                                 <field name="property_state"/>
-                                <field name="owner_numerator"/>
-                                <field name="owner_denominator"/>
-                                <field name="percentage"/>
+<!-- 
+                               <field name="owner_numerator" invisible="1"/>
+                                <field name="owner_denominator" invisible="1"/>
+--> 
+                               <field name="percentage"/>
                             </list>
                         </field>
                     </page>
