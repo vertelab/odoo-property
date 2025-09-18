@@ -596,7 +596,7 @@ msgstr "Fastighetsbyggnad"
 #. module: website_property_mgmt
 #: model_terms:ir.ui.view,arch_db:website_property_mgmt.property_details
 msgid "Property Description"
-msgstr "Beskrivning av fastigheten"
+msgstr "Fastighetsbeskrivning"
 
 #. module: website_property_mgmt
 #: model:ir.model.fields,field_description:website_property_mgmt.field_property_image__image_1024
@@ -613,13 +613,13 @@ msgstr "Fastighetsbilder"
 #. module: website_property_mgmt
 #: model:ir.model,name:website_property_mgmt.model_property_tag
 msgid "Property Tag"
-msgstr "Fastighetsbeteckning"
+msgstr "Fastighetstagg"
 
 #. module: website_property_mgmt
 #: model:ir.model.fields,field_description:website_property_mgmt.field_property_property__tag_ids
 #: model:ir.model.fields,field_description:website_property_mgmt.field_property_stakeholder__tag_ids
 msgid "Property Tags"
-msgstr "Fastighetsbeteckningar"
+msgstr "Fastighetstaggar"
 
 #. module: website_property_mgmt
 #: model:ir.model.fields.selection,name:website_property_mgmt.selection__property_property__website_visibility__public
