@@ -44,7 +44,6 @@ class PropertyProperty(models.Model):
     area = fields.Float(string="Area")
     tag_ids = fields.Many2many(
         "property.tag", string="Property Tags", help="Tags for the property")
-    agent_id = fields.Many2one("res.partner", string="Agent")
 
     @api.depends('stakeholder_ids')
     def _compute_agent_stakeholder(self):
