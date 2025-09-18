@@ -12,7 +12,7 @@
                 <field name="property_status" position="after">
                     <field name="price"/>
                     <field name="currency_id" invisible="1"/>
-                    <field name="agent_id"/>
+                    <field name="agent_stakeholder_id" invisible="1"/>
                 </field>
 
                 <xpath expr="//sheet/div[@name='button_box']" position="inside">

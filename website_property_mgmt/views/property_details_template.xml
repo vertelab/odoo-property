@@ -189,18 +189,18 @@
                         <!-- Right Column - Agent Contact -->
                         <div class="col-lg-4">
                             <div class="sticky-top" style="top: 20px;">
-                                <div t-if="property.agent_id" class="card border-0 shadow-sm">
+                                <div t-if="property.agent_stakeholder_id" class="card border-0 shadow-sm">
                                     <div class="card-body p-4">
                                         <!-- Agent Info -->
                                         <div class="d-flex align-items-center mb-4">
-                                            <img t-if="property.agent_id.image_128"
-                                                 t-att-src="image_data_uri(property.agent_id.image_128)"
+                                            <img t-if="property.agent_stakeholder_id.image_128"
+                                                 t-att-src="image_data_uri(property.agent_stakeholder_id.image_128)"
                                                  class="rounded-circle me-3"
                                                  style="width: 60px; height: 60px; object-fit: cover;"
-                                                 t-att-alt="property.agent_id.name"/>
+                                                 t-att-alt="property.agent_stakeholder_id.name"/>
                                             <div>
-                                                <h6 class="fw-bold mb-1" t-out="property.agent_id.name"/>
-                                                <p class="text-muted small mb-0" t-out="property.agent_id.phone"/>
+                                                <h6 class="fw-bold mb-1" t-out="property.agent_stakeholder_id.name"/>
+                                                <p class="text-muted small mb-0" t-out="property.agent_stakeholder_id.phone"/>
                                             </div>
                                         </div>
 
