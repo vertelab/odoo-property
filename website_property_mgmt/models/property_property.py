@@ -7,8 +7,6 @@ class PropertyProperty(models.Model):
     _name = 'property.property'
     _inherit = [
         'property.property',
-        'mail.thread',
-        'mail.activity.mixin',
         'website.seo.metadata',
         'website.published.multi.mixin',
         'website.cover_properties.mixin',

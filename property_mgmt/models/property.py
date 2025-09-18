@@ -4,6 +4,10 @@ import math
 
 class PropertyProperty(models.Model):
     _name = 'property.property'
+    _inherit = [
+        'mail.thread',
+        'mail.activity.mixin',
+    ]
     _description = "Property"
 
     name = fields.Char(string="Description")
