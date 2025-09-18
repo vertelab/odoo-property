@@ -206,9 +206,6 @@
 
                                         <!-- Action Buttons -->
                                         <div class="d-grid gap-3">
-                                            <button class="btn btn-dark py-3 fw-medium">
-                                                <i class="fa fa-calendar me-2"/>Schedule a Tour
-                                            </button>
                                             <a t-attf-href="/property/#{slug(property)}/contact" class="btn btn-outline-dark py-3 fw-medium">
                                                 <i class="fa fa-phone me-2"/>Contact an Agent
                                             </a>
