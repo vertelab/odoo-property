@@ -13,6 +13,7 @@ class PropertyProperty(models.Model):
         'website.searchable.mixin',
     ]
 
+    #TODO: Dangerous dependense on website_event do we need that?
     def _default_cover_properties(self):
         res = super()._default_cover_properties()
         res.update({
@@ -31,53 +32,23 @@ class PropertyProperty(models.Model):
         help="""Defines the Visibility of the Event on the Website and searches.\n
             Note that the Event is however always available via its link.""")
     website_published = fields.Boolean(tracking=True)
-
     property_image_ids = fields.One2many("property.image", "property_id", string="Property Images")
-    description = fields.Text(string="Description")
-    bedrooms = fields.Integer(
-        string="Bedrooms", help="Number of bedrooms in the property")
-    bathrooms = fields.Integer(
-        string="Bathrooms", help="Number of bathrooms in the property")
-    parking = fields.Integer(
-        string="Parking",
-        help="Number of cars or bikes that can be parked " "in the property", )
-    area = fields.Float(string="Area")
-    tag_ids = fields.Many2many(
-        "property.tag", string="Property Tags", help="Tags for the property")
-    agent_id = fields.Many2one("res.partner")
-    
+
     @api.depends('stakeholder_ids')
     def _compute_agent_stakeholder(self):
         for rec in self:
             if rec.stakeholder_ids:
-                rec.agent_stakeholder_id = rec.stakeholder_ids.filtered(
-                    lambda stakeholder: stakeholder.partner_status == 'agent'
-                )[0].partner_id.id
+                agent_stakeholder = rec.stakeholder_ids.filtered(
+                    lambda stakeholder: stakeholder.partner_status == 'agent' and stakeholder.id
+                )
+                if agent_stakeholder:
+                    rec.agent_stakeholder_id = agent_stakeholder[0].partner_id.id
+                else:
+                    rec.agent_stakeholder_id = False
             else:
                 rec.agent_stakeholder_id = False
 
-    agent_stakeholder_id = fields.Many2one("res.partner", string="Agent", compute=_compute_agent_stakeholder)
-
-    property_type = fields.Selection(
-        [
-            ("land", "Land"),
-            ("residential", "Residential"),
-            ("commercial", "Commercial"),
-            ("industry", "Industry"),
-        ],
-        string="Type",
-        required=True,
-        help="The type of the property")
-    price = fields.Float(string="Price")
-    company_id = fields.Many2one(
-        'res.company',
-        string='Company',
-        default=lambda self: self.env.company,
-    )
-    currency_id = fields.Many2one(
-        related="company_id.currency_id",
-        string="Currency",
-    )
+    agent_stakeholder_id = fields.Many2one("res.partner", string="Agent", compute=_compute_agent_stakeholder, store=True)
 
     @api.depends_context('uid')
     @api.depends('website_visibility')
@@ -93,6 +64,7 @@ class PropertyProperty(models.Model):
             else:
                 event.is_visible_on_website = False
 
+    #TODO: Looks wrong
     @api.model
     def _search_is_visible_on_website(self, operator, value):
         if operator not in ['=', '!=']:

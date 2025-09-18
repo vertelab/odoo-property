@@ -48,23 +48,85 @@
         <field name="municipality_id" />
         <field name="property_state_id" />
         <field name="district" />
-        <field name="project_number" />
+        <field name="object_id" />
         <field name="area_type" />
         <field invisible="1" name="compute_field" />
       </field>
       <notebook position="inside">
-        <page invisible="area_type == 'other'" name="extra_data" string="Extra Data">
+          
+          
+        <page invisible="area_type != 'office']" id="office" string="Office">
           <group>
-            <field invisible="area_type == 'other'" name="operating_cost" />
-            <field invisible="area_type == 'other'" name="floor" />
-            <field invisible="area_type != 'office'" name="employees" />
-            <field invisible="area_type != 'office'" name="workplaces" />
-            <field invisible="area_type == 'other'" name="access_codes" />
-            <field invisible="area_type == 'other'" name="parking_spaces" />
-            <field invisible="area_type == 'other'" name="garage_spaces" />
-            <field invisible="area_type == 'other'" name="charging_posts" />
+            <field name="operating_cost" />
+            <field name="access_codes" />
+            <field name="bathrooms" />
+            <field name="charging_posts" />
+            <field name="employees" />
+            <field name="floor" />
+            <field name="garage_spaces" />
+            <field name="kitchens" />
+            <field name="parking_spaces" />
+            <field name="workplaces" />
           </group>
         </page>
+        
+
+        <page invisible="area_type not in ['apartment','residential']" id="appartment" string="Appartment/residential">
+          <group>
+            <field name="operating_cost" />
+            <field name="price" />
+                                <field name="currency_id" invisible="1"/>
+
+            <field name="access_codes" />
+            <field name="bathrooms" />
+            <field name="charging_posts" />
+            <field name="floor" />
+            <field name="garage_spaces" />
+            <field name="kitchens" />
+            <field name="parking_spaces" />
+            <field name="rooms" />
+          </group>
+        </page>
+        
+        <page invisible="area_type not in ['commercial','industry','public']" id="public" string="Property info">
+          <group>
+            <field name="operating_cost" />
+            <field name="price" />
+            <field name="currency_id" invisible="1"/>
+            <field name="floor" />
+            <field name="rooms" />
+            <field name="bathrooms" />
+            <field name="kitchens" />
+            <field name="access_codes" />
+            <field name="parking_spaces" />
+            <field name="garage_spaces" />
+            <field name="charging_posts" />
+          </group>
+        </page>
+        <page invisible="area_type not in ['garage','parking',]" id="garage" string="Garage/Parking">
+          <group>
+            <field name="operating_cost" />
+            <field name="price" />
+            <field name="currency_id" invisible="1"/>
+            <field name="access_codes" />
+            <field name="parking_spaces" />
+            <field name="garage_spaces" />
+            <field name="charging_posts" />
+          </group>
+        </page>
+        <page invisible="area_type not in ['storage',]" id="storage" string="Storage">
+          <group>
+            <field name="operating_cost" />
+            <field name="price" />
+            <field name="currency_id" invisible="1"/>
+            <field name="access_codes" />
+            <field name="parking_spaces" />
+            <field name="garage_spaces" />
+            <field name="charging_posts" />
+          </group>
+        </page>
+
+
         <page name="contracts" string="Related contracts">
           <button class="oe_edit_only btn btn-primary" name="%(open_link_to_contract_wizard)d" string="Create contract" type="action" />
           <field name="contract_ids" readonly="1" />

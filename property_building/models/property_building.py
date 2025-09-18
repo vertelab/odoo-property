@@ -1,19 +1,15 @@
 import logging
-
 from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
 
 _logger = logging.getLogger(__name__)
 
 
-# TODO: Move these to their own model.
-class PropertyContract(models.Model):
+class Contract(models.Model):
     _inherit = 'contract.contract'
 
-    related_property_id = fields.Many2one("property.property", string="Related property")
+    related_property_id = fields.Many2one(comodel_name="property.property", string="Related property")
 
-
-# TODO: Move these to their own model.
 class PropertyContractWizard(models.TransientModel):
     _name = 'property.contract.wizard'
     _inherit = 'agreement.contract.wizard'
@@ -23,8 +19,6 @@ class PropertyContractWizard(models.TransientModel):
         string="Product title",
         required=True,
     )
-    cost_per_recurrance = fields.Float()
-
 
     cost_per_recurrance = fields.Float()
 
@@ -114,11 +108,10 @@ def _create_uom_if_missing(environment):
 
 
 class PropertyBuilding(models.Model):
-    _description = "Property Building"
     _inherit = 'property.property'
 
-    def __init__(self, *args, **kwargs):
-        super(PropertyBuilding, self).__init__(*args, **kwargs)
+    # ~ def __init__(self, *args, **kwargs):
+        # ~ super(PropertyBuilding, self).__init__(*args, **kwargs)
 
     def _create_uom(self):
         for rec in self:
@@ -128,31 +121,7 @@ class PropertyBuilding(models.Model):
     # TODO: Remove this and move create_uom to instansiation of module instead.
     compute_field = fields.Float(string="Compute field", compute=_create_uom)
 
-    # TODO: Make this calculated from contract_ids.
-    operating_cost = fields.Float(
-        string="Operating Cost",
-        compute="_calculate_operating_cost",
-    )
-
-    access_codes = fields.Text(
-        string="Access code for properties",
-    )
-
-    parking_spaces = fields.Integer(
-        string="Parking spaces",
-        default=0,
-    )
-
-    garage_spaces = fields.Integer(
-        string="Garage spaces",
-        default=0,
-    )
-
-    charging_posts = fields.Integer(
-        string="Charging posts",
-        default=0,
-    )
-
+  
     @api.depends("contract_ids", "contract_ids.contract_line_ids", "contract_ids.recurring_rule_type",
                  "contract_ids.recurring_interval")
     def _calculate_operating_cost(self):
@@ -171,49 +140,16 @@ class PropertyBuilding(models.Model):
                 _logger.error(e)
             record.operating_cost = cost_per_year
 
-    # 3. Lokalens adress
-    municipality_id = fields.Many2one(
-        comodel_name='res.country.municipality',
-        # TODO: Create domain for this that limits municipality depending on the chosen district
-        string='Municipality'
-    )
-
-    property_state_id = fields.Many2one(
-        comodel_name='res.country.state',
-        string='State',
-        # TODO: Extend this to be able to select from non-swedish places (and dont identify via phone_code)...
-        domain=[('country_id.phone_code', '=', '46')],
-    )
-
-    district = fields.Char(
-        string="District",
-    )
-
-    # TODO: make sure this only contains numbers
-    project_number = fields.Char(
-        string="Project (Office) ID",
-    )
-
-    @api.constrains('project_number')
-    def _check_only_contains_numbers(self):
-        if self.project_number and not self.project_number.isdecimal():
-            raise ValidationError(_("Only numbers allowed in Project ID"))
-
-    # TODO: Create region data, enable this and add it to views.
-    # region_id = fields.Many2one(
-    #        comodel_name='res.country.region',
-    #        string="Region",
-    #        )
-
-    # 8. Area
-    area_type = fields.Selection(
-        [
+    area_type = fields.Selection(        [
             ('apartment', 'Apartment'),
-            ('office', 'Office'),
-            ('storage', 'Storage space'),
-            ('mechanic', 'Mechanic'),
-            ('parking', 'Parking'),
+            ('commercial', 'Commercial'),
             ('garage', 'Garage'),
+            ('industry', 'Industry'),
+            ('office', 'Office'),
+            ('parking', 'Parking'),
+            ('public', 'Public Service'),
+            ('residential', 'Residential'),
+            ('storage', 'Storage space'),
             ('other', 'Other'),
         ],
         string="Area Type",
@@ -221,16 +157,25 @@ class PropertyBuilding(models.Model):
         default="other",
     )
 
-    floor = fields.Char(
-        string="Floor",
-    )
+    access_codes = fields.Text(string="Access code for properties",)
+    bathrooms = fields.Integer(string="Bathrooms", help="Number of bathrooms in the property")
+    charging_posts = fields.Integer(string="Charging posts",default=0,)
+    district = fields.Char(string="District",)
+    employees = fields.Integer(string="Employees",)
+    floor = fields.Char(string="Floor",)
+    garage_spaces = fields.Integer(string="Garage spaces",default=0,)
+    kitchens = fields.Integer(string="Kitchen", help="Number of kitchens in the property")    
+    municipality_id = fields.Many2one(comodel_name='res.country.municipality',string='Municipality')
+    object_id = fields.Char(string="Object ID",)
+    operating_cost = fields.Float(string="Operating Cost",compute="_calculate_operating_cost",)
+    parking_spaces = fields.Integer(string="Parking spaces",default=0,)
+    price = fields.Float(string="Price")
+    property_state_id = fields.Many2one(comodel_name='res.country.state',string='State',domain=[('country_id.phone_code', '=', '46')],)
+    rooms = fields.Integer(string="Rooms", help="Number of rooms in the property")    
+    workplaces = fields.Integer(string="Workplaces",)
 
-    contract_ids = fields.One2many(
-        "contract.contract",
-        "related_property_id",
-        string="Related Contracts",
-        required=False,
-    )
+    #TODO: hör denna hit?
+    contract_ids = fields.One2many("contract.contract","related_property_id",string="Related Contracts",required=False,)
 
     def _get_hectare(self):
         _create_uom_if_missing(self.env)
@@ -245,12 +190,5 @@ class PropertyBuilding(models.Model):
 
     # Additional information
 
-    employees = fields.Integer(
-        string="Employees",
-    )
-
-    workplaces = fields.Integer(
-        string="Workplaces",
-    )
 
     # TODO: Set everything to 0 when incorrect area_type

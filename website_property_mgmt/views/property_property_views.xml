@@ -5,13 +5,8 @@
             <field name="model">property.property</field>
             <field name="inherit_id" ref="property_mgmt.property_property_form_view"/>
             <field name="arch" type="xml">
-                <field name="acquired_date" position="after">
-                    <field name="tag_ids" widget="many2many_tags"/>
-                </field>
-
+      
                 <field name="property_status" position="after">
-                    <field name="price"/>
-                    <field name="currency_id" invisible="1"/>
                     <field name="agent_stakeholder_id" invisible="1"/>
                 </field>
 
@@ -63,6 +58,7 @@
                         </field>
                     </page>
 
+<!--
                     <page string="Properties">
                         <group>
                             <group>
@@ -77,6 +73,7 @@
                             <field name="description"/>
                         </group>
                     </page>
+-->
                 </xpath>
             </field>
         </record>

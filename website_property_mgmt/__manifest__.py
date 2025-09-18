@@ -34,7 +34,7 @@
     'contributor': '',
     'maintainer': 'Vertel AB',
     'repository': 'https://github.com/vertelab/odoo-property',
-    'depends': ['website', 'contacts','crm'],
+    'depends': ['website', 'contacts','crm','property_building'],
     'data': [
         'security/ir.model.access.csv',
         'views/templates.xml',

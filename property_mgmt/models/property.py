@@ -14,12 +14,15 @@ class PropertyProperty(models.Model):
     city = fields.Char()
     code = fields.Char(string="Property Code")
     country_id = fields.Many2one('res.country', string='Country', ondelete='restrict')
+    company_id = fields.Many2one(comodel_name='res.company',string='Company',default=lambda self: self.env.company,)
+    currency_id = fields.Many2one(related="company_id.currency_id",string="Currency",)
     created_date = fields.Date(string="Created On", default=fields.Date.context_today)
     description = fields.Text(string='Description')
     image_1920 = fields.Image(string="Image", help="Image of the property", max_width=1920, max_height=1920)
     name = fields.Char(string="Description")
     parent_property_id = fields.Many2one('property.property')
     property_status = fields.Selection([('no_building', 'No Building'), ('has_building', 'Has Building')], default='has_building')
+    tag_ids = fields.Many2many("property.tag", string="Property Tags", help="Tags for the property")
     size = fields.Char(string="Property Size")
     stakeholder_ids = fields.One2many('property.stakeholder', 'property_id', string="Stakeholders", auto_join=True)
     state = fields.Selection([('new', 'New'), ('ok', 'OK'), ('archived', 'Archived')], string="State", default='new')
@@ -55,8 +58,7 @@ class PropertyStakeHolder(models.Model):
 
     stakeholder_tax_unit = fields.Char(string="Tax Unit")
     percentage = fields.Integer(string="Percentage(%)",)
-    owner_numerator = fields.Integer()
-    owner_denominator = fields.Integer()
+
 
 class PropertyDesignation(models.Model):
     _name = 'property.designation'

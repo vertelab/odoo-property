@@ -222,7 +222,7 @@ msgstr "Produkttitel"
 #: model:ir.model.fields,field_description:property_building.field_property_property__project_number
 #: model:ir.model.fields,field_description:property_building.field_property_stakeholder__project_number
 msgid "Project (Office) ID"
-msgstr "Prokejt (Kontors) ID"
+msgstr "Objekt ID"
 
 #. module: property_building
 #: model:ir.model,name:property_building.model_property_property
