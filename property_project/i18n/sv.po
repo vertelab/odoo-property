@@ -1,0 +1,79 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* property_project
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0-20250911\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-18 12:59+0000\n"
+"PO-Revision-Date: 2025-09-18 12:59+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: property_project
+#: model:ir.model.fields,field_description:property_project.field_project_project__is_property_project
+msgid "Is Property Project"
+msgstr "Is Fastighetsprojekt"
+
+#. module: property_project
+#: model:ir.model.fields,field_description:property_project.field_project_project__is_property_task
+msgid "Is Property Task"
+msgstr "Är fastighetsuppgift"
+
+#. module: property_project
+#: model:ir.model,name:property_project.model_project_project
+msgid "Project"
+msgstr "Projekt"
+
+#. module: property_project
+#: model_terms:ir.ui.view,arch_db:property_project.property_property_form_view
+msgid "Projects"
+msgstr "Projekt"
+
+#. module: property_project
+#: model:ir.model.fields,field_description:property_project.field_project_project__property_id
+#: model:ir.model.fields,field_description:property_project.field_project_task__property_id
+msgid "Property"
+msgstr "Fastighet"
+
+#. module: property_project
+#: model:ir.model,name:property_project.model_property_property
+msgid "Property Building"
+msgstr "Fastighet"
+
+#. module: property_project
+#. odoo-python
+#: code:addons/property_project/models/property.py:0
+msgid "Property Projects"
+msgstr "Fastighetsprojekt"
+
+#. module: property_project
+#. odoo-python
+#: code:addons/property_project/models/property.py:0
+msgid "Property Tasks"
+msgstr "Uppgifter om fastigheter"
+
+#. module: property_project
+#: model:ir.model,name:property_project.model_project_task
+msgid "Task"
+msgstr "Aktivitet"
+
+#. module: property_project
+#: model_terms:ir.ui.view,arch_db:property_project.property_property_form_view
+msgid "Tasks"
+msgstr "Uppgifter"
+
+#. module: property_project
+#: model:ir.model.fields,help:property_project.field_project_project__is_property_project
+msgid "This is a project connected to a Property"
+msgstr "Detta är ett projekt som är kopplat till en fastighet"
+
+#. module: property_project
+#: model:ir.model.fields,help:property_project.field_project_project__is_property_task
+msgid "This is a project task connected to a Property"
+msgstr "Detta är en projektuppgift kopplad till en fastighet"
