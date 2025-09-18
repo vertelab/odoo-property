@@ -18,6 +18,7 @@ class PropertyProperty(models.Model):
     property_status = fields.Selection([('no_building', 'No Building'), ('has_building', 'Has Building')],
                                        default='has_building')
     state = fields.Selection([('new', 'New'), ('ok', 'OK'), ('archived', 'Archived')], string="State", default='new')
+    image_1920 = fields.Image(string="Image", help="Image of the property", max_width=1920, max_height=1920)
 
     street = fields.Char()
     street2 = fields.Char()

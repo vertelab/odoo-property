@@ -36,10 +36,9 @@
                     <thead>
                         <tr class="active">
                             <th class="text-left">Title</th>
-                            <th class="text-left">Assignation Date</th>
-                            <th class="text-left">Sales Person</th>
-                            <th class="text-left">Type</th>
-                            <th class="text-left">Source</th>
+                            <th class="text-left">Date</th>
+                            <th class="text-left">Agent</th>
+                            <th class="text-left">Property</th>
                             <th class="text-left">Status</th>
                         </tr>
                     </thead>
@@ -55,14 +54,10 @@
                                     <t t-esc="lead.create_date"/>
                                 </td>
                                 <td class="text-left">
-                                    <t t-esc="lead.user_id.name"/>
+                                    <t t-esc="lead.property_id.agent_id.name"/>
                                 </td>
                                 <td class="text-left">
-
-                                    <t t-esc="lead.type.capitalize()"/>
-                                </td>
-                                <td class="text-left">
-                                    <t t-esc="lead.source_id.name"/>
+                                    <t t-esc="lead.property_id.name"/>
                                 </td>
                                 <td class="text-left">
                                     <span class="badge rounded-pill text-bg-info">

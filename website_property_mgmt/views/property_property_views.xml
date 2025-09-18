@@ -20,9 +20,6 @@
                     <field name="is_published" widget="website_redirect_button"/>
                 </xpath>
 
-                <xpath expr="//sheet/div[hasclass('oe_title')]" position="before">
-                    <field name="image_1920" widget="image" class="oe_avatar"/>
-                </xpath>
                 <xpath expr="//page[last()]" position="after">
                     <page string="Images">
                         <field name="property_image_ids">

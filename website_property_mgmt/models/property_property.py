@@ -32,7 +32,6 @@ class PropertyProperty(models.Model):
             Note that the Event is however always available via its link.""")
     website_published = fields.Boolean(tracking=True)
 
-    image_1920 = fields.Image(string="Image", help="Image of the property", max_width=1920, max_height=1920)
     property_image_ids = fields.One2many("property.image", "property_id", string="Property Images")
     description = fields.Text(string="Description")
     bedrooms = fields.Integer(

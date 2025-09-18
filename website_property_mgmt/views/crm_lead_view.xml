@@ -6,12 +6,40 @@
             <field name="model">crm.lead</field>
             <field name="inherit_id" ref="crm.crm_lead_view_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//group[@name='lead_info']/field[@name='function']" position="after">
+                <xpath expr="//group[@name='opportunity_partner']/field[@name='partner_id']" position="after">
                     <field name="property_id"/>
                 </xpath>
-<!--                <field name="user_id" position="after">-->
-<!--                    <field name="property_id"/>-->
-<!--                </field>-->
+                <xpath expr="//group[@name='lead_partner']/field[@name='partner_id']" position="after">
+                    <field name="property_id"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_crm_case_leads_property_filter" model="ir.ui.view">
+            <field name="name">crm.lead.form.view</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.view_crm_case_leads_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='team_id']" position="after">
+                    <field name="property_id"/>
+                </xpath>
+                <xpath expr="//group/filter[@name='salesperson']" position="after">
+                    <filter string="Properties" name="properties" context="{'group_by':'property_id'}"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_crm_case_opportunities_property_filter" model="ir.ui.view">
+            <field name="name">crm.lead.form.view</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.view_crm_case_opportunities_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='team_id']" position="after">
+                    <field name="property_id"/>
+                </xpath>
+                <xpath expr="//group/filter[@name='salesperson']" position="after">
+                    <filter string="Properties" name="properties" context="{'group_by':'property_id'}"/>
+                </xpath>
             </field>
         </record>
 
