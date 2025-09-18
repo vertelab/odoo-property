@@ -12,39 +12,36 @@
                     <field name="size"/>
                     <field name="state"/>
                     <templates>
-                        <t t-name="kanban-box">
-                            <div t-attf-class="oe_kanban_global_click">
-                                <div class="row mb4">
-                                    <div class="col-6 o_kanban_record_headings">
-                                        <strong>
+                        <t t-name="card" class="flex-row">
+                            <main class="pe-2">
+                                <div class="mb-1">
+                                    <div class="d-flex mb-0 h5">
+                                        <field name="name"/>
+                                    </div>
+
+                                    <div>
+                                        <div class="col-6">
                                             <span>
-                                                <field name="name"/>
+                                                <field name="state_id"/>
                                             </span>
-                                        </strong>
+                                            <span>
+                                                <field name="country_id"/>
+                                            </span>
+                                        </div>
                                     </div>
-                                    <div class="col-6 text-right">
-                                        <strong>
-                                            <i aria-label="Date" class="fa fa-clock-o" role="img" title="Date"/>
-                                            <t t-esc="record.created_date.value"/>
-                                        </strong>
-                                    </div>
+
+                                    <span class="float-right">
+                                        <field name="state" options="{'classes': {'new': 'warning', 'ok': 'success', 'archived': 'danger'}}" widget="label_selection"/>
+                                    </span>
+
+                                    <strong t-if="record.created_date.value &gt; 1">
+                                        <field name="created_date"/>
+                                    </strong>
                                 </div>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <span>
-                                            <field name="state_id"/>
-                                        </span>
-                                        <span>
-                                            <field name="country_id"/>
-                                        </span>
-                                    </div>
-                                    <div class="col-6">
-                                        <span class="float-right">
-                                            <field name="state" options="{'classes': {'new': 'warning', 'ok': 'success', 'archived': 'danger'}}" widget="label_selection"/>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
+                            </main>
+                            <aside>
+                                <field name="image_1920" widget="image" alt="Property" options="{'img_class': 'w-100 object-fit-contain'}" invisible="not image_1920"/>
+                            </aside>
                         </t>
                     </templates>
                 </kanban>
@@ -76,6 +73,7 @@
                     <sheet>
                         <div class="oe_button_box" name="button_box">
                         </div>
+                        <field name="image_1920" widget="image" class="oe_avatar"/>
                         <div class="oe_title">
                             <h1>
                                 <field default_focus="1" name="name" placeholder="Description" required="1"/>
