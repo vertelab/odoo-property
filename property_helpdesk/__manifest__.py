@@ -20,39 +20,25 @@
 ##############################################################################
 
 {
-    'name': 'Property: Mgmt',
-    'version': '18.0.0.0.0',
-    'summary': 'This module is used to show properties on the website.',
+    'name': 'Property Helpdesk',
+    'version': '1.0',
+    'summary': 'This module is used to maintain properties helpdesk tickets.',
     'category': 'Property',
     'description': """
-        This module is used to show properties on the website.
+        This module is used to maintain properties helpdesk tickets.
     """,
     'author': 'Vertel AB',
     'website': 'https://vertel.se/apps/odoo-property/property_mgmt',
-    'images': ['static/description/banner.png'], # 560x280 px.
+    'images': ['static/description/banner.png'],  # 560x280 px.
     'license': 'AGPL-3',
     'contributor': '',
     'maintainer': 'Vertel AB',
     'repository': 'https://github.com/vertelab/odoo-property',
-    'depends': ['website', 'contacts','crm'],
+    'depends': ['property_mgmt', 'helpdesk_mgmt'],
     'data': [
-        'security/ir.model.access.csv',
-        'views/templates.xml',
-        'views/crm_lead_view.xml',
-        'views/property_empty_properties_svg.xml',
-        'views/property_property_views.xml',
-        'views/property_details_template.xml',
-        'views/property_contact_template.xml',
-        'views/portal_leads_templates.xml',
-        'data/ir_model_data.xml',
+        'views/property_view.xml',
+        'views/helpdesk_view.xml',
     ],
-    'assets': {
-        'web.assets_frontend': [
-            'website_property_mgmt/static/src/scss/template_common.scss',
-            'website_property_mgmt/static/src/scss/template_list.scss',
-            'website_property_mgmt/static/src/scss/template_page.scss',
-        ],
-    },
     'application': False,
     'installable': True,
 }
