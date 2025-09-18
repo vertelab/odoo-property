@@ -17,8 +17,8 @@ class PropertyProperty(models.Model):
             'view_mode': 'kanban,list,form',
             # ~ 'views': [(kanban_view_id, 'kanban'), (list_view_id, 'list'), (False, 'form')],
             'domain': [('property_id', '=', self.id)],
-            # ~ 'context': {
-                # ~ 'default_property_id': self.id
-            # ~ }
+            'context': {
+                'default_property_id': self.id
+            }
         }
         

@@ -9,7 +9,7 @@ class PropertyProperty(models.Model):
         'mail.activity.mixin',
     ]
     _description = "Property"
-
+    parent_property_id = fields.Many2one('property.property')
     name = fields.Char(string="Description")
     code = fields.Char(string="Property Code")
     created_date = fields.Date(string="Created On", default=fields.Date.context_today)

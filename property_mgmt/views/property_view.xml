@@ -95,6 +95,7 @@
                                 <field name="acquired_date"/>
                             </group>
                             <group>
+                                <field name="parent_property_id"/>
                                 <field name="property_status"/>
                                 <field name="size"/>
                             </group>
