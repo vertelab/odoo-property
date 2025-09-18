@@ -7,7 +7,6 @@ import ast
 
 class Maintenance(models.Model):
     _inherit = "maintenance.equipment"
-
     property_id = fields.Many2one("property.property", string="Property")
 
 
