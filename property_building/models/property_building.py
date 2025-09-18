@@ -204,6 +204,7 @@ class PropertyBuilding(models.Model):
     # 8. Area
     area_type = fields.Selection(
         [
+            ('apartment', 'Apartment'),
             ('office', 'Office'),
             ('storage', 'Storage space'),
             ('mechanic', 'Mechanic'),
