@@ -9,7 +9,7 @@
                     <field name="tag_ids" widget="many2many_tags"/>
                 </field>
 
-                <field name="size" position="after">
+                <field name="property_status" position="after">
                     <field name="price"/>
                     <field name="currency_id" invisible="1"/>
                     <field name="agent_id"/>
