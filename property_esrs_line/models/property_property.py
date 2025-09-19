@@ -15,12 +15,13 @@ class PropertyProperty(models.Model):
 
     def action_view_esrs_line(self):
         list_view_id = self.env.ref('csrd_esrs_line.view_esrs_line_list').id
+        pivot_view_id = self.env.ref('property_esrs_line.view_esrs_line_property_pivot').id
         return {
             'name': _("Property ESRS Lines"),
             'type': 'ir.actions.act_window',
             'res_model': 'esrs.line',
             'view_mode': 'list,form',
-            'views': [(list_view_id, 'list'), (False, 'form')],
+            'views': [(list_view_id, 'list'), (pivot_view_id, 'pivot'), (False, 'form')],
             'domain': [('property_id', '=', self.id)],
             'context': {
                 'default_property_id': self.id
