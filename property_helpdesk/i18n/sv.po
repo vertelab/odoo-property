@@ -23,13 +23,13 @@ msgstr "Helpdesk"
 #. module: property_helpdesk
 #: model:ir.model,name:property_helpdesk.model_helpdesk_ticket
 msgid "Helpdesk Ticket"
-msgstr "Helpdesk-ärende"
+msgstr "Helpdeskärende"
 
 #. module: property_helpdesk
 #. odoo-python
 #: code:addons/property_helpdesk/models/property.py:0
 msgid "Helpdesk Tickets"
-msgstr "Helpdesk-biljetter"
+msgstr "Helpdeskärenden"
 
 #. module: property_helpdesk
 #: model:ir.model.fields,field_description:property_helpdesk.field_helpdesk_ticket__property_id
