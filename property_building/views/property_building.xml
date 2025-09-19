@@ -50,12 +50,14 @@
         <field name="district" />
         <field name="object_id" />
         <field name="area_type" />
+<!--
         <field invisible="1" name="compute_field" />
+-->
       </field>
       <notebook position="inside">
           
           
-        <page invisible="area_type != 'office']" id="office" string="Office">
+        <page invisible="area_type != 'office'" id="office" string="Office">
           <group>
             <field name="operating_cost" />
             <field name="access_codes" />

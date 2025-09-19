@@ -1,135 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
-        <record id="property_property_kanban_view" model="ir.ui.view">
-            <field name="name">property.property.kanban.view</field>
-            <field name="model">property.property</field>
-            <field name="arch" type="xml">
-                <kanban class="o_kanban_mobile" sample="1">
-                    <field name="name"/>
-                    <field name="created_date"/>
-                    <field name="acquired_date"/>
-                    <field name="size"/>
-                    <field name="state"/>
-                    <templates>
-                        <t t-name="card" class="flex-row">
-                            <main class="pe-2">
-                                <div class="mb-1">
-                                    <div class="d-flex mb-0 h5">
-                                        <field name="name"/>
-                                    </div>
-
-                                    <div>
-                                        <div class="col-6">
-                                            <span>
-                                                <field name="state_id"/>
-                                            </span>
-                                            <span>
-                                                <field name="country_id"/>
-                                            </span>
-                                        </div>
-                                    </div>
-
-                                    <span class="float-right">
-                                        <field name="state" options="{'classes': {'new': 'warning', 'ok': 'success', 'archived': 'danger'}}" widget="label_selection"/>
-                                    </span>
-
-                                    <strong t-if="record.created_date.value &gt; 1">
-                                        <field name="created_date"/>
-                                    </strong>
-                                </div>
-                            </main>
-                            <aside>
-                                <field name="image_1920" widget="image" alt="Property" options="{'img_class': 'w-100 object-fit-contain'}" invisible="not image_1920"/>
-                            </aside>
-                        </t>
-                    </templates>
-                </kanban>
-            </field>
-        </record>
-
-        <record id="property_property_tree_view" model="ir.ui.view">
-            <field name="name">property.property.tree.view</field>
-            <field name="model">property.property</field>
-            <field name="arch" type="xml">
-                <list>
-                    <field name="name"/>
-                    <field name="code"/>
-                    <field name="acquired_date"/>
-                    <field name="state"/>
-                </list>
-            </field>
-        </record>
-
-        <record id="property_property_form_view" model="ir.ui.view">
-            <field name="name">property.property.form.view</field>
-            <field name="model">property.property</field>
-            <field name="arch" type="xml">
-                <form>
-                    <header>
-                        <button class="btn btn-primary" invisible="state not in ['new']" name="approved_property" string="All Checked" type="object"/>
-                        <field name="state" options="{'clickable': '1'}" statusbar_visible="new,ok,archived" widget="statusbar"/>
-                    </header>
-                    <sheet>
-                        <div class="oe_button_box" name="button_box">
-                        </div>
-                        <field name="image_1920" widget="image" class="oe_avatar"/>
-                        <div class="oe_title">
-                            <h1>
-                                <field default_focus="1" name="name" placeholder="Property Designation" required="1"/>
-                            </h1>
-                        </div>
-                        <group>
-                            <group>
-                                <label for="street" string="Address"/>
-                                <div class="o_address_format">
-                                    <field class="o_address_street" name="street" placeholder="Street..."/>
-                                    <field class="o_address_street" name="street2" placeholder="Street 2..."/>
-                                    <field class="o_address_zip" name="zip" placeholder="ZIP"/>
-                                    <field class="o_address_city" name="city" placeholder="City"/>
-<!--
-                                    <field class="o_address_state" context="{'country_id': country_id, 'default_country_id': country_id, 'zip': zip}" name="state_id" options="{'no_open': True, 'no_quick_create': True}" placeholder="State"/>
--->
-                                  
-                                    <field class="o_address_country" name="country_id" options='{"no_open": True, "no_create": True}' placeholder="Country"/>
-                                </div>
-                                <field name="acquired_date"/>
-                                <field name="tag_ids" widget="many2many_tags"/>
-                            </group>
-                            <group>
-                                <field name="parent_property_id"/>
-                                <field name="property_status"/>
-                                <field name="size"/>
-                            </group>
-                        </group>
-                        <notebook colspan="4">
-                            <page string="Description" id="desc">
-                                <field name="description" />
-                            </page>
-                            <page name="property_stakeholders" string="Stakeholders">
-                                <field name="stakeholder_ids">
-                                    <list editable="bottom">
-                                        <field name="partner_id"/>
-                                        <field name="partner_status"/>
-                                        <field name="stakeholder_tax_unit"/>
-                                        <field name="percentage"/>
-                                    </list>
-                                </field>
-                            </page>
-                        </notebook>
-                    </sheet>
-                    <chatter/>
-                </form>
-            </field>
-        </record>
-
-        <record id="action_property_property" model="ir.actions.act_window">
-            <field name="name">Properties</field>
-            <field name="type">ir.actions.act_window</field>
-            <field name="res_model">property.property</field>
-            <field name="view_mode">kanban,list,form</field>
-        </record>
-
-        <menuitem action="property_mgmt.action_property_property" id="property_property_menu" name="Properties" parent="property_mgmt.property_parent_menu" sequence="5"/>
-    </data>
+  <data>
+    <record id="property_property_kanban_view" model="ir.ui.view">
+      <field name="name">property.property.kanban.view</field>
+      <field name="model">property.property</field>
+      <field name="arch" type="xml">
+        <kanban class="o_kanban_mobile" sample="1">
+          <field name="name" />
+          <field name="created_date" />
+          <field name="acquired_date" />
+          <field name="size" />
+          <field name="state" />
+          <templates>
+            <t t-name="card" class="flex-row">
+              <main class="pe-2">
+                <div class="mb-1">
+                  <div class="d-flex mb-0 h5">
+                    <field name="name" />
+                  </div>
+                  <div>
+                    <div class="col-6">
+                      <span>
+                        <field name="state_id" />
+                      </span>
+                      <span>
+                        <field name="country_id" />
+                      </span>
+                    </div>
+                  </div>
+                  <span class="float-right">
+                    <field name="state" options="{'classes': {'new': 'warning', 'ok': 'success', 'archived': 'danger'}}" widget="label_selection" />
+                  </span>
+                  <strong t-if="record.created_date.value &gt; 1">
+                    <field name="created_date" />
+                  </strong>
+                </div>
+              </main>
+              <aside>
+                <field name="image_1920" widget="image" alt="Property" options="{'img_class': 'w-100 object-fit-contain'}" invisible="not image_1920" />
+              </aside>
+            </t>
+          </templates>
+        </kanban>
+      </field>
+    </record>
+    <record id="property_search" model="ir.ui.view">
+      <field name="name">property.search</field>
+      <field name="model">property.property</field>
+      <field name="arch" type="xml">
+        <search string="Search Property">
+          <field name="name" />
+          <field name="state" />
+          <field name="name" />
+          <field name="street" />
+          <field name="street2" />
+          <field name="zip" />
+          <field name="city" />
+          <field name="country_id" />
+          <field name="acquired_date" />
+          <field name="tag_ids" />
+          <field name="parent_property_id" />
+          <field name="property_status" />
+          <field name="size" />
+          <!--
+               <filter string="Favorite" name="favorite" domain="[('is_favorite', '=', True)]" />
+          -->
+          <filter string="Global Company" name="company" domain="[('company_id', '=', False)]" />
+          <group expand="0" string="Group By">
+            <filter string="City" name="city" context="{'group_by': 'city'}" />
+            <filter string="Parent" name="parent_property_id" context="{'group_by': 'parent_property_id'}" />
+            <filter string="Company" name="group_by_company_id" context="{'group_by': 'company_id'}" />
+            <filter string="Zip" name="group_by_company_id" context="{'group_by': 'company_id'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+    <record id="property_property_tree_view" model="ir.ui.view">
+      <field name="name">property.property.tree.view</field>
+      <field name="model">property.property</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="name" />
+          <field name="code" />
+          <field name="acquired_date" />
+          <field name="state" />
+        </list>
+      </field>
+    </record>
+    <record id="property_property_form_view" model="ir.ui.view">
+      <field name="name">property.property.form.view</field>
+      <field name="model">property.property</field>
+      <field name="arch" type="xml">
+        <form>
+          <header>
+            <button class="btn btn-primary" invisible="state not in ['new']" name="approved_property" string="All Checked" type="object" />
+            <field name="state" options="{'clickable': '1'}" statusbar_visible="new,ok,archived" widget="statusbar" />
+          </header>
+          <sheet>
+            <div class="oe_button_box" name="button_box" />
+            <field name="image_1920" widget="image" class="oe_avatar" />
+            <div class="oe_title">
+              <h1>
+                <field default_focus="1" name="name" placeholder="Property Designation" required="1" />
+              </h1>
+            </div>
+            <group>
+              <group>
+                <label for="street" string="Address" />
+                <div class="o_address_format">
+                  <field class="o_address_street" name="street" placeholder="Street..." />
+                  <field class="o_address_street" name="street2" placeholder="Street 2..." />
+                  <field class="o_address_zip" name="zip" placeholder="ZIP" />
+                  <field class="o_address_city" name="city" placeholder="City" />
+                  <!--
+                       <field class="o_address_state" context="{'country_id': country_id, 'default_country_id': country_id, 'zip': zip}" name="state_id" options="{'no_open': True, 'no_quick_create': True}" placeholder="State"/>
+                  -->
+                  <field class="o_address_country" name="country_id" options='{"no_open": True, "no_create": True}' placeholder="Country" />
+                </div>
+                <field name="acquired_date" />
+                <field name="tag_ids" widget="many2many_tags" />
+              </group>
+              <group>
+                <field name="parent_property_id" />
+                <field name="property_status" />
+                <field name="size" />
+              </group>
+            </group>
+            <notebook colspan="4">
+              <page string="Description" id="desc">
+                <field name="description" />
+              </page>
+              <page name="property_stakeholders" string="Stakeholders">
+                <field name="stakeholder_ids">
+                  <list editable="bottom">
+                    <field name="partner_id" />
+                    <field name="partner_status" />
+                    <field name="stakeholder_tax_unit" />
+                    <field name="percentage" />
+                  </list>
+                </field>
+              </page>
+            </notebook>
+          </sheet>
+          <chatter />
+        </form>
+      </field>
+    </record>
+    <record id="action_property_property" model="ir.actions.act_window">
+      <field name="name">Properties</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">property.property</field>
+      <field name="view_mode">kanban,list,form</field>
+    </record>
+    <menuitem action="property_mgmt.action_property_property" id="property_property_menu" name="Properties" parent="property_mgmt.property_parent_menu" sequence="5" />
+  </data>
 </odoo>

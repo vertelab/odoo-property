@@ -82,44 +82,43 @@ def get_period(contract, contract_line):
 
 
 def _create_uom_if_missing(environment):
-    category = environment["uom.category"].sudo().search([('name', '=', AREA)])
-    if not category:
-        category = environment["uom.category"].sudo().create({
-            'name': AREA,
-        })
+    pass
+    # ~ category = environment["uom.category"].sudo().search([('name', '=', AREA)])
+    # ~ if not category:
+        # ~ category = environment["uom.category"].sudo().create({
+            # ~ 'name': AREA,
+        # ~ })
 
-    pre_defined = [
-        {
-            'name': SQUARE_METER,
-            'category_id': category.id,
-            'uom_type': 'reference',
-        },
-        {
-            'name': HECTARE,
-            'category_id': category.id,
-            'uom_type': 'bigger',
-            'factor_inv': 10000,
-        },
-    ]
+    # ~ pre_defined = [
+        # ~ {
+            # ~ 'name': SQUARE_METER,
+            # ~ 'category_id': category.id,
+            # ~ 'uom_type': 'reference',
+        # ~ },
+        # ~ {
+            # ~ 'name': HECTARE,
+            # ~ 'category_id': category.id,
+            # ~ 'uom_type': 'bigger',
+            # ~ 'factor_inv': 10000,
+        # ~ },
+    # ~ ]
 
-    for unit in pre_defined:
-        if not environment["uom.uom"].sudo().search([('name', '=', unit['name'])]):
-            environment["uom.uom"].sudo().create(unit)
+    # ~ for unit in pre_defined:
+        # ~ if not environment["uom.uom"].sudo().search([('name', '=', unit['name'])]):
+            # ~ environment["uom.uom"].sudo().create(unit)
 
 
 class PropertyBuilding(models.Model):
     _inherit = 'property.property'
 
-    # ~ def __init__(self, *args, **kwargs):
-        # ~ super(PropertyBuilding, self).__init__(*args, **kwargs)
-
     def _create_uom(self):
         for rec in self:
-            _create_uom_if_missing(self.env)
+            pass
+            # ~ _create_uom_if_missing(self.env)
         self.compute_field = 0.0
 
-    # TODO: Remove this and move create_uom to instansiation of module instead.
-    compute_field = fields.Float(string="Compute field", compute=_create_uom)
+    # ~ # TODO: Remove this and move create_uom to instansiation of module instead.
+    # ~ compute_field = fields.Float(string="Compute field",)
 
   
     @api.depends("contract_ids", "contract_ids.contract_line_ids", "contract_ids.recurring_rule_type",
@@ -167,10 +166,12 @@ class PropertyBuilding(models.Model):
     kitchens = fields.Integer(string="Kitchen", help="Number of kitchens in the property")    
     municipality_id = fields.Many2one(comodel_name='res.country.municipality',string='Municipality')
     object_id = fields.Char(string="Object ID",)
+    project_number = fields.Char(string="Object ID",)
     operating_cost = fields.Float(string="Operating Cost",compute="_calculate_operating_cost",)
     parking_spaces = fields.Integer(string="Parking spaces",default=0,)
     price = fields.Float(string="Price")
     property_state_id = fields.Many2one(comodel_name='res.country.state',string='State',domain=[('country_id.phone_code', '=', '46')],)
+    bedrooms = fields.Integer(string="Rooms", help="Number of rooms in the property")    
     rooms = fields.Integer(string="Rooms", help="Number of rooms in the property")    
     workplaces = fields.Integer(string="Workplaces",)
 

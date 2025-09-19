@@ -58,22 +58,7 @@
                         </field>
                     </page>
 
-<!--
-                    <page string="Properties">
-                        <group>
-                            <group>
-                                <field name="bedrooms"/>
-                                <field name="bathrooms"/>
-                            </group>
-                            <group>
-                                <field name="parking"/>
-                                <field name="area"/>
-                            </group>
-                            <label for="description"/>
-                            <field name="description"/>
-                        </group>
-                    </page>
--->
+
                 </xpath>
             </field>
         </record>
