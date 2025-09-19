@@ -1,3 +1,9 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 website_property_mgmt.access_property_image,access_property_image,website_property_mgmt.model_property_image,base.group_user,1,1,1,1
+website_property_mgmt.public_access_property_image,public_access_property_image,website_property_mgmt.model_property_image,base.group_public,1,0,0,0
+website_property_mgmt.portal_access_property_image,portal_access_property_image,website_property_mgmt.model_property_image,base.group_portal,1,0,0,0
+website_property_mgmt.public_access_property_property,public_access_property_property,property_mgmt.model_property_property,base.group_public,1,0,0,0
+website_property_mgmt.portal_access_property_property,portal_access_property_property,property_mgmt.model_property_property,base.group_portal,1,0,0,0
+base.public_access_res_partner,public_access_res_partner,base.model_res_partner,base.group_public,1,0,0,0
+base.portal_access_res_partner,portal_access_res_partner,base.model_res_partner,base.group_portal,1,0,0,0
 

@@ -20,7 +20,7 @@ class WebsitePropertyController(http.Controller):
 
         # Get all published properties
         properties = request.env['property.property'].search([
-            # ('website_published', '=', True)
+            ('website_published', '=', True)
         ], order='create_date desc')
 
         website = request.website
@@ -50,18 +50,8 @@ class WebsitePropertyController(http.Controller):
     def property_detail(self, property, **post):
         """Single property detail page"""
 
-        # Get related properties (same type or location)
-        related_properties = request.env['property.property'].search([
-            # ('website_published', '=', True),
-            ('id', '!=', property.id),
-            # '|',
-            # ('property_type', '=', property.property_type),
-            # ('city', '=', property.city)
-        ], limit=4)
-
         values = {
-            'property': property,
-            'related_properties': related_properties,
+            'property': property.sudo(),
             'main_object': property,
             'website': request.website
         }
@@ -71,7 +61,7 @@ class WebsitePropertyController(http.Controller):
     @http.route(['/property/<model("property.property"):property>/contact'], type='http', auth="user", website=True, sitemap=True)
     def property_contact(self, property, **post):
         values = {
-            'property': property,
+            'property': property.sudo(),
             'main_object': property,
             'website': request.website
         }
