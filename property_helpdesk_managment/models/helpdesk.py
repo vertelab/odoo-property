@@ -14,7 +14,7 @@ class HelpdeskTicket(models.Model):
             maintenance_equipment = self.env['maintenance.equipment'].search([('property_id','=',record.property_id.id)], limit=1)
             maintenance_team = self.env['maintenance.equipment'].search([('property_id','=',record.property_id.id)], limit=1).maintenance_team_id
             record.maintenance_equipment_id = maintenance_equipment
-            record.maintenance_team_id = maintenance_team_id
+            record.maintenance_team_id = maintenance_team
         
     def create_maintenance_request(self):
         for record in self:

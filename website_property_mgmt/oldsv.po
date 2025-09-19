@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0-20250911\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-19 09:06+0000\n"
-"PO-Revision-Date: 2025-09-19 11:10+0200\n"
+"POT-Creation-Date: 2025-09-18 12:58+0000\n"
+"PO-Revision-Date: 2025-09-18 16:03+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: sv\n"
@@ -20,7 +20,21 @@ msgstr ""
 #. module: website_property_mgmt
 #: model_terms:ir.ui.view,arch_db:website_property_mgmt.portal_my_home
 msgid "/my/leads"
-msgstr "/mitt/kundämne"
+msgstr ""
+
+#. module: website_property_mgmt
+#: model_terms:ir.ui.view,arch_db:website_property_mgmt.property_details
+msgid "/sqft"
+msgstr "/kvm"
+
+#. module: website_property_mgmt
+#: model_terms:ir.ui.view,arch_db:website_property_mgmt.property_details
+msgid ""
+"<i class=\"fa fa-car me-2\" style=\"color: #6c757d;\"/>\n"
+"                                        <span class=\"fw-medium\">1 Garage</span>"
+msgstr ""
+"<i class=\"fa fa-car me-2\" style=\"color: #6c757d;\"/>\n"
+"                                        <span class=\"fw-medium\">1 Garage</span>"
 
 #. module: website_property_mgmt
 #: model_terms:ir.ui.view,arch_db:website_property_mgmt.property_details
@@ -64,6 +78,8 @@ msgid ""
 "<i class=\"fa fa-circle me-2\" style=\"font-size: 6px; color: #6c757d;\"/>\n"
 "                                                <span class=\"small\">Gym</span>"
 msgstr ""
+"<i class=\"fa fa-circle me-2\" style=\"font-size: 6px; color: #6c757d;\"/>\n"
+"                                                <span class=\"small\">Gym</span>"
 
 #. module: website_property_mgmt
 #: model_terms:ir.ui.view,arch_db:website_property_mgmt.property_details
@@ -96,13 +112,15 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:website_property_mgmt.portal_my_leads
 msgid ""
 "<i class=\"fa fa-exclamation-circle me-2\"/>\n"
-"                        No Applications found."
+"                        No leads found."
 msgstr ""
+"<i class=\"fa fa-exclamation-circle me-2\"/>\n"
+"                        Inga kundämnen hittades."
 
 #. module: website_property_mgmt
 #: model_terms:ir.ui.view,arch_db:website_property_mgmt.portal_my_leads_template_form_view
-msgid "<i class=\"fa fa-file me-1\" aria-hidden=\"true\"/>Application Details"
-msgstr ""
+msgid "<i class=\"fa fa-file me-1\" aria-hidden=\"true\"/>Lead Details"
+msgstr "<i class=\"fa fa-file me-1\" aria-hidden=\"true\"/>Kundämnesdetaljer"
 
 #. module: website_property_mgmt
 #: model_terms:ir.ui.view,arch_db:website_property_mgmt.portal_my_leads_template_form_view
@@ -139,13 +157,6 @@ msgstr ""
 "<span class=\"badge bg-danger text-white px-4 py-3 fs-6\">\n"
 "                                <i class=\"fa fa-ban me-2\"/>Oppublicerad\n"
 "                            </span>"
-
-#. module: website_property_mgmt
-#: model_terms:ir.ui.view,arch_db:website_property_mgmt.portal_my_leads_template_form_view
-msgid ""
-"<span class=\"c-label text-muted\">Contact Person</span>\n"
-"                                <br/>"
-msgstr ""
 
 #. module: website_property_mgmt
 #: model_terms:ir.ui.view,arch_db:website_property_mgmt.portal_my_leads_template_form_view
@@ -195,11 +206,38 @@ msgstr ""
 #. module: website_property_mgmt
 #: model_terms:ir.ui.view,arch_db:website_property_mgmt.portal_my_leads_template_form_view
 msgid ""
+"<span class=\"c-label text-muted\">Medium</span>\n"
+"                                <br/>"
+msgstr ""
+"<span class=\"c-label text-muted\">Mellan</span>\n"
+"                                <br/>"
+
+#. module: website_property_mgmt
+#: model_terms:ir.ui.view,arch_db:website_property_mgmt.portal_my_leads_template_form_view
+msgid ""
 "<span class=\"c-label text-muted\">Phone</span>\n"
 "                                    <br/>"
 msgstr ""
 "<span class=\"c-label text-muted\">Telefon</span>\n"
 "                                    <br/>"
+
+#. module: website_property_mgmt
+#: model_terms:ir.ui.view,arch_db:website_property_mgmt.portal_my_leads_template_form_view
+msgid ""
+"<span class=\"c-label text-muted\">Sales Person</span>\n"
+"                                <br/>"
+msgstr ""
+"<span class=\"c-label text-muted\">Säljare</span>\n"
+"                                <br/>"
+
+#. module: website_property_mgmt
+#: model_terms:ir.ui.view,arch_db:website_property_mgmt.portal_my_leads_template_form_view
+msgid ""
+"<span class=\"c-label text-muted\">Source</span>\n"
+"                                <br/>"
+msgstr ""
+"<span class=\"c-label text-muted\">Källa</span>\n"
+"                                <br/>"
 
 #. module: website_property_mgmt
 #: model_terms:ir.ui.view,arch_db:website_property_mgmt.property_contact
@@ -261,7 +299,7 @@ msgstr ""
 #. module: website_property_mgmt
 #: model_terms:ir.ui.view,arch_db:website_property_mgmt.portal_breadcrumbs
 msgid "<span style=\"margin-left:5px;\">/</span>"
-msgstr ""
+msgstr "<span style=\"margin-left:5px;\">/</span>"
 
 #. module: website_property_mgmt
 #: model:ir.model.fields,help:website_property_mgmt.field_property_image__description
@@ -269,20 +307,17 @@ msgid "A brief description of the image given"
 msgstr "En kort beskrivning av den bild som ges"
 
 #. module: website_property_mgmt
-#: model:ir.model.fields,field_description:website_property_mgmt.field_property_property__agent_stakeholder_id
-#: model:ir.model.fields,field_description:website_property_mgmt.field_property_stakeholder__agent_stakeholder_id
+#: model:ir.model.fields,field_description:website_property_mgmt.field_property_property__agent_id
+#: model:ir.model.fields,field_description:website_property_mgmt.field_property_stakeholder__agent_id
+#: model_terms:ir.ui.view,arch_db:website_property_mgmt.portal_my_leads
 msgid "Agent"
-msgstr ""
+msgstr "Mäklare"
 
 #. module: website_property_mgmt
-#: model:ir.model,name:website_property_mgmt.model_property_property
-msgid "Agreement Property"
-msgstr "Fastighet"
-
-#. module: website_property_mgmt
-#: model_terms:ir.ui.view,arch_db:website_property_mgmt.portal_breadcrumbs
-msgid "Applications"
-msgstr ""
+#: model:ir.model.fields,field_description:website_property_mgmt.field_property_property__area
+#: model:ir.model.fields,field_description:website_property_mgmt.field_property_stakeholder__area
+msgid "Area"
+msgstr "Område"
 
 #. module: website_property_mgmt
 #: model_terms:ir.ui.view,arch_db:website_property_mgmt.properties_list
@@ -295,19 +330,42 @@ msgid "Bath"
 msgstr "Badkar"
 
 #. module: website_property_mgmt
+#: model:ir.model.fields,field_description:website_property_mgmt.field_property_property__bathrooms
+#: model:ir.model.fields,field_description:website_property_mgmt.field_property_stakeholder__bathrooms
+msgid "Bathrooms"
+msgstr "Badrum"
+
+#. module: website_property_mgmt
+#: model_terms:ir.ui.view,arch_db:website_property_mgmt.property_details
+msgid "Bed"
+msgstr "Säng"
+
+#. module: website_property_mgmt
+#: model:ir.model.fields,field_description:website_property_mgmt.field_property_property__bedrooms
+#: model:ir.model.fields,field_description:website_property_mgmt.field_property_stakeholder__bedrooms
+msgid "Bedrooms"
+msgstr "Sovrum"
+
+#. module: website_property_mgmt
 #: model:ir.model.fields,field_description:website_property_mgmt.field_property_property__can_publish
 msgid "Can Publish"
 msgstr "Kan publicera"
 
 #. module: website_property_mgmt
-#: model_terms:ir.ui.view,arch_db:website_property_mgmt.property_details
-msgid "Charging Posts"
-msgstr "Laddstationer"
-
-#. module: website_property_mgmt
 #: model_terms:ir.ui.view,arch_db:website_property_mgmt.properties_list
 msgid "Check back soon for new listings!"
 msgstr "Kom tillbaka snart för nya annonser!"
+
+#. module: website_property_mgmt
+#: model:ir.model.fields.selection,name:website_property_mgmt.selection__property_property__property_type__commercial
+msgid "Commercial"
+msgstr "Kommersiell"
+
+#. module: website_property_mgmt
+#: model:ir.model.fields,field_description:website_property_mgmt.field_property_property__company_id
+#: model:ir.model.fields,field_description:website_property_mgmt.field_property_stakeholder__company_id
+msgid "Company"
+msgstr "Bolag"
 
 #. module: website_property_mgmt
 #: model:ir.model.fields,field_description:website_property_mgmt.field_property_property__cover_properties
@@ -316,13 +374,21 @@ msgstr "Omslagsegenskaper"
 
 #. module: website_property_mgmt
 #: model:ir.model.fields,field_description:website_property_mgmt.field_property_image__create_uid
+#: model:ir.model.fields,field_description:website_property_mgmt.field_property_tag__create_uid
 msgid "Created by"
 msgstr "Skapad av"
 
 #. module: website_property_mgmt
 #: model:ir.model.fields,field_description:website_property_mgmt.field_property_image__create_date
+#: model:ir.model.fields,field_description:website_property_mgmt.field_property_tag__create_date
 msgid "Created on"
 msgstr "Skapad den"
+
+#. module: website_property_mgmt
+#: model:ir.model.fields,field_description:website_property_mgmt.field_property_property__currency_id
+#: model:ir.model.fields,field_description:website_property_mgmt.field_property_stakeholder__currency_id
+msgid "Currency"
+msgstr "Valuta"
 
 #. module: website_property_mgmt
 #: model_terms:ir.ui.view,arch_db:website_property_mgmt.portal_my_leads
@@ -343,11 +409,14 @@ msgstr ""
 
 #. module: website_property_mgmt
 #: model:ir.model.fields,field_description:website_property_mgmt.field_property_image__description
+#: model:ir.model.fields,field_description:website_property_mgmt.field_property_property__description
+#: model:ir.model.fields,field_description:website_property_mgmt.field_property_stakeholder__description
 msgid "Description"
 msgstr "Beskrivning"
 
 #. module: website_property_mgmt
 #: model:ir.model.fields,field_description:website_property_mgmt.field_property_image__display_name
+#: model:ir.model.fields,field_description:website_property_mgmt.field_property_tag__display_name
 msgid "Display Name"
 msgstr "Visningsnamn"
 
@@ -358,13 +427,8 @@ msgstr "Fakta och funktioner"
 
 #. module: website_property_mgmt
 #: model_terms:ir.ui.view,arch_db:website_property_mgmt.portal_my_home
-msgid "Follow, view your applications"
-msgstr ""
-
-#. module: website_property_mgmt
-#: model_terms:ir.ui.view,arch_db:website_property_mgmt.property_details
-msgid "Garage Spaces"
-msgstr "Garageplatser"
+msgid "Follow, view or create your leads"
+msgstr "Följ, visa eller skapa dina kundämnen"
 
 #. module: website_property_mgmt
 #: model_terms:ir.ui.view,arch_db:website_property_mgmt.property_thankyou_ir_ui_view
@@ -378,13 +442,19 @@ msgstr "Historia"
 
 #. module: website_property_mgmt
 #: model:ir.model.fields,field_description:website_property_mgmt.field_property_image__id
+#: model:ir.model.fields,field_description:website_property_mgmt.field_property_tag__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: website_property_mgmt
 #: model_terms:ir.ui.view,arch_db:website_property_mgmt.property_property_form_view
 msgid "Images"
 msgstr "Bilder"
+
+#. module: website_property_mgmt
+#: model:ir.model.fields.selection,name:website_property_mgmt.selection__property_property__property_type__industry
+msgid "Industry"
+msgstr "Industri"
 
 #. module: website_property_mgmt
 #: model_terms:ir.ui.view,arch_db:website_property_mgmt.property_details
@@ -397,24 +467,31 @@ msgid "Is Published"
 msgstr "Är publicerad"
 
 #. module: website_property_mgmt
-#: model_terms:ir.ui.view,arch_db:website_property_mgmt.property_details
-msgid "Kitchen(s)"
-msgstr "Kök"
+#: model:ir.model.fields.selection,name:website_property_mgmt.selection__property_property__property_type__land
+msgid "Land"
+msgstr "Tomt"
 
 #. module: website_property_mgmt
 #: model:ir.model.fields,field_description:website_property_mgmt.field_property_image__write_uid
+#: model:ir.model.fields,field_description:website_property_mgmt.field_property_tag__write_uid
 msgid "Last Updated by"
 msgstr "Senast uppdaterad av"
 
 #. module: website_property_mgmt
 #: model:ir.model.fields,field_description:website_property_mgmt.field_property_image__write_date
+#: model:ir.model.fields,field_description:website_property_mgmt.field_property_tag__write_date
 msgid "Last Updated on"
 msgstr "Senast uppdaterad den"
 
 #. module: website_property_mgmt
 #: model:ir.model,name:website_property_mgmt.model_crm_lead
 msgid "Lead/Opportunity"
-msgstr "Leads/möjlighet"
+msgstr "Kundämne/möjlighet"
+
+#. module: website_property_mgmt
+#: model_terms:ir.ui.view,arch_db:website_property_mgmt.portal_breadcrumbs
+msgid "Leads"
+msgstr "Kundämnen"
 
 #. module: website_property_mgmt
 #: model:ir.model.fields.selection,name:website_property_mgmt.selection__property_property__website_visibility__logged_users
@@ -423,9 +500,13 @@ msgstr "Inloggade användare"
 
 #. module: website_property_mgmt
 #: model_terms:ir.ui.view,arch_db:website_property_mgmt.portal_my_home
-#: model_terms:ir.ui.view,arch_db:website_property_mgmt.portal_my_leads
 msgid "My Applications"
 msgstr "Mina ansökningar"
+
+#. module: website_property_mgmt
+#: model_terms:ir.ui.view,arch_db:website_property_mgmt.portal_my_leads
+msgid "My Leads"
+msgstr "Mina kundämnen"
 
 #. module: website_property_mgmt
 #: model:ir.model.fields,field_description:website_property_mgmt.field_property_image__name
@@ -436,6 +517,11 @@ msgstr "Namn"
 #: model:ir.model.fields,help:website_property_mgmt.field_property_image__name
 msgid "Name for the given image"
 msgstr "Namn för den givna bilden"
+
+#. module: website_property_mgmt
+#: model:ir.model.fields,help:website_property_mgmt.field_property_tag__name
+msgid "Name of the tag"
+msgstr "Namn på taggen"
 
 #. module: website_property_mgmt
 #: model_terms:ir.ui.view,arch_db:website_property_mgmt.property_details
@@ -454,16 +540,42 @@ msgid "No properties available"
 msgstr "Inga fastigheter tillgängliga"
 
 #. module: website_property_mgmt
+#: model:ir.model.fields,help:website_property_mgmt.field_property_property__bathrooms
+#: model:ir.model.fields,help:website_property_mgmt.field_property_stakeholder__bathrooms
+msgid "Number of bathrooms in the property"
+msgstr "Antal badrum i fastigheten"
+
+#. module: website_property_mgmt
+#: model:ir.model.fields,help:website_property_mgmt.field_property_property__bedrooms
+#: model:ir.model.fields,help:website_property_mgmt.field_property_stakeholder__bedrooms
+msgid "Number of bedrooms in the property"
+msgstr "Antal sovrum i fastigheten"
+
+#. module: website_property_mgmt
+#: model:ir.model.fields,help:website_property_mgmt.field_property_property__parking
+#: model:ir.model.fields,help:website_property_mgmt.field_property_stakeholder__parking
+msgid "Number of cars or bikes that can be parked in the property"
+msgstr "Antal bilar eller cyklar som kan parkeras i fastigheten"
+
+#. module: website_property_mgmt
 #: model_terms:ir.ui.view,arch_db:website_property_mgmt.property_details
 msgid "Outdoor Details"
 msgstr "Detaljer om utomhusbruk"
 
 #. module: website_property_mgmt
-#: model_terms:ir.ui.view,arch_db:website_property_mgmt.property_details
-msgid "Parking Spaces"
-msgstr "Parkeringsplatser"
+#: model:ir.model.fields,field_description:website_property_mgmt.field_property_property__parking
+#: model:ir.model.fields,field_description:website_property_mgmt.field_property_stakeholder__parking
+msgid "Parking"
+msgstr "Parkering"
 
 #. module: website_property_mgmt
+#: model:ir.model.fields,field_description:website_property_mgmt.field_property_property__price
+#: model:ir.model.fields,field_description:website_property_mgmt.field_property_stakeholder__price
+msgid "Price"
+msgstr "Pris"
+
+#. module: website_property_mgmt
+#: model_terms:ir.ui.view,arch_db:website_property_mgmt.property_property_form_view
 #: model_terms:ir.ui.view,arch_db:website_property_mgmt.view_crm_case_leads_property_filter
 #: model_terms:ir.ui.view,arch_db:website_property_mgmt.view_crm_case_opportunities_property_filter
 msgid "Properties"
@@ -477,9 +589,14 @@ msgid "Property"
 msgstr "Fastighet"
 
 #. module: website_property_mgmt
+#: model:ir.model,name:website_property_mgmt.model_property_property
+msgid "Property Building"
+msgstr "Fastighetsbyggnad"
+
+#. module: website_property_mgmt
 #: model_terms:ir.ui.view,arch_db:website_property_mgmt.property_details
 msgid "Property Description"
-msgstr "Beskrivning av fastigheten"
+msgstr "Fastighetsbeskrivning"
 
 #. module: website_property_mgmt
 #: model:ir.model.fields,field_description:website_property_mgmt.field_property_image__image_1024
@@ -492,6 +609,17 @@ msgstr "Fastighetsbild"
 #: model:ir.model.fields,field_description:website_property_mgmt.field_property_stakeholder__property_image_ids
 msgid "Property Images"
 msgstr "Fastighetsbilder"
+
+#. module: website_property_mgmt
+#: model:ir.model,name:website_property_mgmt.model_property_tag
+msgid "Property Tag"
+msgstr "Fastighetstagg"
+
+#. module: website_property_mgmt
+#: model:ir.model.fields,field_description:website_property_mgmt.field_property_property__tag_ids
+#: model:ir.model.fields,field_description:website_property_mgmt.field_property_stakeholder__tag_ids
+msgid "Property Tags"
+msgstr "Fastighetstaggar"
 
 #. module: website_property_mgmt
 #: model:ir.model.fields.selection,name:website_property_mgmt.selection__property_property__website_visibility__public
@@ -509,14 +637,14 @@ msgid "Rented"
 msgstr "Hyrd"
 
 #. module: website_property_mgmt
+#: model:ir.model.fields.selection,name:website_property_mgmt.selection__property_property__property_type__residential
+msgid "Residential"
+msgstr "Bostäder"
+
+#. module: website_property_mgmt
 #: model:ir.model.fields,help:website_property_mgmt.field_property_property__website_id
 msgid "Restrict to a specific website."
 msgstr "Begränsa till en viss webbplats."
-
-#. module: website_property_mgmt
-#: model_terms:ir.ui.view,arch_db:website_property_mgmt.property_details
-msgid "Room"
-msgstr "Rum"
 
 #. module: website_property_mgmt
 #: model:ir.model.fields,field_description:website_property_mgmt.field_property_property__is_seo_optimized
@@ -534,14 +662,35 @@ msgid "Sold"
 msgstr "Såld"
 
 #. module: website_property_mgmt
+#: model_terms:ir.ui.view,arch_db:website_property_mgmt.property_details
+msgid "Sq Ft"
+msgstr "Kvadratmeter"
+
+#. module: website_property_mgmt
 #: model_terms:ir.ui.view,arch_db:website_property_mgmt.portal_my_leads
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #. module: website_property_mgmt
 #: model_terms:ir.ui.view,arch_db:website_property_mgmt.property_contact_form
 msgid "Submit"
 msgstr "Skicka"
+
+#. module: website_property_mgmt
+#: model:ir.model.fields,field_description:website_property_mgmt.field_property_tag__name
+msgid "Tag"
+msgstr "Tagg"
+
+#. module: website_property_mgmt
+#: model:ir.model.constraint,message:website_property_mgmt.constraint_property_tag_tag_name_uniq
+msgid "Tag name already exists!"
+msgstr "Taggens namn finns redan!"
+
+#. module: website_property_mgmt
+#: model:ir.model.fields,help:website_property_mgmt.field_property_property__tag_ids
+#: model:ir.model.fields,help:website_property_mgmt.field_property_stakeholder__tag_ids
+msgid "Tags for the property"
+msgstr "Taggar för fastigheten"
 
 #. module: website_property_mgmt
 #: model_terms:ir.ui.view,arch_db:website_property_mgmt.property_thankyou_ir_ui_view
@@ -554,6 +703,12 @@ msgid "The full URL to access the document through the website."
 msgstr "Den fullständiga URL:en för att komma åt dokumentet via webbplatsen."
 
 #. module: website_property_mgmt
+#: model:ir.model.fields,help:website_property_mgmt.field_property_property__property_type
+#: model:ir.model.fields,help:website_property_mgmt.field_property_stakeholder__property_type
+msgid "The type of the property"
+msgstr "Typ av fastighet"
+
+#. module: website_property_mgmt
 #. odoo-python
 #: code:addons/website_property_mgmt/models/property_property.py:0
 msgid "This operator is not supported"
@@ -563,6 +718,12 @@ msgstr "Denna operatör stöds inte"
 #: model_terms:ir.ui.view,arch_db:website_property_mgmt.portal_my_leads
 msgid "Title"
 msgstr "Titel"
+
+#. module: website_property_mgmt
+#: model:ir.model.fields,field_description:website_property_mgmt.field_property_property__property_type
+#: model:ir.model.fields,field_description:website_property_mgmt.field_property_stakeholder__property_type
+msgid "Type"
+msgstr "Typ"
 
 #. module: website_property_mgmt
 #. odoo-python
@@ -632,8 +793,3 @@ msgstr "Webbplats opengraph bild"
 #: model_terms:ir.ui.view,arch_db:website_property_mgmt.property_thankyou_ir_ui_view
 msgid "Your message has been sent."
 msgstr "Ditt meddelande har skickats."
-
-#. module: website_property_mgmt
-#: model_terms:ir.ui.view,arch_db:website_property_mgmt.property_contact_form
-msgid "opportunity"
-msgstr ""

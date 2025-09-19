@@ -95,19 +95,19 @@
                                 <div t-if="property.bathrooms" class="col-auto">
                                     <div class="d-flex align-items-center">
                                         <i class="fa fa-bath me-2" style="color: #6c757d;"/>
-                                        <span class="fw-medium"><t t-out="int(property.bathrooms)"/> Bath<t t-if="property.bathrooms != 1">s</t></span>
+                                        <span class="fw-medium"><t t-out="int(property.bathrooms)"/> Bath<t t-if="property.bathrooms != 1"> </t></span>
                                     </div>
                                 </div>
                                 <div t-if="property.rooms" class="col-auto">
                                     <div class="d-flex align-items-center">
                                         <i class="fa fa-bed me-2" style="color: #6c757d;"/>
-                                        <span class="fw-medium"><t t-out="int(property.rooms)"/> Room<t t-if="property.rooms != 1">s</t></span>
+                                        <span class="fw-medium"><t t-out="int(property.rooms)"/> Room<t t-if="property.rooms != 1"> </t></span>
                                     </div>
                                 </div>
                                 <div t-if="property.kitchens" class="col-auto">
                                     <div class="d-flex align-items-center">
                                         <i class="fa fa-bed me-2" style="color: #6c757d;"/>
-                                        <span class="fw-medium"><t t-out="int(property.kitchens)"/> Kitchen(s)<t t-if="property.kitchens != 1">s</t></span>
+                                        <span class="fw-medium"><t t-out="int(property.kitchens)"/> Kitchen(s)<t t-if="property.kitchens != 1"> </t></span>
                                     </div>
                                 </div>
                                 <div t-if="property.size" class="col-auto">
@@ -120,14 +120,23 @@
                                 <div t-if="property.parking_spaces" class="col-auto">
                                     <div class="d-flex align-items-center">
                                         <i class="fa fa-bed me-2" style="color: #6c757d;"/>
-                                        <span class="fw-medium"><t t-out="int(property.parking_spaces)"/> Charging Posts<t t-if="property.parking_spaces != 1">s</t></span>
+                                        <span class="fw-medium"><t t-out="int(property.parking_spaces)"/> Parking Spaces<t t-if="property.parking_spaces != 1"> </t></span>
                                     </div>
                                 </div>
+
+                               <div t-if="property.garage_spaces" class="col-auto">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fa fa-bed me-2" style="color: #6c757d;"/>
+                                        <span class="fw-medium"><t t-out="int(property.garage_spaces)"/> Garage Spaces<t t-if="property.garage_spaces != 1"> </t></span>
+                                    </div>
+                                </div>
+
+
                                 
                                 <div t-if="property.charging_posts" class="col-auto">
                                     <div class="d-flex align-items-center">
                                         <i class="fa fa-bed me-2" style="color: #6c757d;"/>
-                                        <span class="fw-medium"><t t-out="int(property.charging_posts)"/> Charging Posts<t t-if="property.charging_posts != 1">s</t></span>
+                                        <span class="fw-medium"><t t-out="int(property.charging_posts)"/> Charging Posts<t t-if="property.charging_posts != 1"> </t></span>
                                     </div>
                                 </div>
                                 

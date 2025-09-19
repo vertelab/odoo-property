@@ -20,7 +20,7 @@ class WebsitePropertyController(http.Controller):
 
         # Get all published properties
         properties = request.env['property.property'].search([
-            ('website_published', '=', True)
+            # ~ ('website_published', '=', True)
         ], order='create_date desc')
 
         website = request.website
