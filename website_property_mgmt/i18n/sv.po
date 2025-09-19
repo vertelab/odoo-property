@@ -20,7 +20,7 @@ msgstr ""
 #. module: website_property_mgmt
 #: model_terms:ir.ui.view,arch_db:website_property_mgmt.portal_my_home
 msgid "/my/leads"
-msgstr "/mitt/kundämne"
+msgstr ""
 
 #. module: website_property_mgmt
 #: model_terms:ir.ui.view,arch_db:website_property_mgmt.property_details
