@@ -195,7 +195,7 @@ msgstr "Endast siffror tillåtna i projekt-ID"
 #: model:ir.model.fields,field_description:property_building.field_property_property__operating_cost
 #: model:ir.model.fields,field_description:property_building.field_property_stakeholder__operating_cost
 msgid "Operating Cost"
-msgstr "Årlig kostnad"
+msgstr "Operativ kostnad"
 
 #. module: property_building
 #: model:ir.model.fields.selection,name:property_building.selection__property_property__area_type__other
@@ -227,22 +227,22 @@ msgstr "Objekt ID"
 #. module: property_building
 #: model:ir.model,name:property_building.model_property_property
 msgid "Property Building"
-msgstr "Fastighet"
+msgstr "Fastighetsbyggnad"
 
 #. module: property_building
 #: model:ir.model,name:property_building.model_property_contract_wizard
 msgid "Property contract wizard"
-msgstr "Fastighet - Byggnad Wizard"
+msgstr "Fastighetkontraktsguide"
 
 #. module: property_building
 #: model:ir.model.fields,field_description:property_building.field_property_contract_wizard__recurring_rule_type
 msgid "Recurrence"
-msgstr "Period"
+msgstr "Upprepning"
 
 #. module: property_building
 #: model:ir.model.fields,field_description:property_building.field_property_contract_wizard__recurring_interval
 msgid "Recurring interval"
-msgstr "Periodlängd"
+msgstr "Upprepningsintervall"
 
 #. module: property_building
 #: model:ir.model.fields,field_description:property_building.field_property_property__contract_ids
@@ -269,7 +269,7 @@ msgstr "Spara"
 #: model:ir.model.fields,field_description:property_building.field_property_property__size_uom
 #: model:ir.model.fields,field_description:property_building.field_property_stakeholder__size_uom
 msgid "Size Uom"
-msgstr "Storleksenhet"
+msgstr "Storlek mått"
 
 #. module: property_building
 #: model:ir.model.fields,help:property_building.field_property_contract_wizard__recurring_rule_type
