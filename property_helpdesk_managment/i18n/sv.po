@@ -29,13 +29,13 @@ msgstr "Utrustning"
 #: model:ir.model,name:property_helpdesk_managment.model_helpdesk_ticket
 #: model:ir.model.fields,field_description:property_helpdesk_managment.field_maintenance_request__helpdesk_ticket_id
 msgid "Helpdesk Ticket"
-msgstr "Helpdesk-ärende"
+msgstr "Helpdeskärende"
 
 #. module: property_helpdesk_managment
 #. odoo-python
 #: code:addons/property_helpdesk_managment/models/property.py:0
 msgid "Helpdesk Tickets"
-msgstr "Helpdesk-biljetter"
+msgstr "Helpdeskärenden"
 
 #. module: property_helpdesk_managment
 #: model:ir.model.fields,field_description:property_helpdesk_managment.field_helpdesk_ticket__maintenance_equipment_id
@@ -52,13 +52,12 @@ msgstr "Underhållsbegäran"
 #: model:ir.model.fields,field_description:property_helpdesk_managment.field_helpdesk_ticket__maintenance_team_id
 #: model_terms:ir.ui.view,arch_db:property_helpdesk_managment.helpdesk_ticket_view_search
 msgid "Maintenance Team"
-msgstr "Underhållsteam"
+msgstr "Underhållslag"
 
 #. module: property_helpdesk_managment
 #. odoo-python
 #: code:addons/property_helpdesk_managment/models/helpdesk.py:0
-msgid ""
-"Please set a maintenance team before escalating to a maintenance request"
+msgid "Please set a maintenance team before escalating to a maintenance request"
 msgstr "Ange ett underhållsteam innan du eskalerar till en underhållsbegäran"
 
 #. module: property_helpdesk_managment
