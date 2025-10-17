@@ -104,7 +104,9 @@
                                 <field name="stakeholder_ids">
                                     <tree editable="bottom">
                                         <field name="partner_id"/>
-                                        <field name="partner_status"/>
+                                        <field name="status"/>
+                                        <field name="phone" optional="hidden"/>
+                                        <field name="email" optional="hidden"/>
                                         <field name="stakeholder_tax_unit"/>
                                         <field name="owner_numerator"/>
                                         <field name="owner_denominator"/>

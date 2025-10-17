@@ -3,3 +3,4 @@ access_property_stakeholder,access_property_stakeholder,model_property_stakehold
 access_property_designation,access_property_designation,model_property_designation,base.group_user,1,1,1,1
 access_property_history,access_property_history,model_property_history,base.group_user,1,1,1,1
 access_property_property,access_property_property,model_property_property,base.group_user,1,1,1,1
+access_property_stakeholder_role,access_property_stakeholder_role,model_property_stakeholder_role,base.group_user,1,1,1,1

@@ -1,0 +1,19 @@
+<odoo>
+    <data noupdate="1">
+        <record id="legal_owner" model="property.stakeholder.role">
+            <field name="name">Legal Owner</field>
+        </record>
+        <record id="approving_owner" model="property.stakeholder.role">
+            <field name="name">Approving Owner</field>
+        </record>
+        <record id="former_owner" model="property.stakeholder.role">
+            <field name="name">Former Owner</field>
+        </record>
+        <record id="agent" model="property.stakeholder.role">
+            <field name="name">Agent</field>
+        </record>
+        <record id="tenant" model="property.stakeholder.role">
+            <field name="name">Tenant</field>
+        </record>
+    </data>
+</odoo>

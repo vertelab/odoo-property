@@ -38,6 +38,7 @@ class PropertyStakeHolder(models.Model):
     _inherits = {'property.property': 'property_id'}
 
     partner_id = fields.Many2one('res.partner', string="Partner", required=True, index=True)
+    status = fields.Many2one('property.stakeholder.role', string="Status")
     partner_status = fields.Selection([('legal_owner', 'Legal Owner'),
                                        ('approving_owner', 'Approving Owner'),
                                        ('former_owner', 'Former Owner'),
@@ -53,6 +54,8 @@ class PropertyStakeHolder(models.Model):
     owner_numerator = fields.Integer(string="Numerator")
     owner_denominator = fields.Integer(string="Denominator")
     stakeholder_tax_unit = fields.Char(string="Tax Unit")
+    phone = fields.Char(string="Phone", related="partner_id.phone")
+    email = fields.Char(string="Email", related="partner_id.email")
 
     @api.depends('owner_numerator', 'owner_denominator')
     def _set_percentage(self):
@@ -83,3 +86,10 @@ class PropertyHistory(models.Model):
     name = fields.Char(string="Name")
     date = fields.Date(string="Date")
     note = fields.Text(string="Note")
+
+
+class PropertyRole(models.Model):
+    _name = "property.stakeholder.role"
+    _description = "Property Role"
+
+    name = fields.Char(string="Role")

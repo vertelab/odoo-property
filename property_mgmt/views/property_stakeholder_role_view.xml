@@ -1,0 +1,39 @@
+<odoo>
+    <data>
+        <record id="property_stakeholder_role_tree_view" model="ir.ui.view">
+            <field name="name">property.stakeholder.role.tree.view</field>
+            <field name="model">property.stakeholder.role</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="property_stakeholder_role_form_view" model="ir.ui.view">
+            <field name="name">property.stakeholder.role.form.view</field>
+            <field name="model">property.stakeholder.role</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_property_stakeholder_role" model="ir.actions.act_window">
+            <field name="name">Stakeholder Role</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">property.stakeholder.role</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="property_stakeholder_role_menu" name="Stakeholder Role" action="property_mgmt.action_property_stakeholder_role" parent="property_mgmt.property_configuration_menu" sequence="30"/>
+
+    </data>
+</odoo>

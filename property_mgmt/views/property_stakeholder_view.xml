@@ -6,7 +6,9 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="partner_id"/>
-                    <field name="partner_status"/>
+                    <field name="status"/>
+                    <field name="phone" optional="hidden"/>
+                    <field name="email" optional="hidden"/>
                     <field name="property_id"/>
                     <field name="property_state"/>
                 </tree>
@@ -26,7 +28,7 @@
                                 <field name="stakeholder_tax_unit"/>
                             </group>
                             <group>
-                                <field name="partner_status"/>
+                                <field name="status"/>
                                 <field name="owner_numerator"/>
                                 <field name="owner_denominator"/>
                             </group>

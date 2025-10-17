@@ -1,5 +1,7 @@
 <odoo>
     <data>
         <menuitem id="property_parent_menu" name="Property Management"/>
+
+        <menuitem id="property_configuration_menu" name="Configuration" parent="property_parent_menu" sequence="100"/>
     </data>
 </odoo>
