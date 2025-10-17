@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="view_esrs_line_property_list" model="ir.ui.view">
+            <field name="name">esrs.line.list</field>
+            <field name="model">esrs.line</field>
+            <field name="inherit_id" ref="csrd_esrs_line.view_esrs_line_list"/>
+            <field name="arch" type="xml">
+                <field name="uom_id" position="after">
+                    <field name="property_id"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_esrs_line_property_form" model="ir.ui.view">
+            <field name="name">esrs.line.form</field>
+            <field name="model">esrs.line</field>
+            <field name="inherit_id" ref="csrd_esrs_line.view_esrs_line_form"/>
+            <field name="arch" type="xml">
+                <field name="uom_id" position="after">
+                    <field name="property_id" force_save="1"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_esrs_line_property_search" model="ir.ui.view">
+            <field name="name">esrs.line.search</field>
+            <field name="model">esrs.line</field>
+            <field name="inherit_id" ref="csrd_esrs_line.view_esrs_line_search"/>
+            <field name="arch" type="xml">
+                <filter name="group_by_csrd_esrs_id" position="after">
+                    <filter string="Property" name="group_by_property_id" context="{'group_by': 'property_id'}"/>
+                </filter>
+            </field>
+        </record>
+
+        <record id="view_esrs_line_property_pivot" model="ir.ui.view">
+            <field name="name">esrs.line.pivot</field>
+            <field name="model">esrs.line</field>
+            <field name="arch" type="xml">
+                <pivot>
+                    <field name="name" type="row"/>
+                    <field name="create_date" type="row"/>
+                    <field name="property_id" type="col"/>
+                    <field name="quantity" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+    </data>
+</odoo>
