@@ -15,6 +15,7 @@
                         icon="fa-map-marker"
                     />
 
+<!--
                     <button
                         class="oe_stat_button"
                         name="open_ingeborg"
@@ -23,6 +24,7 @@
                         attrs="{'invisible': [('property_uuid', '=', False)]}"
                         icon="fa-map-marker"
                     />
+-->
                 </xpath>
                 <notebook position="inside">
                     <page name="external_map_page" string="External Map">
