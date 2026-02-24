@@ -7,13 +7,15 @@ msgstr ""
 "Project-Id-Version: Odoo Server 14.0-20210929\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-11-15 11:58+0000\n"
-"PO-Revision-Date: 2021-11-15 11:58+0000\n"
-"Last-Translator: Fredrik Arvas\n"
+"PO-Revision-Date: 2026-02-24 10:03+0100\n"
+"Last-Translator: Jakob Krabbe <jakob.krabbe@vertel.se>\n"
 "Language-Team: \n"
+"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.4.2\n"
 
 #. module: property_external_map
 #: code:addons/property_external_map/models/property.py:0
@@ -46,7 +48,7 @@ msgstr "Geolokalisera"
 #. module: property_external_map
 #: model:ir.model.fields,field_description:property_external_map.field_property_property__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: property_external_map
 #: model:ir.model.fields,field_description:property_external_map.field_property_property____last_update
@@ -68,7 +70,7 @@ msgstr "Det saknas kartleverentör: Gå till Inställningar och ange vilken kart
 #: code:addons/property_external_map/models/property.py:0
 #, python-format
 msgid "Missing parameter 'URL that uses the address' for map website '%s'."
-msgstr ""
+msgstr "Parametern 'URL som använder adressen' för kartwebbplatsen '%s' saknas."
 
 #. module: property_external_map
 #: model:ir.model,name:property_external_map.model_property_property
@@ -79,34 +81,34 @@ msgstr "Fastighet"
 #: model:ir.model.fields,field_description:property_external_map.field_property_property__property_lat_rt90
 #: model:ir.model.fields,field_description:property_external_map.field_property_stakeholder__property_lat_rt90
 msgid "Property Lat RT90"
-msgstr ""
+msgstr "Fastighet Lat RT90"
 
 #. module: property_external_map
 #: model:ir.model.fields,field_description:property_external_map.field_property_property__property_lat_sweref99
 #: model:ir.model.fields,field_description:property_external_map.field_property_stakeholder__property_lat_sweref99
 msgid "Lat SWEREF99"
-msgstr ""
+msgstr "Lat SWEREF99"
 
 #. module: property_external_map
 #: model:ir.model.fields,field_description:property_external_map.field_property_property__property_lat_wgs8
 #: model:ir.model.fields,field_description:property_external_map.field_property_stakeholder__property_lat_wgs8
 msgid "Lat WGS8"
-msgstr ""
+msgstr "Lat WGS8"
 
 #. module: property_external_map
 #: model:ir.model.fields,field_description:property_external_map.field_property_property__property_long_rt90
 #: model:ir.model.fields,field_description:property_external_map.field_property_stakeholder__property_long_rt90
 msgid "Long RT90"
-msgstr ""
+msgstr "Long RT90"
 
 #. module: property_external_map
 #: model:ir.model.fields,field_description:property_external_map.field_property_property__property_long_sweref99
 #: model:ir.model.fields,field_description:property_external_map.field_property_stakeholder__property_long_sweref99
 msgid "Long SWEREF99"
-msgstr ""
+msgstr "Long SWEREF99"
 
 #. module: property_external_map
 #: model:ir.model.fields,field_description:property_external_map.field_property_property__property_long_wgs8
 #: model:ir.model.fields,field_description:property_external_map.field_property_stakeholder__property_long_wgs8
 msgid "Long WGS8"
-msgstr ""
+msgstr "Long WGS8"
