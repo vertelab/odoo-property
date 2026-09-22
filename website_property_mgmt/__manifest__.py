@@ -28,7 +28,7 @@
         This module is used to show properties on the website.
     """,
     'author': 'Vertel AB',
-    'website': 'https://vertel.se/apps/odoo-property/property_mgmt',
+    'website': 'https://vertel.se/apps/odoo-property/website_property_mgmt',
     'images': ['static/description/banner.png'], # 560x280 px.
     'license': 'AGPL-3',
     'contributor': '',

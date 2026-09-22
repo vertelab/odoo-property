@@ -33,7 +33,7 @@
     """,
     # 'sequence': '1',
     'author': 'Vertel AB',
-    'website': 'https://vertel.se/apps/odoo-property/property_mgmt',
+    'website': 'https://vertel.se/apps/odoo-property/property_esrs_line',
     'images': ['static/description/banner.png'],  # 560x280 px.
     'license': 'AGPL-3',
     'contributor': '',
