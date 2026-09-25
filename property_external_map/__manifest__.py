@@ -28,22 +28,30 @@
     # Check https://github.com/odoo/odoo/blob/14.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Sales',
-    'description': """
+    'description': '''
+External Map
+============
+
     This module adds: \n
-      - a map smart button that shows when the city of a property is known.\n
-      - a map smart button that redirects user to google map based on the city or latitude and longitude.\n
-      - a button to get the latitude and longitude of the property's address .\n
-	  This module is maintained from: https://github.com/vertelab/odoo-property
-		\n
-	  v14.0.1.1.0 Added translation.\n
-	  v14.0.1.2.0 Added link to repo in manifest.\n
-	  v14.0.1.3.0 Added more Geo-references.\n
-	  v14.0.1.3.1 Fixed some labels and debug-mode.\n		  
-	  v14.0.1.3.2 changed l10n to i18n.\n	
-		  v14.0.1.3.3 added INGEBORG coordinate button and other improvements \n
-		  v14.0.1.3.4 added depencency to partner_external_map \n
-      v16.0.0.0.0 Ported to 16 and removed dependency to rest_inge.\n
-   """,
+          - a map smart button that shows when the city of a property is known.\n
+          - a map smart button that redirects user to google map based on the city or latitude and longitude.\n
+          - a button to get the latitude and longitude of the property's address .\n
+    	  This module is maintained from: https://github.com/vertelab/odoo-property
+    		\n
+    	  v14.0.1.1.0 Added translation.\n
+    	  v14.0.1.2.0 Added link to repo in manifest.\n
+    	  v14.0.1.3.0 Added more Geo-references.\n
+    	  v14.0.1.3.1 Fixed some labels and debug-mode.\n		  
+    	  v14.0.1.3.2 changed l10n to i18n.\n	
+    		  v14.0.1.3.3 added INGEBORG coordinate button and other improvements \n
+    		  v14.0.1.3.4 added depencency to partner_external_map \n
+          v16.0.0.0.0 Ported to 16 and removed dependency to rest_inge.\n
+
+    Features:
+
+        - UI Integration: Extends 1 view(s) in the Odoo interface.
+        - Extends Odoo: Builds on property.property.
+    ''',
     #'sequence': '1',
     'author': 'Vertel AB',
     'website': 'https://vertel.se/apps/odoo-property/property_external_map',

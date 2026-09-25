@@ -21,12 +21,20 @@
 
 {
     'name': 'Property Helpdesk',
-    'version': '1.0',
+    'version': '18.0.1.0.0',
     'summary': 'This module is used to maintain properties helpdesk tickets.',
     'category': 'Property',
-    'description': """
-        This module is used to maintain properties helpdesk tickets.
-    """,
+    'description': '''
+Property Helpdesk
+=================
+
+    This module is used to maintain properties helpdesk tickets.
+
+    Features:
+
+        - UI Integration: Extends 2 view(s) in the Odoo interface.
+        - Extends Odoo: Builds on helpdesk.ticket, property.property.
+    ''',
     'author': 'Vertel AB',
     'website': 'https://vertel.se/apps/odoo-property/property_helpdesk',
     'images': ['static/description/banner.png'],  # 560x280 px.

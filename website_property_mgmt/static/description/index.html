@@ -44,25 +44,25 @@
 <body>
 <div class="hero">
   <h1>Property: Mgmt</h1>
-  <p class="subtitle">This module is used to manage properties and link it to a partner.</p>
+  <p class="subtitle">This module is used to show properties on the website.</p>
   <div class="meta">
     <span>Odoo 18.0</span><span>&middot;</span>
-    <span>Sales</span><span>&middot;</span>
+    <span>Property</span><span>&middot;</span>
     <span>by Vertel Sverige AB</span>
   </div>
 </div>
 <div class="container">
   <section id="overview">
     <h2>Overview</h2>
-    <p>This module is used to manage properties and link it to a partner.</p>
-    <p>It introduces the model(s) <code>PropertyProperty</code>, <code>PropertyStakeHolder</code>, <code>PropertyDesignation</code> to handle this workflow.</p>
-    <p>It extends Odoo's contacts.</p>
+    <p>This module is used to show properties on the website.</p>
+    <p>It introduces the model(s) <code>PropertyImages</code>, <code>PropertyProperty</code> to handle this workflow.</p>
   </section>
   <section id="features">
     <h2>Key Features</h2>
     <div class="feature-grid">
-      <div class="feature-card"><h4>Dedicated data model</h4><p>Adds its own models: PropertyProperty, PropertyStakeHolder, PropertyDesignation.</p></div>
-      <div class="feature-card"><h4>UI integration</h4><p>Extends 6 view(s) in the Odoo interface.</p></div>
+      <div class="feature-card"><h4>Dedicated data model</h4><p>Adds its own models: PropertyImages, PropertyProperty.</p></div>
+      <div class="feature-card"><h4>API integration</h4><p>Exposes HTTP endpoints for external systems.</p></div>
+      <div class="feature-card"><h4>UI integration</h4><p>Extends 7 view(s) in the Odoo interface.</p></div>
     </div>
   </section>
   <section id="screenshots">
@@ -80,12 +80,12 @@
   </section>
   <section id="dependencies">
     <h2>Dependencies</h2>
-    <ul><li><code>base</code></li><li><code>contacts</code></li></ul>
+    <ul><li><code>website</code></li><li><code>contacts</code></li><li><code>crm</code></li><li><code>property_building</code></li><li><code>base</code></li></ul>
     <p><small>Requires <strong>Odoo 18.0</strong> or later.</small></p>
   </section>
   <section id="installation">
     <h2>Installation</h2>
-    <p>Install the module <code>property_mgmt</code> from the Odoo Apps menu,
+    <p>Install the module <code>website_property_mgmt</code> from the Odoo Apps menu,
        or deploy it via the Vertel SaltStack pipeline.</p>
   </section>
   <section id="support">

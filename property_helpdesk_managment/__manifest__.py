@@ -21,12 +21,20 @@
 
 {
     'name': 'Escalate Property helpdesk tickets to maintanance request',
-    'version': '1.0',
+    'version': '18.0.1.0.0',
     'summary': 'Escalate Property helpdesk tickets to maintanance request.',
     'category': 'Property',
-    'description': """
-        This module is used to maintain properties helpdesk tickets.
-    """,
+    'description': '''
+Escalate Property helpdesk tickets to maintanance request
+=========================================================
+
+    This module is used to maintain properties helpdesk tickets.
+
+    Features:
+
+        - UI Integration: Extends 3 view(s) in the Odoo interface.
+        - Extends Odoo: Builds on helpdesk.ticket, maintenance.request, property.property.
+    ''',
     'author': 'Vertel AB',
     'website': 'https://vertel.se/apps/odoo-property/property_helpdesk_managment',
     'images': ['static/description/banner.png'],  # 560x280 px.

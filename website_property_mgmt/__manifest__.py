@@ -24,9 +24,18 @@
     'version': '18.0.0.0.0',
     'summary': 'This module is used to show properties on the website.',
     'category': 'Property',
-    'description': """
-        This module is used to show properties on the website.
-    """,
+    'description': '''
+Mgmt
+====
+
+    This module is used to show properties on the website.
+
+    Features:
+
+        - Web integration: Exposes HTTP endpoints for external systems.
+        - UI Integration: Extends 7 view(s) in the Odoo interface.
+        - Extends Odoo: Builds on crm.lead, property.image, property.property.
+    ''',
     'author': 'Vertel AB',
     'website': 'https://vertel.se/apps/odoo-property/website_property_mgmt',
     'images': ['static/description/banner.png'], # 560x280 px.

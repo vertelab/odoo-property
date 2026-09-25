@@ -21,16 +21,24 @@
 
 {
     'name': 'Property: Propety and ESRS Line',
-    'version': '1.0',
+    'version': '18.0.1.0.0',
     # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
     'summary': 'This module is used to manage properties with ESRS Line.',
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/14.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Sales',
-    'description': """
-    This module is used to manage properties and ESRS Line.
-    """,
+    'description': '''
+Propety and ESRS Line
+=====================
+
+    This module is used to manage properties with ESRS Line.
+
+    Features:
+
+        - UI Integration: Extends 4 view(s) in the Odoo interface.
+        - Extends Odoo: Builds on esrs.line, property.property.
+    ''',
     # 'sequence': '1',
     'author': 'Vertel AB',
     'website': 'https://vertel.se/apps/odoo-property/property_esrs_line',

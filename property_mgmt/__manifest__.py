@@ -28,19 +28,27 @@
     # Check https://github.com/odoo/odoo/blob/14.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Sales',
-    'description': """
+    'description': '''
+Mgmt
+====
+
     This module is used to manage properties and link it to a partner. \n
-    User creates a Property and adds stakeholders (res.partner), their role and percentage. \n
-    User can also add an agent to the list of stakeholders if the property has an agent. \n
-        
+        User creates a Property and adds stakeholders (res.partner), their role and percentage. \n
+        User can also add an agent to the list of stakeholders if the property has an agent. \n
+
     Here is the link to how it works: https://www.loom.com/share/36bf5bd5f7774d68be75243feb7144b9\n
-    v14.0.1.2.0 New version number and added translation. \n
-        v14.0.1.3.0 Added link to repository: https://github.com/vertelab/odoo-property	\n
-        v14.0.1.4.0 - Added field for numerator, denominator and tax unit \n
-        v14.0.1.5.0 - Added Server Action to get properties for multiple partners \n
-        v14.0.1.6.0 - Added Property user group and property manager group
-        v16.0.0.0.0 - Ported to 16.0
-    """,
+        v14.0.1.2.0 New version number and added translation. \n
+            v14.0.1.3.0 Added link to repository: https://github.com/vertelab/odoo-property	\n
+            v14.0.1.4.0 - Added field for numerator, denominator and tax unit \n
+            v14.0.1.5.0 - Added Server Action to get properties for multiple partners \n
+            v14.0.1.6.0 - Added Property user group and property manager group
+            v16.0.0.0.0 - Ported to 16.0
+
+    Features:
+
+        - UI Integration: Extends 6 view(s) in the Odoo interface.
+        - Extends Odoo: Builds on property.designation, property.history, property.property, property.stakeholder.
+    ''',
     #'sequence': '1',
     'author': 'Vertel AB',
     'website': 'https://vertel.se/apps/odoo-property/property_mgmt',

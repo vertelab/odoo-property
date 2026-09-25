@@ -24,9 +24,17 @@
     'version': '18.0.0.0.0',
     'summary': 'This module is used to maintain properties equipments.',
     'category': 'Property',
-    'description': """
-        This module is used to maintain properties.
-    """,
+    'description': '''
+Property Maintenance
+====================
+
+    This module is used to maintain properties equipments.
+
+    Features:
+
+        - UI Integration: Extends 2 view(s) in the Odoo interface.
+        - Extends Odoo: Builds on maintenance.equipment, property.property.
+    ''',
     'author': 'Vertel AB',
     'website': 'https://vertel.se/apps/odoo-property/property_maintanance',
     'images': ['static/description/banner.png'],  # 560x280 px.
