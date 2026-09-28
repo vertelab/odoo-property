@@ -50,4 +50,3 @@ Escalate Property helpdesk tickets to maintanance request
     'application': False,
     'installable': True,
 }
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
