@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Odoo SA, Open Source Management Solution, third party addon
-#    Copyright (C) 2022- Vertel AB (<https://vertel.se>).
+#    Copyright (C) 2022- Vertel Sverige AB (<https://vertel.se>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -21,31 +21,23 @@
 
 {
     'name': 'Property: Propety and ESRS Line',
-    'version': '18.0.1.0.0',
+    'version': '1.0',
     # Version ledger: 14.0 = Odoo version. 1 = Major. Non regressionable code. 2 = Minor. New features that are regressionable. 3 = Bug fixes
     'summary': 'This module is used to manage properties with ESRS Line.',
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/14.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Sales',
-    'description': '''
-Propety and ESRS Line
-=====================
-
-    This module is used to manage properties with ESRS Line.
-
-    Features:
-
-        - UI Integration: Extends 4 view(s) in the Odoo interface.
-        - Extends Odoo: Builds on esrs.line, property.property.
-    ''',
+    'description': """
+    This module is used to manage properties and ESRS Line.
+    """,
     # 'sequence': '1',
-    'author': 'Vertel AB',
-    'website': 'https://vertel.se/apps/odoo-property/property_esrs_line',
+    'author': 'Vertel Sverige AB',
+    'website': 'https://vertel.se/apps/odoo-property/property_mgmt',
     'images': ['static/description/banner.png'],  # 560x280 px.
     'license': 'AGPL-3',
     'contributor': '',
-    'maintainer': 'Vertel AB',
+    'maintainer': 'Vertel Sverige AB',
     'repository': 'https://github.com/vertelab/odoo-property',
     'depends': ['base', 'contacts', 'csrd_esrs_line'],
     'data': [
@@ -55,3 +47,4 @@ Propety and ESRS Line
     'application': False,
     'installable': True,
 }
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
