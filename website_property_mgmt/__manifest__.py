@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Odoo SA, Open Source Management Solution, third party addon
-#    Copyright (C) 2022- Vertel AB (<https://vertel.se>).
+#    Copyright (C) 2022- Vertel Sverige AB (<https://vertel.se>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -24,24 +24,15 @@
     'version': '18.0.0.0.0',
     'summary': 'This module is used to show properties on the website.',
     'category': 'Property',
-    'description': '''
-Mgmt
-====
-
-    This module is used to show properties on the website.
-
-    Features:
-
-        - Web integration: Exposes HTTP endpoints for external systems.
-        - UI Integration: Extends 7 view(s) in the Odoo interface.
-        - Extends Odoo: Builds on crm.lead, property.image, property.property.
-    ''',
-    'author': 'Vertel AB',
-    'website': 'https://vertel.se/apps/odoo-property/website_property_mgmt',
+    'description': """
+        This module is used to show properties on the website.
+    """,
+    'author': 'Vertel Sverige AB',
+    'website': 'https://vertel.se/apps/odoo-property/property_mgmt',
     'images': ['static/description/banner.png'], # 560x280 px.
     'license': 'AGPL-3',
     'contributor': '',
-    'maintainer': 'Vertel AB',
+    'maintainer': 'Vertel Sverige AB',
     'repository': 'https://github.com/vertelab/odoo-property',
     'depends': ['website', 'contacts','crm','property_building', 'base'],
     'data': [
@@ -65,3 +56,4 @@ Mgmt
     'application': False,
     'installable': True,
 }
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

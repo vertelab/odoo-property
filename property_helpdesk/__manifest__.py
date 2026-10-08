@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Odoo SA, Open Source Management Solution, third party addon
-#    Copyright (C) 2022- Vertel AB (<https://vertel.se>).
+#    Copyright (C) 2022- Vertel Sverige AB (<https://vertel.se>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -21,26 +21,18 @@
 
 {
     'name': 'Property Helpdesk',
-    'version': '18.0.1.0.0',
+    'version': '1.0',
     'summary': 'This module is used to maintain properties helpdesk tickets.',
     'category': 'Property',
-    'description': '''
-Property Helpdesk
-=================
-
-    This module is used to maintain properties helpdesk tickets.
-
-    Features:
-
-        - UI Integration: Extends 2 view(s) in the Odoo interface.
-        - Extends Odoo: Builds on helpdesk.ticket, property.property.
-    ''',
-    'author': 'Vertel AB',
-    'website': 'https://vertel.se/apps/odoo-property/property_helpdesk',
+    'description': """
+        This module is used to maintain properties helpdesk tickets.
+    """,
+    'author': 'Vertel Sverige AB',
+    'website': 'https://vertel.se/apps/odoo-property/property_mgmt',
     'images': ['static/description/banner.png'],  # 560x280 px.
     'license': 'AGPL-3',
     'contributor': '',
-    'maintainer': 'Vertel AB',
+    'maintainer': 'Vertel Sverige AB',
     'repository': 'https://github.com/vertelab/odoo-property',
     'depends': ['property_mgmt', 'helpdesk_mgmt'],
     'data': [
@@ -50,3 +42,4 @@ Property Helpdesk
     'application': False,
     'installable': True,
 }
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

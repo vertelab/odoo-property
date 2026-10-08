@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Odoo SA, Open Source Management Solution, third party addon
-#    Copyright (C) 2022- Vertel AB (<https://vertel.se>).
+#    Copyright (C) 2022- Vertel Sverige AB (<https://vertel.se>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -21,26 +21,18 @@
 
 {
     'name': 'Escalate Property helpdesk tickets to maintanance request',
-    'version': '18.0.1.0.0',
+    'version': '1.0',
     'summary': 'Escalate Property helpdesk tickets to maintanance request.',
     'category': 'Property',
-    'description': '''
-Escalate Property helpdesk tickets to maintanance request
-=========================================================
-
-    This module is used to maintain properties helpdesk tickets.
-
-    Features:
-
-        - UI Integration: Extends 3 view(s) in the Odoo interface.
-        - Extends Odoo: Builds on helpdesk.ticket, maintenance.request, property.property.
-    ''',
-    'author': 'Vertel AB',
-    'website': 'https://vertel.se/apps/odoo-property/property_helpdesk_managment',
+    'description': """
+        This module is used to maintain properties helpdesk tickets.
+    """,
+    'author': 'Vertel Sverige AB',
+    'website': 'https://vertel.se/apps/odoo-property/property_mgmt',
     'images': ['static/description/banner.png'],  # 560x280 px.
     'license': 'AGPL-3',
     'contributor': '',
-    'maintainer': 'Vertel AB',
+    'maintainer': 'Vertel Sverige AB',
     'repository': 'https://github.com/vertelab/odoo-property',
     'depends': ['property_maintanance', 'property_helpdesk'],
     'data': [
@@ -50,3 +42,4 @@ Escalate Property helpdesk tickets to maintanance request
     'application': False,
     'installable': True,
 }
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
