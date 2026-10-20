@@ -1,0 +1,247 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* property_key_management
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-20 23:10+0000\n"
+"PO-Revision-Date: 2026-10-20 23:10+0100\n"
+"Last-Translator: Vertel Sverige AB\n"
+"Language-Team: Swedish\n"
+"Language: sv_SE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: property_key_management
+#: model:ir.model.fields,field_description:property_key_management.field_property_key__active
+#: model:ir.model.fields,field_description:property_key_management.field_property_key_position__active
+msgid "Active"
+msgstr "Aktiv"
+
+#. module: property_key_management
+#: model_terms:ir.ui.view,arch_db:property_key_management.property_key_position_views.xml
+msgid "Address"
+msgstr "Adress"
+
+#. module: property_key_management
+#: model:ir.model.fields,field_description:property_key_management.field_property_key__equipment_count
+msgid "Asset Count"
+msgstr "Antal tillgångar"
+
+#. module: property_key_management
+#: model:ir.model.fields,field_description:property_key_management.field_property_key_position__city
+msgid "City"
+msgstr "Ort"
+
+#. module: property_key_management
+#: model:ir.model.fields,field_description:property_key_management.field_property_key__company_id
+#: model:ir.model.fields,field_description:property_key_management.field_property_key_position__company_id
+msgid "Company"
+msgstr "Bolag"
+
+#. module: property_key_management
+#: model_terms:ir.ui.view,arch_db:property_key_management.property_key_position_views.xml
+msgid "Coordinates"
+msgstr "Koordinater"
+
+#. module: property_key_management
+#: model_terms:ir.ui.view,arch_db:property_key_management.property_key_views.xml
+msgid "Custody"
+msgstr "Kvittens"
+
+#. module: property_key_management
+#: model:ir.model.fields,selection:property_key_management.field_property_key__key_type
+msgid "Emergency Key"
+msgstr "Nödnyckel"
+
+#. module: property_key_management
+#: model:ir.model.fields,field_description:property_key_management.field_property_key__issued_date
+msgid "Issued On"
+msgstr "Utlämnad"
+
+#. module: property_key_management
+#: model_terms:ir.ui.view,arch_db:property_key_management.property_key_views.xml
+msgid "Key"
+msgstr "Nyckel"
+
+#. module: property_key_management
+#: model:ir.model.fields,field_description:property_key_management.field_property_key__code
+msgid "Key Code"
+msgstr "Nyckelkod"
+
+#. module: property_key_management
+#: model:ir.model.fields,field_description:property_key_management.field_property_key_position__key_count
+msgid "Key Count"
+msgstr "Antal nycklar"
+
+#. module: property_key_management
+#: model:ir.model,model:property_key_management.model_property_key_position
+#: model:ir.model.fields,field_description:property_key_management.field_property_key__position_id
+#: model_terms:ir.ui.view,arch_db:property_key_management.property_key_position_views.xml
+msgid "Key Position"
+msgstr "Nyckelposition"
+
+#. module: property_key_management
+#: model:ir.ui.menu,name:property_key_management.menu_property_key_position
+#: model_terms:ir.ui.view,arch_db:property_key_management.property_key_position_views.xml
+msgid "Key Positions"
+msgstr "Nyckelpositioner"
+
+#. module: property_key_management
+#: model:ir.model.fields,selection:property_key_management.field_property_key_position__position_type
+msgid "Key Tube"
+msgstr "Nyckelrör"
+
+#. module: property_key_management
+#: model:ir.model.fields,field_description:property_key_management.field_property_key__key_type
+msgid "Key Type"
+msgstr "Nyckeltyp"
+
+#. module: property_key_management
+#: model:ir.model.fields,field_description:property_key_management.field_property_key_position__key_ids
+#: model:ir.ui.menu,name:property_key_management.menu_property_key
+#: model_terms:ir.ui.view,arch_db:property_key_management.property_key_position_views.xml
+#: model_terms:ir.ui.view,arch_db:property_key_management.property_key_views.xml
+msgid "Keys"
+msgstr "Nycklar"
+
+#. module: property_key_management
+#: model:ir.model.fields,field_description:property_key_management.field_property_key_position__latitude
+msgid "Latitude"
+msgstr "Latitud"
+
+#. module: property_key_management
+#: model:ir.model.fields,field_description:property_key_management.field_property_key_position__longitude
+msgid "Longitude"
+msgstr "Longitud"
+
+#. module: property_key_management
+#: model:ir.model.fields,selection:property_key_management.field_property_key__key_type
+msgid "Master Key"
+msgstr "Huvudnyckel"
+
+#. module: property_key_management
+#: model:ir.model.fields,field_description:property_key_management.field_property_key__name
+#: model:ir.model.fields,field_description:property_key_management.field_property_key_position__name
+msgid "Name"
+msgstr "Namn"
+
+#. module: property_key_management
+#: model:ir.model.fields,field_description:property_key_management.field_property_key_position__note
+#: model_terms:ir.ui.view,arch_db:property_key_management.property_key_position_views.xml
+msgid "Note"
+msgstr "Notering"
+
+#. module: property_key_management
+#: model:ir.model.fields,field_description:property_key_management.field_property_key__notes
+#: model_terms:ir.ui.view,arch_db:property_key_management.property_key_views.xml
+msgid "Notes"
+msgstr "Noteringar"
+
+#. module: property_key_management
+#: model:ir.model.fields,field_description:property_key_management.field_property_key__equipment_ids
+#: model_terms:ir.ui.view,arch_db:property_key_management.property_key_views.xml
+msgid "Opens Assets"
+msgstr "Öppnar tillgångar"
+
+#. module: property_key_management
+#: model:ir.model.fields,selection:property_key_management.field_property_key__key_type
+#: model:ir.model.fields,selection:property_key_management.field_property_key_position__position_type
+msgid "Other"
+msgstr "Övrigt"
+
+#. module: property_key_management
+#: model:ir.model.fields,field_description:property_key_management.field_property_key__owner_id
+#: model:ir.model.fields,field_description:property_key_management.field_property_key_position__owner_id
+msgid "Owner"
+msgstr "Ägare"
+
+#. module: property_key_management
+#: model_terms:ir.ui.view,arch_db:property_key_management.property_key_position_views.xml
+msgid "Position"
+msgstr "Position"
+
+#. module: property_key_management
+#: model:ir.model.fields,field_description:property_key_management.field_property_key_position__position_type
+msgid "Position Type"
+msgstr "Positionstyp"
+
+#. module: property_key_management
+#: model:ir.model.fields,field_description:property_key_management.field_property_key__property_id
+#: model:ir.model.fields,field_description:property_key_management.field_property_key_position__property_id
+msgid "Property"
+msgstr "Fastighet"
+
+#. module: property_key_management
+#: model:ir.model,model:property_key_management.model_property_key
+msgid "Property Key"
+msgstr "Fastighetsnyckel"
+
+#. module: property_key_management
+#: model:ir.model.fields,field_description:property_key_management.field_property_key__returned_date
+msgid "Returned On"
+msgstr "Återlämnad"
+
+#. module: property_key_management
+#: model:ir.model.fields,selection:property_key_management.field_property_key_position__position_type
+msgid "Safe"
+msgstr "Safe"
+
+#. module: property_key_management
+#: model:ir.model.fields,selection:property_key_management.field_property_key__key_type
+msgid "Service Key"
+msgstr "Servicenyckel"
+
+#. module: property_key_management
+#: model:ir.model.fields,selection:property_key_management.field_property_key_position__position_type
+msgid "Shaft"
+msgstr "Schakt"
+
+#. module: property_key_management
+#: model:ir.model.fields,field_description:property_key_management.field_property_key_position__street
+msgid "Street"
+msgstr "Gata"
+
+#. module: property_key_management
+#: model:ir.model.fields,field_description:property_key_management.field_property_key_position__street2
+msgid "Street (line 2)"
+msgstr "Gata (rad 2)"
+
+#. module: property_key_management
+#: model:ir.model.fields,help:property_key_management.field_property_key__equipment_ids
+msgid "The assets this key gives access to — elevators, doors, plant rooms."
+msgstr "Tillgångarna nyckeln ger åtkomst till — hissar, dörrar, teknikrum."
+
+#. module: property_key_management
+#: model:ir.model.fields,help:property_key_management.field_property_key_position__property_id
+msgid "The property this key position belongs to."
+msgstr "Fastigheten nyckelpositionen tillhör."
+
+#. module: property_key_management
+#: model:ir.model.fields,help:property_key_management.field_property_key__code
+msgid "Unique code stamped on the key or recorded in the key register. Must be unique across all keys."
+msgstr "Unik kod instansad på nyckeln eller noterad i nyckelregistret. Måste vara unik bland alla nycklar."
+
+#. module: property_key_management
+#: model:ir.model.fields,selection:property_key_management.field_property_key__key_type
+msgid "User Key"
+msgstr "Användarnyckel"
+
+#. module: property_key_management
+#: model:ir.model.fields,help:property_key_management.field_property_key_position__owner_id
+msgid "Who holds the key position — usually the property owner or the facility manager."
+msgstr "Vem som håller nyckelpositionen — vanligen fastighetsägaren eller förvaltaren."
+
+#. module: property_key_management
+#: model:ir.model.fields,help:property_key_management.field_property_key__owner_id
+msgid "Who holds this key. Defaults to the key position owner."
+msgstr "Vem som håller nyckeln. Standard är nyckelpositionens ägare."
+
+#. module: property_key_management
+#: model:ir.model.fields,field_description:property_key_management.field_property_key_position__zip
+msgid "ZIP"
+msgstr "Postnummer"
