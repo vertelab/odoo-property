@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ================================================================
+         Key position
+         ================================================================ -->
+
+    <record id="view_property_key_position_list" model="ir.ui.view">
+        <field name="name">property.key.position.list</field>
+        <field name="model">property.key.position</field>
+        <field name="arch" type="xml">
+            <list string="Key Positions">
+                <field name="name"/>
+                <field name="position_type" widget="badge"/>
+                <field name="property_id"/>
+                <field name="street"/>
+                <field name="zip"/>
+                <field name="city"/>
+                <field name="owner_id"/>
+                <field name="key_count"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_property_key_position_form" model="ir.ui.view">
+        <field name="name">property.key.position.form</field>
+        <field name="model">property.key.position</field>
+        <field name="arch" type="xml">
+            <form string="Key Position">
+                <sheet>
+                    <widget name="web_ribbon" title="Archived"
+                            bg_color="text-bg-danger" invisible="active"/>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_keys" type="object"
+                                class="oe_stat_button" icon="fa-key"
+                                invisible="key_count == 0">
+                            <field name="key_count" widget="statinfo" string="Keys"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="Key position..."/></h1>
+                    </div>
+                    <group>
+                        <group string="Position">
+                            <field name="position_type"/>
+                            <field name="property_id"
+                                   options="{'no_create': True}"/>
+                            <field name="owner_id"/>
+                        </group>
+                        <group string="Address">
+                            <field name="street" placeholder="Street..."/>
+                            <field name="street2" placeholder="Street (line 2)..."/>
+                            <field name="zip" placeholder="ZIP..."/>
+                            <field name="city" placeholder="City..."/>
+                        </group>
+                    </group>
+                    <group string="Coordinates">
+                        <group>
+                            <field name="latitude"/>
+                            <field name="longitude"/>
+                        </group>
+                        <group>
+                            <field name="company_id" groups="base.group_multi_company"
+                                   options="{'no_create': True}"/>
+                            <field name="active" widget="boolean_toggle"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Keys" name="keys">
+                            <field name="key_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="code"/>
+                                    <field name="key_type" widget="badge"/>
+                                    <field name="equipment_count"/>
+                                    <field name="owner_id"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Note" name="note">
+                            <field name="note" placeholder="Internal note..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_property_key_position_search" model="ir.ui.view">
+        <field name="name">property.key.position.search</field>
+        <field name="model">property.key.position</field>
+        <field name="arch" type="xml">
+            <search string="Key Positions">
+                <field name="name"/>
+                <field name="property_id"/>
+                <field name="owner_id"/>
+                <field name="street"/>
+                <field name="city"/>
+                <filter name="filter_key_tube" string="Key Tubes"
+                        domain="[('position_type', '=', 'key_tube')]"/>
+                <filter name="filter_safe" string="Safes"
+                        domain="[('position_type', '=', 'safe')]"/>
+                <separator/>
+                <filter name="filter_archived" string="Archived"
+                        domain="[('active', '=', False)]"/>
+                <separator/>
+                <filter name="group_property" string="Property"
+                        context="{'group_by': 'property_id'}"/>
+                <filter name="group_position_type" string="Position Type"
+                        context="{'group_by': 'position_type'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_property_key_position" model="ir.actions.act_window">
+        <field name="name">Key Positions</field>
+        <field name="res_model">property.key.position</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Register your first key position
+            </p>
+            <p>
+                A key position is where the keys physically live — a key tube
+                in the stairwell, a shaft, a safe. Keys hang on the position;
+                the position belongs to the property.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_property_key_position"
+              name="Key Positions"
+              parent="property_mgmt.property_parent_menu"
+              action="action_property_key_position"
+              sequence="40"/>
+
+</odoo>

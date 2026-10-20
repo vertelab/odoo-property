@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_property_key_position_user,property.key.position user,model_property_key_position,base.group_user,1,1,1,1
+access_property_key_user,property.key user,model_property_key,base.group_user,1,1,1,1
+access_property_key_position_portal,property.key.position portal,model_property_key_position,base.group_portal,1,0,0,0
+access_property_key_portal,property.key portal,model_property_key,base.group_portal,1,0,0,0

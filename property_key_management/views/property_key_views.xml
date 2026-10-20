@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ================================================================
+         Key
+         ================================================================ -->
+
+    <record id="view_property_key_list" model="ir.ui.view">
+        <field name="name">property.key.list</field>
+        <field name="model">property.key</field>
+        <field name="arch" type="xml">
+            <list string="Keys">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="key_type" widget="badge"/>
+                <field name="position_id"/>
+                <field name="property_id" optional="show"/>
+                <field name="owner_id" optional="show"/>
+                <field name="equipment_count" optional="show"/>
+                <field name="issued_date" optional="hide"/>
+                <field name="returned_date" optional="hide"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_property_key_form" model="ir.ui.view">
+        <field name="name">property.key.form</field>
+        <field name="model">property.key</field>
+        <field name="arch" type="xml">
+            <form string="Key">
+                <sheet>
+                    <widget name="web_ribbon" title="Archived"
+                            bg_color="text-bg-danger" invisible="active"/>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_view_equipment" type="object"
+                                class="oe_stat_button" icon="fa-wrench"
+                                invisible="equipment_count == 0">
+                            <field name="equipment_count" widget="statinfo"
+                                   string="Assets"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="Key name..."/></h1>
+                    </div>
+                    <group>
+                        <group string="Key">
+                            <field name="code" placeholder="Stamped code..."/>
+                            <field name="key_type"/>
+                            <field name="position_id"
+                                   options="{'no_create': True}"/>
+                            <field name="property_id"/>
+                        </group>
+                        <group string="Custody">
+                            <field name="owner_id"/>
+                            <field name="issued_date"/>
+                            <field name="returned_date"/>
+                            <field name="company_id" groups="base.group_multi_company"
+                                   options="{'no_create': True}"/>
+                            <field name="active" widget="boolean_toggle"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Opens Assets" name="equipment">
+                            <field name="equipment_ids">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="property_id"/>
+                                    <field name="owner_user_id"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Notes" name="notes">
+                            <field name="notes" placeholder="Internal note..."/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_property_key_search" model="ir.ui.view">
+        <field name="name">property.key.search</field>
+        <field name="model">property.key</field>
+        <field name="arch" type="xml">
+            <search string="Keys">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="position_id"/>
+                <field name="property_id"/>
+                <field name="equipment_ids"/>
+                <field name="owner_id"/>
+                <filter name="filter_service" string="Service Keys"
+                        domain="[('key_type', '=', 'service')]"/>
+                <filter name="filter_master" string="Master Keys"
+                        domain="[('key_type', '=', 'master')]"/>
+                <filter name="filter_emergency" string="Emergency Keys"
+                        domain="[('key_type', '=', 'emergency')]"/>
+                <separator/>
+                <filter name="filter_out" string="Not Returned"
+                        domain="[('issued_date', '!=', False), ('returned_date', '=', False)]"/>
+                <filter name="filter_archived" string="Archived"
+                        domain="[('active', '=', False)]"/>
+                <separator/>
+                <filter name="group_position" string="Key Position"
+                        context="{'group_by': 'position_id'}"/>
+                <filter name="group_property" string="Property"
+                        context="{'group_by': 'property_id'}"/>
+                <filter name="group_key_type" string="Key Type"
+                        context="{'group_by': 'key_type'}"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_property_key" model="ir.actions.act_window">
+        <field name="name">Keys</field>
+        <field name="res_model">property.key</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Register your first key
+            </p>
+            <p>
+                A key opens one or more assets. Give it the code stamped on
+                the key and the position it hangs on.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_property_key"
+              name="Keys"
+              parent="property_mgmt.property_parent_menu"
+              action="action_property_key"
+              sequence="45"/>
+
+</odoo>
