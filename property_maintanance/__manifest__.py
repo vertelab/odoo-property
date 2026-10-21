@@ -21,7 +21,7 @@
 
 {
     'name': 'Property Maintenance',
-    'version': '18.0.0.0.0',
+    'version': '18.0.0.0.1',
     'summary': 'This module is used to maintain properties equipments.',
     'category': 'Property',
     'description': """
