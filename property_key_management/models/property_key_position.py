@@ -64,8 +64,19 @@ class PropertyKeyPosition(models.Model):
     street2 = fields.Char(string='Street (line 2)')
     zip = fields.Char(string='ZIP')
     city = fields.Char(string='City')
+    country_id = fields.Many2one(
+        'res.country',
+        string='Country',
+        ondelete='restrict',
+        help='Used when looking up coordinates.',
+    )
     latitude = fields.Float(string='Latitude', digits=(16, 8))
     longitude = fields.Float(string='Longitude', digits=(16, 8))
+    date_localization = fields.Date(
+        string='Geolocation Date',
+        readonly=True,
+        help='When the coordinates were last looked up.',
+    )
     owner_id = fields.Many2one(
         'res.partner',
         string='Owner',
@@ -77,6 +88,16 @@ class PropertyKeyPosition(models.Model):
         'property.key',
         'position_id',
         string='Keys',
+    )
+    equipment_ids = fields.Many2many(
+        'maintenance.equipment',
+        string='Assets Served',
+        compute='_compute_equipment_ids',
+        store=True,
+        readonly=True,
+        help='Every asset opened by any key on this position. A key tube '
+             'in the stairwell serves several elevators; this is the '
+             'aggregate, so the position can be searched by asset.',
     )
     key_count = fields.Integer(
         string='Key Count',
@@ -118,3 +139,65 @@ class PropertyKeyPosition(models.Model):
             'domain': [('position_id', '=', self.id)],
             'context': {'default_position_id': self.id},
         }
+
+    @api.depends('key_ids', 'key_ids.equipment_ids')
+    def _compute_equipment_ids(self):
+        for position in self:
+            position.equipment_ids = position.key_ids.mapped('equipment_ids')
+
+    # ── Geolocation ────────────────────────────────────────────────────
+    # A key position is a physical place; the coordinates are what makes
+    # it findable on a map when a technician has to go there. Looked up
+    # on demand, never on every write: the geocoder is an external call
+    # and a bulk import would hammer it.
+
+    def _geo_localize(self, street='', zip_code='', city='', country=''):
+        geo_obj = self.env['base.geocoder']
+        search = geo_obj.geo_query_address(
+            street=street, zip=zip_code, city=city, country=country
+        )
+        result = geo_obj.geo_find(search, force_country=country)
+        if result is None:
+            # Fall back to city only: a street name that the geocoder does
+            # not know still gives a useful map position.
+            search = geo_obj.geo_query_address(city=city, country=country)
+            result = geo_obj.geo_find(search, force_country=country)
+        return result
+
+    def action_geo_localize(self):
+        """Look up coordinates for the selected positions.
+
+        Reports the ones that could not be found rather than failing the
+        whole batch: one unknown street should not stop the other twenty.
+        """
+        not_located = self.browse()
+        for position in self:
+            if not position.street and not position.city:
+                continue
+            result = position._geo_localize(
+                street=position.street,
+                zip_code=position.zip,
+                city=position.city,
+                country=position.country_id.name or 'Sweden',
+            )
+            if result:
+                position.write({
+                    'latitude': result[0],
+                    'longitude': result[1],
+                    'date_localization': fields.Date.context_today(position),
+                })
+            else:
+                not_located |= position
+
+        if not_located:
+            self.env['bus.bus']._sendone(
+                self.env.user.partner_id, 'simple_notification', {
+                    'type': 'danger',
+                    'title': _('Warning'),
+                    'message': _(
+                        'Could not find coordinates for: %s',
+                        ', '.join(not_located.mapped('name')),
+                    ),
+                }
+            )
+        return True

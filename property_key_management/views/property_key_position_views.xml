@@ -18,6 +18,8 @@
                 <field name="city"/>
                 <field name="owner_id"/>
                 <field name="key_count"/>
+                <field name="equipment_ids" widget="many2many_tags"
+                       optional="hide"/>
             </list>
         </field>
     </record>
@@ -53,12 +55,21 @@
                             <field name="street2" placeholder="Street (line 2)..."/>
                             <field name="zip" placeholder="ZIP..."/>
                             <field name="city" placeholder="City..."/>
+                            <field name="country_id"
+                                   options="{'no_create': True}"/>
                         </group>
                     </group>
                     <group string="Coordinates">
                         <group>
                             <field name="latitude"/>
                             <field name="longitude"/>
+                            <field name="date_localization"
+                                   invisible="not date_localization"/>
+                            <button name="action_geo_localize" type="object"
+                                    string="Look Up Coordinates"
+                                    class="btn-link"
+                                    icon="fa-map-marker"
+                                    colspan="2"/>
                         </group>
                         <group>
                             <field name="company_id" groups="base.group_multi_company"

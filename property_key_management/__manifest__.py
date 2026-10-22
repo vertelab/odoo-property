@@ -20,7 +20,7 @@
 
 {
     'name': 'Property: Key Management',
-    'version': '18.0.0.0.2',
+    'version': '18.0.0.0.3',
     # Version ledger: 18.0 = Odoo version. 1 = Major. Non regressionable code.
     # 0 = Minor. 1 = Bug fixes
     'summary': 'Keys and key positions (tubes, shafts, safes) for properties.',
@@ -60,6 +60,8 @@ Property: Key Management
         'property_mgmt',
         'property_maintanance',
         'maintenance',
+        # base.geocoder, used by action_geo_localize
+        'base_geolocalize',
     ],
     'data': [
         'security/ir.model.access.csv',
